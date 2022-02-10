@@ -7,17 +7,18 @@ import time
 
 import locale
 
-locale.setlocale(locale.LC_ALL, '')
+locale.setlocale(locale.LC_ALL, "")
 
 sampletext = "The red fox jumpes over the lazy dog."
-S_SPACE = '_'
-S_RETURN = '⏎'
+S_SPACE = "_"
+S_RETURN = "⏎"
 
-B_DOUBLE = ('║', '║', '═', '═', '╔', '╗', '╚', '╝')
+B_DOUBLE = ("║", "║", "═", "═", "╔", "╗", "╚", "╝")
 
 
 def per_sentence(scr):
     pass
+
 
 def main(scr):
     # INIT
@@ -40,11 +41,14 @@ def main(scr):
     # box.edit(lambda inp_x : 7 if (inp_x == 27) else inp_x)
     # box.gather()
 
-    s_win_xy = namedtuple('s_win_xy', ['nlines', 'ncols', 'begin_y', 'begin_x'])
+    s_win_xy = namedtuple("s_win_xy", ["nlines", "ncols", "begin_y", "begin_x"])
     textwin_xy = s_win_xy(nlines=3, ncols=len(sampletext) + 2, begin_y=3, begin_x=5)
     textwin = scr.subwin(*textwin_xy)
     textwin.box()
-    def origin(): return textwin_xy.nlines // 2, 1
+
+    def origin():
+        return textwin_xy.nlines // 2, 1
+
     textwin.addstr(*origin(), sampletext)
     textwin.move(*origin())
 
@@ -71,7 +75,7 @@ def main(scr):
         elif inp_key == 27:
             # ESC key
             break
-        elif inp_key == curses.KEY_BACKSPACE or inp_key == 127 or str(inp_char) == '^?':
+        elif inp_key == curses.KEY_BACKSPACE or inp_key == 127 or str(inp_char) == "^?":
             # elif inp_key in [curses.KEY_BACKSPACE, '\b', '\x7f']:
             y, x = textwin.getyx()
             yor, xor = origin()
@@ -83,7 +87,7 @@ def main(scr):
                 f = lambda screen: screen.move(y, x - 1)
 
             f(textwin)
-            textwin.addch(sampletext[x - (1+ origin()[1])])
+            textwin.addch(sampletext[x - (1 + origin()[1])])
             f(textwin)
         # elif inp_char > 255:
         #     pass
@@ -92,7 +96,7 @@ def main(scr):
             if sampletext[x - 1] == inp_char:
                 textwin.addch(inp_char, C_GREEN | curses.A_ITALIC)
             else:
-                if inp_char == ' ':
+                if inp_char == " ":
                     textwin.addch(S_SPACE, C_RED | curses.A_BOLD)
                 else:
                     textwin.addch(inp_char, C_RED | curses.A_BOLD)
@@ -100,7 +104,7 @@ def main(scr):
             scr.refresh()
 
         if x == len(sampletext):
-            textwin.border(*'*' * 8)
+            textwin.border(*"*" * 8)
 
 
 if __name__ == "__main__":
