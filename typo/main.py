@@ -8,6 +8,9 @@ import time
 import locale
 import logging
 
+from pyfiglet import Figlet
+import ueberzug.lib.v0 as ueberzug
+
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -88,9 +91,12 @@ class MainScreen():
 
         self.text = txt
         self.typed = []
+        self.errors = 0
         self.start = time.time()
+        # Windows
         self.textwin = None
         self.wpmwin = None
+        self.errwin = None
         self.setsize()
         assert isinstance(self.textwin, curses.window)
         self.draw()
@@ -104,8 +110,18 @@ class MainScreen():
         # let's say a word is ~5 letters
         delta = time.time() - self.start
         charpersec = len(self.typed)/delta
-        wpm = (charpersec * 60)//5
-        return f"WPM: {int(wpm):<3}"
+        wpm = (charpersec * 60)/4.5
+        return f"WPM:{int(wpm):>3}"
+
+    def err(self):
+        if len(self.typed) == 0:
+            percent = 0
+        else:
+            percent = self.errors / len(self.typed)
+        if percent > 1:
+            percent = 1
+        percent = int(percent*100)
+        return f"ERR:{percent:>3}%"
 
     def setsize(self):
         self.scr.erase()
@@ -123,17 +139,25 @@ class MainScreen():
         logger.debug(f"self.maxx:{self.maxx}, textx:{textx}, textwin_xy = {self.textwin_xy}")
         self.wpmwin_xy = self._win_xy(
             nlines=3,
-            ncols=10,
+            ncols=9,
             begin_y=self.textwin_xy.begin_y+self.textwin_xy.nlines+1,
             begin_x=self.textwin_xy.begin_x+3
+        )
+        self.errwin_xy = self._win_xy(
+            nlines=3,
+            ncols=10,
+            begin_y=self.wpmwin_xy.begin_y,
+            begin_x=self.textwin_xy.begin_x+self.textwin_xy.ncols - (10+3)                                #self.wpmwin_xy.begin_x+self.wpmwin_xy.ncols+2
         )
 
         self.textwin = self.scr.subwin(*self.textwin_xy)
         self.textwin.keypad(True) # allow capturing esc sequences!
         self.wpmwin = self.scr.subwin(*self.wpmwin_xy)
-        logger.debug(f"Created subwindow")
+        self.errwin = self.scr.subwin(*self.errwin_xy)
+        logger.debug(f"Created subwindows")
         self.textwin.box()
         self.wpmwin.box()
+        self.errwin.box()
         self.scr.refresh()
         self.draw()
         return
@@ -146,6 +170,10 @@ class MainScreen():
         txtlst = textlst(self.text, self.textwin_xy.ncols)
         for i, line in enumerate(txtlst):
             self.textwin.addstr(i+1,1,''.join(line))
+        self.wpmwin.addstr(1,1,self.wpm(), curses.A_BOLD)
+        self.wpmwin.noutrefresh()  # mark for refresh
+        self.errwin.addstr(1,1,self.err(), curses.A_BOLD)
+        self.errwin.noutrefresh()
         self.textwin.move(1,1)
 
         llst = txtlst
@@ -163,32 +191,45 @@ class MainScreen():
                 # Wrong char
                 self.textwin.addch(ly+1, lx+1, char, self.C_RED | curses.A_UNDERLINE)
             lx += 1
-        self.wpmwin.addstr(1,1,self.wpm())
-        self.wpmwin.refresh()
+        #self.wpmwin.addstr(1,1,self.wpm())
+        #self.wpmwin.refresh()
         return
 
-    def run(self):
+    @ueberzug.Canvas()
+    def run(self, canvas):
         assert isinstance(self.textwin, curses.window)
         logger.info(f"starting run")
-        curses.halfdelay(5)
+
+        f = Figlet(font='basic')
+        warnwin = self.scr.subwin(9,9,2,self.maxx//2-4)
+        warnwin.addstr(0,0,f.renderText('3'))
+        warnwin.refresh()
+        time.sleep(1)
+        warnwin = self.scr.subwin(9,9,2,self.maxx//2-4)
+        warnwin.addstr(0,0,f.renderText('2'))
+        warnwin.refresh()
+        time.sleep(1)
+        warnwin = self.scr.subwin(9,9,2,self.maxx//2-4)
+        warnwin.addstr(0,0,f.renderText('  1'))
+        warnwin.refresh()
+        time.sleep(1)
+        self.start = time.time()
+        self.setsize()
+
         while True:
             # we use get_wch to be able to handle unicode
             try:
+                # set halfdelay, aka timeout mode and reset immediately after
+                curses.halfdelay(5)
                 inp_char = self.textwin.get_wch()
-            except:
+                curses.nocbreak()
+                curses.cbreak()
+            except curses.error:
                 # this updates wpm
                 self.draw()
                 continue
-            try:
-                # inp_char is int if function key, else unicode
-                inp_key = ord(inp_char) if isinstance(inp_char, str) else inp_char
-            except Exception as e:
-                logger.error(f"Error handling {repr(inp_char)}")
-                raise e
-
-            # textwin.addstr(0,0,str(inp_key))
-            # textwin.refresh()
-            # continue
+            # inp_char is int if function key, else unicode
+            inp_key = ord(inp_char) if isinstance(inp_char, str) else inp_char
             logger.info(f"Got keycode {inp_key}, {inp_char}")
 
             if inp_key == curses.KEY_RESIZE:
@@ -202,20 +243,19 @@ class MainScreen():
                 except curses.error:
                     getmouse = None
                 logger.debug(f"Got mouse event inp_char,inp_key{inp_char,inp_key}, getmouse: {getmouse}")
+            elif inp_key in [curses.KEY_UP, curses.KEY_DOWN, curses.KEY_LEFT, curses.KEY_RIGHT]:
+                pass
             elif inp_key == 10:
                 # enter
                 pass
             elif inp_key == 27:
                 # ESC key
-                try:
-                    x = curses.getmouse()
-                except curses.error:
-                    x = None
-                logger.debug(f"Got esc event inp_char,inp_key{inp_char,inp_key},{curses.ungetch(inp_char)} getmouse: {x}")
+                logger.debug(f"Got esc event inp_char,inp_key{inp_char,inp_key},{curses.ungetch(inp_char)}")
                 break
             elif inp_key == curses.KEY_BACKSPACE or inp_key == 127 or str(inp_char) == "^?":
                 # elif inp_key in [curses.KEY_BACKSPACE, '\b', '\x7f']:
                 if len(self.typed) != 0:
+                    self.errors += 1
                     self.typed.pop()
                     y, x = self.textwin.getyx()
                     self.textwin.move(y, x - 1)
@@ -234,11 +274,17 @@ class MainScreen():
                     logger.debug(f"typed:{typedstr}|")
                     logger.debug(f"orgin:{orgstr}|\n")
 
+            # if correct
             if "".join(self.typed) == ''.join([''.join(line) for line in textlst(self.text, self.textwin_xy.ncols)]):
                 self.textwin.border(*"*" * 8)
                 self.draw()
                 # reset after input
                 self.textwin.get_wch()
+                # demo = canvas.create_placement('demo', x=3, y=1, width=20)
+                # demo.path = '/home/lks/Akten/Sig.png'
+                # demo.visibility = ueberzug.Visibility.VISIBLE
+                # time.sleep(10)
+                # demo.visibility = ueberzug.Visibility.INVISIBLE
                 self.textwin.border()
                 self.typed = []
                 self.draw()
@@ -276,7 +322,7 @@ def main():
 
 
 def test_textlist():
-    widths = range(11,44)
+    widths = range(11, 44)
     e = None
     try:
         txtlst = textlst(lorem, 3)
@@ -295,14 +341,12 @@ def test_textlist():
 
 
 if __name__ == "__main__":
-    #locale.setlocale(locale.LC_ALL, "")
+    # locale.setlocale(locale.LC_ALL, "")
     logger.info(f"TERM={os.environ['TERM']}")
 
     test_textlist()
     print(f"all tested")
     time.sleep(1)
 
-
     main()
-
 

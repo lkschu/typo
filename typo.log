@@ -1,0 +1,939 @@
+[14:08:57] [INFO    ] TERM=alacritty
+[14:08:58] [INFO    ] Starting main function
+[14:08:58] [INFO    ] TERM=alacritty
+[14:08:58] [INFO    ] stdscr is window? True
+[14:08:58] [DEBUG   ] self.maxx:100, textx:99, textwin_xy = s_win_xy(nlines=6, ncols=101, begin_y=3, begin_x=0)
+[14:08:58] [DEBUG   ] Created subwindows
+[14:08:58] [INFO    ] starting run
+[14:09:01] [DEBUG   ] self.maxx:100, textx:99, textwin_xy = s_win_xy(nlines=6, ncols=101, begin_y=3, begin_x=0)
+[14:09:01] [DEBUG   ] Created subwindows
+[14:09:02] [INFO    ] Got keycode 76, L
+[14:09:02] [INFO    ] appending L to typed
+[14:09:02] [INFO    ] At end while loop
+[14:09:02] [INFO    ] Got keycode 111, o
+[14:09:02] [INFO    ] appending o to typed
+[14:09:02] [INFO    ] At end while loop
+[14:09:02] [INFO    ] Got keycode 114, r
+[14:09:02] [INFO    ] appending r to typed
+[14:09:02] [INFO    ] At end while loop
+[14:09:02] [INFO    ] Got keycode 101, e
+[14:09:02] [INFO    ] appending e to typed
+[14:09:02] [INFO    ] At end while loop
+[14:09:03] [INFO    ] Got keycode 109, m
+[14:09:03] [INFO    ] appending m to typed
+[14:09:03] [INFO    ] At end while loop
+[14:09:03] [INFO    ] Got keycode 32,  
+[14:09:03] [INFO    ] appending   to typed
+[14:09:03] [INFO    ] At end while loop
+[14:09:03] [INFO    ] Got keycode 105, i
+[14:09:03] [INFO    ] appending i to typed
+[14:09:03] [INFO    ] At end while loop
+[14:09:03] [INFO    ] Got keycode 112, p
+[14:09:03] [INFO    ] appending p to typed
+[14:09:03] [INFO    ] At end while loop
+[14:09:03] [INFO    ] Got keycode 115, s
+[14:09:03] [INFO    ] appending s to typed
+[14:09:03] [INFO    ] At end while loop
+[14:09:04] [INFO    ] Got keycode 117, u
+[14:09:04] [INFO    ] appending u to typed
+[14:09:04] [INFO    ] At end while loop
+[14:09:04] [INFO    ] Got keycode 109, m
+[14:09:04] [INFO    ] appending m to typed
+[14:09:04] [INFO    ] At end while loop
+[14:09:04] [INFO    ] Got keycode 32,  
+[14:09:04] [INFO    ] appending   to typed
+[14:09:04] [INFO    ] At end while loop
+[14:09:04] [INFO    ] Got keycode 100, d
+[14:09:04] [INFO    ] appending d to typed
+[14:09:04] [INFO    ] At end while loop
+[14:09:04] [INFO    ] Got keycode 111, o
+[14:09:04] [INFO    ] appending o to typed
+[14:09:04] [INFO    ] At end while loop
+[14:09:04] [INFO    ] Got keycode 108, l
+[14:09:04] [INFO    ] appending l to typed
+[14:09:04] [INFO    ] At end while loop
+[14:09:05] [INFO    ] Got keycode 111, o
+[14:09:05] [INFO    ] appending o to typed
+[14:09:05] [INFO    ] At end while loop
+[14:09:05] [INFO    ] Got keycode 114, r
+[14:09:05] [INFO    ] appending r to typed
+[14:09:05] [INFO    ] At end while loop
+[14:09:05] [INFO    ] Got keycode 32,  
+[14:09:05] [INFO    ] appending   to typed
+[14:09:05] [INFO    ] At end while loop
+[14:09:05] [INFO    ] Got keycode 115, s
+[14:09:05] [INFO    ] appending s to typed
+[14:09:05] [INFO    ] At end while loop
+[14:09:05] [INFO    ] Got keycode 105, i
+[14:09:05] [INFO    ] appending i to typed
+[14:09:05] [INFO    ] At end while loop
+[14:09:05] [INFO    ] Got keycode 116, t
+[14:09:05] [INFO    ] appending t to typed
+[14:09:05] [INFO    ] At end while loop
+[14:09:05] [INFO    ] Got keycode 97, a
+[14:09:05] [INFO    ] appending a to typed
+[14:09:05] [INFO    ] At end while loop
+[14:09:06] [INFO    ] Got keycode 263, 263
+[14:09:06] [INFO    ] At end while loop
+[14:09:06] [INFO    ] Got keycode 32,  
+[14:09:06] [INFO    ] appending   to typed
+[14:09:06] [INFO    ] At end while loop
+[14:09:06] [INFO    ] Got keycode 97, a
+[14:09:06] [INFO    ] appending a to typed
+[14:09:06] [INFO    ] At end while loop
+[14:09:06] [INFO    ] Got keycode 109, m
+[14:09:06] [INFO    ] appending m to typed
+[14:09:06] [INFO    ] At end while loop
+[14:09:06] [INFO    ] Got keycode 101, e
+[14:09:06] [INFO    ] appending e to typed
+[14:09:06] [INFO    ] At end while loop
+[14:09:07] [INFO    ] Got keycode 116, t
+[14:09:07] [INFO    ] appending t to typed
+[14:09:07] [INFO    ] At end while loop
+[14:09:07] [INFO    ] Got keycode 44, ,
+[14:09:07] [INFO    ] appending , to typed
+[14:09:07] [INFO    ] At end while loop
+[14:09:07] [INFO    ] Got keycode 32,  
+[14:09:07] [INFO    ] appending   to typed
+[14:09:07] [INFO    ] At end while loop
+[14:09:07] [INFO    ] Got keycode 99, c
+[14:09:07] [INFO    ] appending c to typed
+[14:09:07] [INFO    ] At end while loop
+[14:09:07] [INFO    ] Got keycode 111, o
+[14:09:07] [INFO    ] appending o to typed
+[14:09:07] [INFO    ] At end while loop
+[14:09:08] [INFO    ] Got keycode 110, n
+[14:09:08] [INFO    ] appending n to typed
+[14:09:08] [INFO    ] At end while loop
+[14:09:08] [INFO    ] Got keycode 115, s
+[14:09:08] [INFO    ] appending s to typed
+[14:09:08] [INFO    ] At end while loop
+[14:09:08] [INFO    ] Got keycode 101, e
+[14:09:08] [INFO    ] appending e to typed
+[14:09:08] [INFO    ] At end while loop
+[14:09:08] [INFO    ] Got keycode 116, t
+[14:09:08] [INFO    ] appending t to typed
+[14:09:08] [INFO    ] At end while loop
+[14:09:09] [INFO    ] Got keycode 101, e
+[14:09:09] [INFO    ] appending e to typed
+[14:09:09] [INFO    ] At end while loop
+[14:09:09] [INFO    ] Got keycode 116, t
+[14:09:09] [INFO    ] appending t to typed
+[14:09:09] [INFO    ] At end while loop
+[14:09:09] [INFO    ] Got keycode 117, u
+[14:09:09] [INFO    ] appending u to typed
+[14:09:09] [INFO    ] At end while loop
+[14:09:09] [INFO    ] Got keycode 114, r
+[14:09:09] [INFO    ] appending r to typed
+[14:09:09] [INFO    ] At end while loop
+[14:09:09] [INFO    ] Got keycode 32,  
+[14:09:09] [INFO    ] appending   to typed
+[14:09:09] [INFO    ] At end while loop
+[14:09:10] [INFO    ] Got keycode 115, s
+[14:09:10] [INFO    ] appending s to typed
+[14:09:10] [INFO    ] At end while loop
+[14:09:10] [INFO    ] Got keycode 97, a
+[14:09:10] [INFO    ] appending a to typed
+[14:09:10] [INFO    ] At end while loop
+[14:09:10] [INFO    ] Got keycode 100, d
+[14:09:10] [INFO    ] appending d to typed
+[14:09:10] [INFO    ] At end while loop
+[14:09:10] [INFO    ] Got keycode 105, i
+[14:09:10] [INFO    ] appending i to typed
+[14:09:10] [INFO    ] At end while loop
+[14:09:11] [INFO    ] Got keycode 112, p
+[14:09:11] [INFO    ] appending p to typed
+[14:09:11] [INFO    ] At end while loop
+[14:09:11] [INFO    ] Got keycode 115, s
+[14:09:11] [INFO    ] appending s to typed
+[14:09:11] [INFO    ] At end while loop
+[14:09:11] [INFO    ] Got keycode 99, c
+[14:09:11] [INFO    ] appending c to typed
+[14:09:11] [INFO    ] At end while loop
+[14:09:11] [INFO    ] Got keycode 105, i
+[14:09:11] [INFO    ] appending i to typed
+[14:09:11] [INFO    ] At end while loop
+[14:09:12] [INFO    ] Got keycode 110, n
+[14:09:12] [INFO    ] appending n to typed
+[14:09:12] [INFO    ] At end while loop
+[14:09:12] [INFO    ] Got keycode 103, g
+[14:09:12] [INFO    ] appending g to typed
+[14:09:12] [INFO    ] At end while loop
+[14:09:12] [INFO    ] Got keycode 32,  
+[14:09:12] [INFO    ] appending   to typed
+[14:09:12] [INFO    ] At end while loop
+[14:09:12] [INFO    ] Got keycode 101, e
+[14:09:12] [INFO    ] appending e to typed
+[14:09:12] [INFO    ] At end while loop
+[14:09:12] [INFO    ] Got keycode 108, l
+[14:09:12] [INFO    ] appending l to typed
+[14:09:12] [INFO    ] At end while loop
+[14:09:12] [INFO    ] Got keycode 105, i
+[14:09:12] [INFO    ] appending i to typed
+[14:09:12] [INFO    ] At end while loop
+[14:09:13] [INFO    ] Got keycode 116, t
+[14:09:13] [INFO    ] appending t to typed
+[14:09:13] [INFO    ] At end while loop
+[14:09:13] [INFO    ] Got keycode 114, r
+[14:09:13] [INFO    ] appending r to typed
+[14:09:13] [INFO    ] At end while loop
+[14:09:13] [INFO    ] Got keycode 44, ,
+[14:09:13] [INFO    ] appending , to typed
+[14:09:13] [INFO    ] At end while loop
+[14:09:13] [INFO    ] Got keycode 32,  
+[14:09:13] [INFO    ] appending   to typed
+[14:09:13] [INFO    ] At end while loop
+[14:09:13] [INFO    ] Got keycode 115, s
+[14:09:13] [INFO    ] appending s to typed
+[14:09:13] [INFO    ] At end while loop
+[14:09:14] [INFO    ] Got keycode 101, e
+[14:09:14] [INFO    ] appending e to typed
+[14:09:14] [INFO    ] At end while loop
+[14:09:14] [INFO    ] Got keycode 100, d
+[14:09:14] [INFO    ] appending d to typed
+[14:09:14] [INFO    ] At end while loop
+[14:09:14] [INFO    ] Got keycode 32,  
+[14:09:14] [INFO    ] appending   to typed
+[14:09:14] [INFO    ] At end while loop
+[14:09:14] [INFO    ] Got keycode 100, d
+[14:09:14] [INFO    ] appending d to typed
+[14:09:14] [INFO    ] At end while loop
+[14:09:14] [INFO    ] Got keycode 105, i
+[14:09:14] [INFO    ] appending i to typed
+[14:09:14] [INFO    ] At end while loop
+[14:09:14] [INFO    ] Got keycode 97, a
+[14:09:14] [INFO    ] appending a to typed
+[14:09:14] [INFO    ] At end while loop
+[14:09:14] [INFO    ] Got keycode 109, m
+[14:09:14] [INFO    ] appending m to typed
+[14:09:14] [INFO    ] At end while loop
+[14:09:15] [INFO    ] Got keycode 32,  
+[14:09:15] [INFO    ] appending   to typed
+[14:09:15] [INFO    ] At end while loop
+[14:09:15] [INFO    ] Got keycode 110, n
+[14:09:15] [INFO    ] appending n to typed
+[14:09:15] [INFO    ] At end while loop
+[14:09:15] [INFO    ] Got keycode 111, o
+[14:09:15] [INFO    ] appending o to typed
+[14:09:15] [INFO    ] At end while loop
+[14:09:15] [INFO    ] Got keycode 110, n
+[14:09:15] [INFO    ] appending n to typed
+[14:09:15] [INFO    ] At end while loop
+[14:09:15] [INFO    ] Got keycode 117, u
+[14:09:15] [INFO    ] appending u to typed
+[14:09:15] [INFO    ] At end while loop
+[14:09:16] [INFO    ] Got keycode 109, m
+[14:09:16] [INFO    ] appending m to typed
+[14:09:16] [INFO    ] At end while loop
+[14:09:16] [INFO    ] Got keycode 121, y
+[14:09:16] [INFO    ] appending y to typed
+[14:09:16] [INFO    ] At end while loop
+[14:09:16] [INFO    ] Got keycode 32,  
+[14:09:16] [INFO    ] appending   to typed
+[14:09:16] [INFO    ] At end while loop
+[14:09:16] [INFO    ] Got keycode 101, e
+[14:09:16] [INFO    ] appending e to typed
+[14:09:16] [INFO    ] At end while loop
+[14:09:16] [INFO    ] Got keycode 105, i
+[14:09:16] [INFO    ] appending i to typed
+[14:09:16] [INFO    ] At end while loop
+[14:09:16] [INFO    ] Got keycode 114, r
+[14:09:16] [INFO    ] appending r to typed
+[14:09:16] [INFO    ] At end while loop
+[14:09:17] [INFO    ] Got keycode 109, m
+[14:09:17] [INFO    ] appending m to typed
+[14:09:17] [INFO    ] At end while loop
+[14:09:17] [INFO    ] Got keycode 111, o
+[14:09:17] [INFO    ] appending o to typed
+[14:09:17] [INFO    ] At end while loop
+[14:09:17] [INFO    ] Got keycode 100, d
+[14:09:17] [INFO    ] appending d to typed
+[14:09:17] [INFO    ] At end while loop
+[14:09:17] [INFO    ] Got keycode 32,  
+[14:09:17] [INFO    ] appending   to typed
+[14:09:17] [INFO    ] At end while loop
+[14:09:17] [INFO    ] Got keycode 116, t
+[14:09:17] [INFO    ] appending t to typed
+[14:09:17] [INFO    ] At end while loop
+[14:09:17] [INFO    ] Got keycode 101, e
+[14:09:17] [INFO    ] appending e to typed
+[14:09:17] [INFO    ] At end while loop
+[14:09:18] [INFO    ] Got keycode 109, m
+[14:09:18] [INFO    ] appending m to typed
+[14:09:18] [INFO    ] At end while loop
+[14:09:18] [INFO    ] Got keycode 112, p
+[14:09:18] [INFO    ] appending p to typed
+[14:09:18] [INFO    ] At end while loop
+[14:09:18] [INFO    ] Got keycode 111, o
+[14:09:18] [INFO    ] appending o to typed
+[14:09:18] [INFO    ] At end while loop
+[14:09:18] [INFO    ] Got keycode 114, r
+[14:09:18] [INFO    ] appending r to typed
+[14:09:18] [INFO    ] At end while loop
+[14:09:18] [INFO    ] Got keycode 32,  
+[14:09:18] [INFO    ] appending   to typed
+[14:09:18] [INFO    ] At end while loop
+[14:09:18] [INFO    ] Got keycode 105, i
+[14:09:18] [INFO    ] appending i to typed
+[14:09:18] [INFO    ] At end while loop
+[14:09:19] [INFO    ] Got keycode 110, n
+[14:09:19] [INFO    ] appending n to typed
+[14:09:19] [INFO    ] At end while loop
+[14:09:19] [INFO    ] Got keycode 118, v
+[14:09:19] [INFO    ] appending v to typed
+[14:09:19] [INFO    ] At end while loop
+[14:09:19] [INFO    ] Got keycode 105, i
+[14:09:19] [INFO    ] appending i to typed
+[14:09:19] [INFO    ] At end while loop
+[14:09:19] [INFO    ] Got keycode 100, d
+[14:09:19] [INFO    ] appending d to typed
+[14:09:19] [INFO    ] At end while loop
+[14:09:19] [INFO    ] Got keycode 117, u
+[14:09:19] [INFO    ] appending u to typed
+[14:09:19] [INFO    ] At end while loop
+[14:09:20] [INFO    ] Got keycode 110, n
+[14:09:20] [INFO    ] appending n to typed
+[14:09:20] [INFO    ] At end while loop
+[14:09:20] [INFO    ] Got keycode 116, t
+[14:09:20] [INFO    ] appending t to typed
+[14:09:20] [INFO    ] At end while loop
+[14:09:20] [INFO    ] Got keycode 32,  
+[14:09:20] [INFO    ] appending   to typed
+[14:09:20] [INFO    ] At end while loop
+[14:09:20] [INFO    ] Got keycode 117, u
+[14:09:20] [INFO    ] appending u to typed
+[14:09:20] [INFO    ] At end while loop
+[14:09:20] [INFO    ] Got keycode 116, t
+[14:09:20] [INFO    ] appending t to typed
+[14:09:20] [INFO    ] At end while loop
+[14:09:21] [INFO    ] Got keycode 32,  
+[14:09:21] [INFO    ] appending   to typed
+[14:09:21] [INFO    ] At end while loop
+[14:09:21] [INFO    ] Got keycode 108, l
+[14:09:21] [INFO    ] appending l to typed
+[14:09:21] [INFO    ] At end while loop
+[14:09:21] [INFO    ] Got keycode 97, a
+[14:09:21] [INFO    ] appending a to typed
+[14:09:21] [INFO    ] At end while loop
+[14:09:21] [INFO    ] Got keycode 98, b
+[14:09:21] [INFO    ] appending b to typed
+[14:09:21] [INFO    ] At end while loop
+[14:09:22] [INFO    ] Got keycode 111, o
+[14:09:22] [INFO    ] appending o to typed
+[14:09:22] [INFO    ] At end while loop
+[14:09:22] [INFO    ] Got keycode 114, r
+[14:09:22] [INFO    ] appending r to typed
+[14:09:22] [INFO    ] At end while loop
+[14:09:22] [INFO    ] Got keycode 101, e
+[14:09:22] [INFO    ] appending e to typed
+[14:09:22] [INFO    ] At end while loop
+[14:09:22] [INFO    ] Got keycode 32,  
+[14:09:22] [INFO    ] appending   to typed
+[14:09:22] [INFO    ] At end while loop
+[14:09:22] [INFO    ] Got keycode 101, e
+[14:09:22] [INFO    ] appending e to typed
+[14:09:22] [INFO    ] At end while loop
+[14:09:22] [INFO    ] Got keycode 116, t
+[14:09:22] [INFO    ] appending t to typed
+[14:09:22] [INFO    ] At end while loop
+[14:09:22] [INFO    ] Got keycode 32,  
+[14:09:22] [INFO    ] appending   to typed
+[14:09:22] [INFO    ] At end while loop
+[14:09:23] [INFO    ] Got keycode 100, d
+[14:09:23] [INFO    ] appending d to typed
+[14:09:23] [INFO    ] At end while loop
+[14:09:23] [INFO    ] Got keycode 111, o
+[14:09:23] [INFO    ] appending o to typed
+[14:09:23] [INFO    ] At end while loop
+[14:09:23] [INFO    ] Got keycode 108, l
+[14:09:23] [INFO    ] appending l to typed
+[14:09:23] [INFO    ] At end while loop
+[14:09:23] [INFO    ] Got keycode 111, o
+[14:09:23] [INFO    ] appending o to typed
+[14:09:23] [INFO    ] At end while loop
+[14:09:23] [INFO    ] Got keycode 114, r
+[14:09:23] [INFO    ] appending r to typed
+[14:09:23] [INFO    ] At end while loop
+[14:09:23] [INFO    ] Got keycode 101, e
+[14:09:23] [INFO    ] appending e to typed
+[14:09:23] [INFO    ] At end while loop
+[14:09:24] [INFO    ] Got keycode 32,  
+[14:09:24] [INFO    ] appending   to typed
+[14:09:24] [INFO    ] At end while loop
+[14:09:24] [INFO    ] Got keycode 109, m
+[14:09:24] [INFO    ] appending m to typed
+[14:09:24] [INFO    ] At end while loop
+[14:09:24] [INFO    ] Got keycode 97, a
+[14:09:24] [INFO    ] appending a to typed
+[14:09:24] [INFO    ] At end while loop
+[14:09:25] [INFO    ] Got keycode 103, g
+[14:09:25] [INFO    ] appending g to typed
+[14:09:25] [INFO    ] At end while loop
+[14:09:25] [INFO    ] Got keycode 110, n
+[14:09:25] [INFO    ] appending n to typed
+[14:09:25] [INFO    ] At end while loop
+[14:09:25] [INFO    ] Got keycode 97, a
+[14:09:25] [INFO    ] appending a to typed
+[14:09:25] [INFO    ] At end while loop
+[14:09:25] [INFO    ] Got keycode 32,  
+[14:09:25] [INFO    ] appending   to typed
+[14:09:25] [INFO    ] At end while loop
+[14:09:25] [INFO    ] Got keycode 97, a
+[14:09:25] [INFO    ] appending a to typed
+[14:09:25] [INFO    ] At end while loop
+[14:09:25] [INFO    ] Got keycode 108, l
+[14:09:25] [INFO    ] appending l to typed
+[14:09:25] [INFO    ] At end while loop
+[14:09:26] [INFO    ] Got keycode 105, i
+[14:09:26] [INFO    ] appending i to typed
+[14:09:26] [INFO    ] At end while loop
+[14:09:26] [INFO    ] Got keycode 113, q
+[14:09:26] [INFO    ] appending q to typed
+[14:09:26] [INFO    ] At end while loop
+[14:09:26] [INFO    ] Got keycode 117, u
+[14:09:26] [INFO    ] appending u to typed
+[14:09:26] [INFO    ] At end while loop
+[14:09:27] [INFO    ] Got keycode 121, y
+[14:09:27] [INFO    ] appending y to typed
+[14:09:27] [INFO    ] At end while loop
+[14:09:27] [INFO    ] Got keycode 97, a
+[14:09:27] [INFO    ] appending a to typed
+[14:09:27] [INFO    ] At end while loop
+[14:09:27] [INFO    ] Got keycode 109, m
+[14:09:27] [INFO    ] appending m to typed
+[14:09:27] [INFO    ] At end while loop
+[14:09:27] [INFO    ] Got keycode 32,  
+[14:09:27] [INFO    ] appending   to typed
+[14:09:27] [INFO    ] At end while loop
+[14:09:27] [INFO    ] Got keycode 101, e
+[14:09:27] [INFO    ] appending e to typed
+[14:09:27] [INFO    ] At end while loop
+[14:09:27] [INFO    ] Got keycode 114, r
+[14:09:27] [INFO    ] appending r to typed
+[14:09:27] [INFO    ] At end while loop
+[14:09:27] [INFO    ] Got keycode 97, a
+[14:09:27] [INFO    ] appending a to typed
+[14:09:27] [INFO    ] At end while loop
+[14:09:28] [INFO    ] Got keycode 44, ,
+[14:09:28] [INFO    ] appending , to typed
+[14:09:28] [INFO    ] At end while loop
+[14:09:28] [INFO    ] Got keycode 32,  
+[14:09:28] [INFO    ] appending   to typed
+[14:09:28] [INFO    ] At end while loop
+[14:09:29] [INFO    ] Got keycode 263, 263
+[14:09:29] [INFO    ] At end while loop
+[14:09:29] [INFO    ] Got keycode 263, 263
+[14:09:29] [INFO    ] At end while loop
+[14:09:30] [INFO    ] Got keycode 116, t
+[14:09:30] [INFO    ] appending t to typed
+[14:09:30] [INFO    ] At end while loop
+[14:09:30] [INFO    ] Got keycode 44, ,
+[14:09:30] [INFO    ] appending , to typed
+[14:09:30] [INFO    ] At end while loop
+[14:09:30] [INFO    ] Got keycode 32,  
+[14:09:30] [INFO    ] appending   to typed
+[14:09:30] [INFO    ] At end while loop
+[14:09:30] [INFO    ] Got keycode 115, s
+[14:09:30] [INFO    ] appending s to typed
+[14:09:30] [INFO    ] At end while loop
+[14:09:31] [INFO    ] Got keycode 101, e
+[14:09:31] [INFO    ] appending e to typed
+[14:09:31] [INFO    ] At end while loop
+[14:09:31] [INFO    ] Got keycode 100, d
+[14:09:31] [INFO    ] appending d to typed
+[14:09:31] [INFO    ] At end while loop
+[14:09:31] [INFO    ] Got keycode 32,  
+[14:09:31] [INFO    ] appending   to typed
+[14:09:31] [INFO    ] At end while loop
+[14:09:31] [INFO    ] Got keycode 100, d
+[14:09:31] [INFO    ] appending d to typed
+[14:09:31] [INFO    ] At end while loop
+[14:09:31] [INFO    ] Got keycode 105, i
+[14:09:31] [INFO    ] appending i to typed
+[14:09:31] [INFO    ] At end while loop
+[14:09:31] [INFO    ] Got keycode 97, a
+[14:09:31] [INFO    ] appending a to typed
+[14:09:31] [INFO    ] At end while loop
+[14:09:31] [INFO    ] Got keycode 109, m
+[14:09:31] [INFO    ] appending m to typed
+[14:09:31] [INFO    ] At end while loop
+[14:09:32] [INFO    ] Got keycode 32,  
+[14:09:32] [INFO    ] appending   to typed
+[14:09:32] [INFO    ] At end while loop
+[14:09:32] [INFO    ] Got keycode 118, v
+[14:09:32] [INFO    ] appending v to typed
+[14:09:32] [INFO    ] At end while loop
+[14:09:32] [INFO    ] Got keycode 111, o
+[14:09:32] [INFO    ] appending o to typed
+[14:09:32] [INFO    ] At end while loop
+[14:09:32] [INFO    ] Got keycode 108, l
+[14:09:32] [INFO    ] appending l to typed
+[14:09:32] [INFO    ] At end while loop
+[14:09:32] [INFO    ] Got keycode 117, u
+[14:09:32] [INFO    ] appending u to typed
+[14:09:32] [INFO    ] At end while loop
+[14:09:33] [INFO    ] Got keycode 112, p
+[14:09:33] [INFO    ] appending p to typed
+[14:09:33] [INFO    ] At end while loop
+[14:09:33] [INFO    ] Got keycode 116, t
+[14:09:33] [INFO    ] appending t to typed
+[14:09:33] [INFO    ] At end while loop
+[14:09:33] [INFO    ] Got keycode 117, u
+[14:09:33] [INFO    ] appending u to typed
+[14:09:33] [INFO    ] At end while loop
+[14:09:33] [INFO    ] Got keycode 97, a
+[14:09:33] [INFO    ] appending a to typed
+[14:09:33] [INFO    ] At end while loop
+[14:09:34] [INFO    ] Got keycode 32,  
+[14:09:34] [INFO    ] appending   to typed
+[14:09:34] [INFO    ] At end while loop
+[14:09:34] [INFO    ] Got keycode 263, 263
+[14:09:34] [INFO    ] At end while loop
+[14:09:35] [INFO    ] Got keycode 46, .
+[14:09:35] [INFO    ] appending . to typed
+[14:09:35] [INFO    ] At end while loop
+[14:09:35] [INFO    ] Got keycode 32,  
+[14:09:35] [INFO    ] appending   to typed
+[14:09:35] [INFO    ] At end while loop
+[14:09:35] [INFO    ] Got keycode 65, A
+[14:09:35] [INFO    ] appending A to typed
+[14:09:35] [INFO    ] At end while loop
+[14:09:36] [INFO    ] Got keycode 116, t
+[14:09:36] [INFO    ] appending t to typed
+[14:09:36] [INFO    ] At end while loop
+[14:09:36] [INFO    ] Got keycode 32,  
+[14:09:36] [INFO    ] appending   to typed
+[14:09:36] [INFO    ] At end while loop
+[14:09:36] [INFO    ] Got keycode 118, v
+[14:09:36] [INFO    ] appending v to typed
+[14:09:36] [INFO    ] At end while loop
+[14:09:36] [INFO    ] Got keycode 101, e
+[14:09:36] [INFO    ] appending e to typed
+[14:09:36] [INFO    ] At end while loop
+[14:09:37] [INFO    ] Got keycode 114, r
+[14:09:37] [INFO    ] appending r to typed
+[14:09:37] [INFO    ] At end while loop
+[14:09:37] [INFO    ] Got keycode 111, o
+[14:09:37] [INFO    ] appending o to typed
+[14:09:37] [INFO    ] At end while loop
+[14:09:37] [INFO    ] Got keycode 32,  
+[14:09:37] [INFO    ] appending   to typed
+[14:09:37] [INFO    ] At end while loop
+[14:09:37] [INFO    ] Got keycode 101, e
+[14:09:37] [INFO    ] appending e to typed
+[14:09:37] [INFO    ] At end while loop
+[14:09:37] [INFO    ] Got keycode 111, o
+[14:09:37] [INFO    ] appending o to typed
+[14:09:37] [INFO    ] At end while loop
+[14:09:38] [INFO    ] Got keycode 115, s
+[14:09:38] [INFO    ] appending s to typed
+[14:09:38] [INFO    ] At end while loop
+[14:09:38] [INFO    ] Got keycode 32,  
+[14:09:38] [INFO    ] appending   to typed
+[14:09:38] [INFO    ] At end while loop
+[14:09:38] [INFO    ] Got keycode 101, e
+[14:09:38] [INFO    ] appending e to typed
+[14:09:38] [INFO    ] At end while loop
+[14:09:38] [INFO    ] Got keycode 116, t
+[14:09:38] [INFO    ] appending t to typed
+[14:09:38] [INFO    ] At end while loop
+[14:09:39] [INFO    ] Got keycode 32,  
+[14:09:39] [INFO    ] appending   to typed
+[14:09:39] [INFO    ] At end while loop
+[14:09:39] [INFO    ] Got keycode 97, a
+[14:09:39] [INFO    ] appending a to typed
+[14:09:39] [INFO    ] At end while loop
+[14:09:39] [INFO    ] Got keycode 99, c
+[14:09:39] [INFO    ] appending c to typed
+[14:09:39] [INFO    ] At end while loop
+[14:09:39] [INFO    ] Got keycode 99, c
+[14:09:39] [INFO    ] appending c to typed
+[14:09:39] [INFO    ] At end while loop
+[14:09:39] [INFO    ] Got keycode 117, u
+[14:09:39] [INFO    ] appending u to typed
+[14:09:39] [INFO    ] At end while loop
+[14:09:39] [INFO    ] Got keycode 115, s
+[14:09:39] [INFO    ] appending s to typed
+[14:09:39] [INFO    ] At end while loop
+[14:09:40] [INFO    ] Got keycode 97, a
+[14:09:40] [INFO    ] appending a to typed
+[14:09:40] [INFO    ] At end while loop
+[14:09:40] [INFO    ] Got keycode 109, m
+[14:09:40] [INFO    ] appending m to typed
+[14:09:40] [INFO    ] At end while loop
+[14:09:40] [INFO    ] Got keycode 32,  
+[14:09:40] [INFO    ] appending   to typed
+[14:09:40] [INFO    ] At end while loop
+[14:09:40] [INFO    ] Got keycode 101, e
+[14:09:40] [INFO    ] appending e to typed
+[14:09:40] [INFO    ] At end while loop
+[14:09:40] [INFO    ] Got keycode 116, t
+[14:09:40] [INFO    ] appending t to typed
+[14:09:40] [INFO    ] At end while loop
+[14:09:40] [INFO    ] Got keycode 32,  
+[14:09:40] [INFO    ] appending   to typed
+[14:09:40] [INFO    ] At end while loop
+[14:09:40] [INFO    ] Got keycode 106, j
+[14:09:40] [INFO    ] appending j to typed
+[14:09:40] [INFO    ] At end while loop
+[14:09:41] [INFO    ] Got keycode 117, u
+[14:09:41] [INFO    ] appending u to typed
+[14:09:41] [INFO    ] At end while loop
+[14:09:41] [INFO    ] Got keycode 115, s
+[14:09:41] [INFO    ] appending s to typed
+[14:09:41] [INFO    ] At end while loop
+[14:09:41] [INFO    ] Got keycode 116, t
+[14:09:41] [INFO    ] appending t to typed
+[14:09:41] [INFO    ] At end while loop
+[14:09:41] [INFO    ] Got keycode 111, o
+[14:09:41] [INFO    ] appending o to typed
+[14:09:41] [INFO    ] At end while loop
+[14:09:41] [INFO    ] Got keycode 32,  
+[14:09:41] [INFO    ] appending   to typed
+[14:09:41] [INFO    ] At end while loop
+[14:09:41] [INFO    ] Got keycode 100, d
+[14:09:41] [INFO    ] appending d to typed
+[14:09:41] [INFO    ] At end while loop
+[14:09:42] [INFO    ] Got keycode 117, u
+[14:09:42] [INFO    ] appending u to typed
+[14:09:42] [INFO    ] At end while loop
+[14:09:42] [INFO    ] Got keycode 97, a
+[14:09:42] [INFO    ] appending a to typed
+[14:09:42] [INFO    ] At end while loop
+[14:09:42] [INFO    ] Got keycode 263, 263
+[14:09:42] [INFO    ] At end while loop
+[14:09:42] [INFO    ] Got keycode 111, o
+[14:09:42] [INFO    ] appending o to typed
+[14:09:42] [INFO    ] At end while loop
+[14:09:43] [INFO    ] Got keycode 32,  
+[14:09:43] [INFO    ] appending   to typed
+[14:09:43] [INFO    ] At end while loop
+[14:09:43] [INFO    ] Got keycode 100, d
+[14:09:43] [INFO    ] appending d to typed
+[14:09:43] [INFO    ] At end while loop
+[14:09:43] [INFO    ] Got keycode 111, o
+[14:09:43] [INFO    ] appending o to typed
+[14:09:43] [INFO    ] At end while loop
+[14:09:44] [INFO    ] Got keycode 108, l
+[14:09:44] [INFO    ] appending l to typed
+[14:09:44] [INFO    ] At end while loop
+[14:09:44] [INFO    ] Got keycode 111, o
+[14:09:44] [INFO    ] appending o to typed
+[14:09:44] [INFO    ] At end while loop
+[14:09:44] [INFO    ] Got keycode 114, r
+[14:09:44] [INFO    ] appending r to typed
+[14:09:44] [INFO    ] At end while loop
+[14:09:44] [INFO    ] Got keycode 101, e
+[14:09:44] [INFO    ] appending e to typed
+[14:09:44] [INFO    ] At end while loop
+[14:09:44] [INFO    ] Got keycode 115, s
+[14:09:44] [INFO    ] appending s to typed
+[14:09:44] [INFO    ] At end while loop
+[14:09:44] [INFO    ] Got keycode 32,  
+[14:09:44] [INFO    ] appending   to typed
+[14:09:44] [INFO    ] At end while loop
+[14:09:45] [INFO    ] Got keycode 101, e
+[14:09:45] [INFO    ] appending e to typed
+[14:09:45] [INFO    ] At end while loop
+[14:09:45] [INFO    ] Got keycode 116, t
+[14:09:45] [INFO    ] appending t to typed
+[14:09:45] [INFO    ] At end while loop
+[14:09:45] [INFO    ] Got keycode 32,  
+[14:09:45] [INFO    ] appending   to typed
+[14:09:45] [INFO    ] At end while loop
+[14:09:45] [INFO    ] Got keycode 101, e
+[14:09:45] [INFO    ] appending e to typed
+[14:09:45] [INFO    ] At end while loop
+[14:09:45] [INFO    ] Got keycode 97, a
+[14:09:45] [INFO    ] appending a to typed
+[14:09:45] [INFO    ] At end while loop
+[14:09:45] [INFO    ] Got keycode 32,  
+[14:09:45] [INFO    ] appending   to typed
+[14:09:45] [INFO    ] At end while loop
+[14:09:46] [INFO    ] Got keycode 114, r
+[14:09:46] [INFO    ] appending r to typed
+[14:09:46] [INFO    ] At end while loop
+[14:09:46] [INFO    ] Got keycode 101, e
+[14:09:46] [INFO    ] appending e to typed
+[14:09:46] [INFO    ] At end while loop
+[14:09:46] [INFO    ] Got keycode 98, b
+[14:09:46] [INFO    ] appending b to typed
+[14:09:46] [INFO    ] At end while loop
+[14:09:46] [INFO    ] Got keycode 117, u
+[14:09:46] [INFO    ] appending u to typed
+[14:09:46] [INFO    ] At end while loop
+[14:09:46] [INFO    ] Got keycode 109, m
+[14:09:46] [INFO    ] appending m to typed
+[14:09:46] [INFO    ] At end while loop
+[14:09:46] [INFO    ] Got keycode 106, j
+[14:09:46] [INFO    ] appending j to typed
+[14:09:46] [INFO    ] At end while loop
+[14:09:47] [INFO    ] Got keycode 263, 263
+[14:09:47] [INFO    ] At end while loop
+[14:09:47] [INFO    ] Got keycode 46, .
+[14:09:47] [INFO    ] appending . to typed
+[14:09:47] [INFO    ] At end while loop
+[14:09:47] [INFO    ] Got keycode 32,  
+[14:09:47] [INFO    ] appending   to typed
+[14:09:47] [INFO    ] At end while loop
+[14:09:48] [INFO    ] Got keycode 83, S
+[14:09:48] [INFO    ] appending S to typed
+[14:09:48] [INFO    ] At end while loop
+[14:09:48] [INFO    ] Got keycode 116, t
+[14:09:48] [INFO    ] appending t to typed
+[14:09:48] [INFO    ] At end while loop
+[14:09:48] [INFO    ] Got keycode 101, e
+[14:09:48] [INFO    ] appending e to typed
+[14:09:48] [INFO    ] At end while loop
+[14:09:48] [INFO    ] Got keycode 116, t
+[14:09:48] [INFO    ] appending t to typed
+[14:09:48] [INFO    ] At end while loop
+[14:09:49] [INFO    ] Got keycode 32,  
+[14:09:49] [INFO    ] appending   to typed
+[14:09:49] [INFO    ] At end while loop
+[14:09:49] [INFO    ] Got keycode 99, c
+[14:09:49] [INFO    ] appending c to typed
+[14:09:49] [INFO    ] At end while loop
+[14:09:49] [INFO    ] Got keycode 108, l
+[14:09:49] [INFO    ] appending l to typed
+[14:09:49] [INFO    ] At end while loop
+[14:09:49] [INFO    ] Got keycode 105, i
+[14:09:49] [INFO    ] appending i to typed
+[14:09:49] [INFO    ] At end while loop
+[14:09:49] [INFO    ] Got keycode 116, t
+[14:09:49] [INFO    ] appending t to typed
+[14:09:49] [INFO    ] At end while loop
+[14:09:49] [INFO    ] Got keycode 97, a
+[14:09:49] [INFO    ] appending a to typed
+[14:09:49] [INFO    ] At end while loop
+[14:09:50] [INFO    ] Got keycode 32,  
+[14:09:50] [INFO    ] appending   to typed
+[14:09:50] [INFO    ] At end while loop
+[14:09:51] [INFO    ] Got keycode 107, k
+[14:09:51] [INFO    ] appending k to typed
+[14:09:51] [INFO    ] At end while loop
+[14:09:51] [INFO    ] Got keycode 97, a
+[14:09:51] [INFO    ] appending a to typed
+[14:09:51] [INFO    ] At end while loop
+[14:09:51] [INFO    ] Got keycode 115, s
+[14:09:51] [INFO    ] appending s to typed
+[14:09:51] [INFO    ] At end while loop
+[14:09:51] [INFO    ] Got keycode 100, d
+[14:09:51] [INFO    ] appending d to typed
+[14:09:51] [INFO    ] At end while loop
+[14:09:52] [INFO    ] Got keycode 32,  
+[14:09:52] [INFO    ] appending   to typed
+[14:09:52] [INFO    ] At end while loop
+[14:09:52] [INFO    ] Got keycode 103, g
+[14:09:52] [INFO    ] appending g to typed
+[14:09:52] [INFO    ] At end while loop
+[14:09:52] [INFO    ] Got keycode 117, u
+[14:09:52] [INFO    ] appending u to typed
+[14:09:52] [INFO    ] At end while loop
+[14:09:52] [INFO    ] Got keycode 98, b
+[14:09:52] [INFO    ] appending b to typed
+[14:09:52] [INFO    ] At end while loop
+[14:09:53] [INFO    ] Got keycode 101, e
+[14:09:53] [INFO    ] appending e to typed
+[14:09:53] [INFO    ] At end while loop
+[14:09:53] [INFO    ] Got keycode 114, r
+[14:09:53] [INFO    ] appending r to typed
+[14:09:53] [INFO    ] At end while loop
+[14:09:53] [INFO    ] Got keycode 103, g
+[14:09:53] [INFO    ] appending g to typed
+[14:09:53] [INFO    ] At end while loop
+[14:09:53] [INFO    ] Got keycode 114, r
+[14:09:53] [INFO    ] appending r to typed
+[14:09:53] [INFO    ] At end while loop
+[14:09:53] [INFO    ] Got keycode 101, e
+[14:09:53] [INFO    ] appending e to typed
+[14:09:53] [INFO    ] At end while loop
+[14:09:53] [INFO    ] Got keycode 110, n
+[14:09:53] [INFO    ] appending n to typed
+[14:09:53] [INFO    ] At end while loop
+[14:09:54] [INFO    ] Got keycode 44, ,
+[14:09:54] [INFO    ] appending , to typed
+[14:09:54] [INFO    ] At end while loop
+[14:09:54] [INFO    ] Got keycode 32,  
+[14:09:54] [INFO    ] appending   to typed
+[14:09:54] [INFO    ] At end while loop
+[14:09:54] [INFO    ] Got keycode 110, n
+[14:09:54] [INFO    ] appending n to typed
+[14:09:54] [INFO    ] At end while loop
+[14:09:54] [INFO    ] Got keycode 111, o
+[14:09:54] [INFO    ] appending o to typed
+[14:09:54] [INFO    ] At end while loop
+[14:09:54] [INFO    ] Got keycode 32,  
+[14:09:54] [INFO    ] appending   to typed
+[14:09:54] [INFO    ] At end while loop
+[14:09:54] [INFO    ] Got keycode 115, s
+[14:09:54] [INFO    ] appending s to typed
+[14:09:54] [INFO    ] At end while loop
+[14:09:55] [INFO    ] Got keycode 101, e
+[14:09:55] [INFO    ] appending e to typed
+[14:09:55] [INFO    ] At end while loop
+[14:09:55] [INFO    ] Got keycode 97, a
+[14:09:55] [INFO    ] appending a to typed
+[14:09:55] [INFO    ] At end while loop
+[14:09:55] [INFO    ] Got keycode 32,  
+[14:09:55] [INFO    ] appending   to typed
+[14:09:55] [INFO    ] At end while loop
+[14:09:55] [INFO    ] Got keycode 116, t
+[14:09:55] [INFO    ] appending t to typed
+[14:09:55] [INFO    ] At end while loop
+[14:09:55] [INFO    ] Got keycode 97, a
+[14:09:55] [INFO    ] appending a to typed
+[14:09:55] [INFO    ] At end while loop
+[14:09:56] [INFO    ] Got keycode 107, k
+[14:09:56] [INFO    ] appending k to typed
+[14:09:56] [INFO    ] At end while loop
+[14:09:56] [INFO    ] Got keycode 105, i
+[14:09:56] [INFO    ] appending i to typed
+[14:09:56] [INFO    ] At end while loop
+[14:09:56] [INFO    ] Got keycode 109, m
+[14:09:56] [INFO    ] appending m to typed
+[14:09:56] [INFO    ] At end while loop
+[14:09:56] [INFO    ] Got keycode 97, a
+[14:09:56] [INFO    ] appending a to typed
+[14:09:56] [INFO    ] At end while loop
+[14:09:56] [INFO    ] Got keycode 116, t
+[14:09:56] [INFO    ] appending t to typed
+[14:09:56] [INFO    ] At end while loop
+[14:09:56] [INFO    ] Got keycode 97, a
+[14:09:56] [INFO    ] appending a to typed
+[14:09:56] [INFO    ] At end while loop
+[14:09:56] [INFO    ] Got keycode 32,  
+[14:09:56] [INFO    ] appending   to typed
+[14:09:56] [INFO    ] At end while loop
+[14:09:57] [INFO    ] Got keycode 115, s
+[14:09:57] [INFO    ] appending s to typed
+[14:09:57] [INFO    ] At end while loop
+[14:09:57] [INFO    ] Got keycode 97, a
+[14:09:57] [INFO    ] appending a to typed
+[14:09:57] [INFO    ] At end while loop
+[14:09:57] [INFO    ] Got keycode 99, c
+[14:09:57] [INFO    ] appending c to typed
+[14:09:57] [INFO    ] At end while loop
+[14:09:57] [INFO    ] Got keycode 110, n
+[14:09:57] [INFO    ] appending n to typed
+[14:09:57] [INFO    ] At end while loop
+[14:09:58] [INFO    ] Got keycode 263, 263
+[14:09:58] [INFO    ] At end while loop
+[14:09:58] [INFO    ] Got keycode 263, 263
+[14:09:58] [INFO    ] At end while loop
+[14:09:58] [INFO    ] Got keycode 110, n
+[14:09:58] [INFO    ] appending n to typed
+[14:09:58] [INFO    ] At end while loop
+[14:09:58] [INFO    ] Got keycode 99, c
+[14:09:58] [INFO    ] appending c to typed
+[14:09:58] [INFO    ] At end while loop
+[14:09:59] [INFO    ] Got keycode 116, t
+[14:09:59] [INFO    ] appending t to typed
+[14:09:59] [INFO    ] At end while loop
+[14:09:59] [INFO    ] Got keycode 117, u
+[14:09:59] [INFO    ] appending u to typed
+[14:09:59] [INFO    ] At end while loop
+[14:09:59] [INFO    ] Got keycode 115, s
+[14:09:59] [INFO    ] appending s to typed
+[14:09:59] [INFO    ] At end while loop
+[14:09:59] [INFO    ] Got keycode 32,  
+[14:09:59] [INFO    ] appending   to typed
+[14:09:59] [INFO    ] At end while loop
+[14:09:59] [INFO    ] Got keycode 101, e
+[14:09:59] [INFO    ] appending e to typed
+[14:09:59] [INFO    ] At end while loop
+[14:10:00] [INFO    ] Got keycode 115, s
+[14:10:00] [INFO    ] appending s to typed
+[14:10:00] [INFO    ] At end while loop
+[14:10:00] [INFO    ] Got keycode 116, t
+[14:10:00] [INFO    ] appending t to typed
+[14:10:00] [INFO    ] At end while loop
+[14:10:00] [INFO    ] Got keycode 32,  
+[14:10:00] [INFO    ] appending   to typed
+[14:10:00] [INFO    ] At end while loop
+[14:10:00] [INFO    ] Got keycode 108, l
+[14:10:00] [INFO    ] appending l to typed
+[14:10:00] [INFO    ] At end while loop
+[14:10:01] [INFO    ] Got keycode 263, 263
+[14:10:01] [INFO    ] At end while loop
+[14:10:01] [INFO    ] Got keycode 76, L
+[14:10:01] [INFO    ] appending L to typed
+[14:10:01] [INFO    ] At end while loop
+[14:10:01] [INFO    ] Got keycode 111, o
+[14:10:01] [INFO    ] appending o to typed
+[14:10:01] [INFO    ] At end while loop
+[14:10:01] [INFO    ] Got keycode 114, r
+[14:10:01] [INFO    ] appending r to typed
+[14:10:01] [INFO    ] At end while loop
+[14:10:01] [INFO    ] Got keycode 101, e
+[14:10:01] [INFO    ] appending e to typed
+[14:10:01] [INFO    ] At end while loop
+[14:10:01] [INFO    ] Got keycode 109, m
+[14:10:01] [INFO    ] appending m to typed
+[14:10:01] [INFO    ] At end while loop
+[14:10:01] [INFO    ] Got keycode 32,  
+[14:10:01] [INFO    ] appending   to typed
+[14:10:01] [INFO    ] At end while loop
+[14:10:02] [INFO    ] Got keycode 105, i
+[14:10:02] [INFO    ] appending i to typed
+[14:10:02] [INFO    ] At end while loop
+[14:10:02] [INFO    ] Got keycode 112, p
+[14:10:02] [INFO    ] appending p to typed
+[14:10:02] [INFO    ] At end while loop
+[14:10:02] [INFO    ] Got keycode 115, s
+[14:10:02] [INFO    ] appending s to typed
+[14:10:02] [INFO    ] At end while loop
+[14:10:02] [INFO    ] Got keycode 117, u
+[14:10:02] [INFO    ] appending u to typed
+[14:10:02] [INFO    ] At end while loop
+[14:10:02] [INFO    ] Got keycode 109, m
+[14:10:02] [INFO    ] appending m to typed
+[14:10:02] [INFO    ] At end while loop
+[14:10:02] [INFO    ] Got keycode 32,  
+[14:10:02] [INFO    ] appending   to typed
+[14:10:02] [INFO    ] At end while loop
+[14:10:02] [INFO    ] Got keycode 100, d
+[14:10:02] [INFO    ] appending d to typed
+[14:10:02] [INFO    ] At end while loop
+[14:10:03] [INFO    ] Got keycode 111, o
+[14:10:03] [INFO    ] appending o to typed
+[14:10:03] [INFO    ] At end while loop
+[14:10:03] [INFO    ] Got keycode 108, l
+[14:10:03] [INFO    ] appending l to typed
+[14:10:03] [INFO    ] At end while loop
+[14:10:03] [INFO    ] Got keycode 111, o
+[14:10:03] [INFO    ] appending o to typed
+[14:10:03] [INFO    ] At end while loop
+[14:10:03] [INFO    ] Got keycode 114, r
+[14:10:03] [INFO    ] appending r to typed
+[14:10:03] [INFO    ] At end while loop
+[14:10:03] [INFO    ] Got keycode 32,  
+[14:10:03] [INFO    ] appending   to typed
+[14:10:03] [INFO    ] At end while loop
+[14:10:03] [INFO    ] Got keycode 115, s
+[14:10:03] [INFO    ] appending s to typed
+[14:10:03] [INFO    ] At end while loop
+[14:10:04] [INFO    ] Got keycode 105, i
+[14:10:04] [INFO    ] appending i to typed
+[14:10:04] [INFO    ] At end while loop
+[14:10:04] [INFO    ] Got keycode 116, t
+[14:10:04] [INFO    ] appending t to typed
+[14:10:04] [INFO    ] At end while loop
+[14:10:04] [INFO    ] Got keycode 32,  
+[14:10:04] [INFO    ] appending   to typed
+[14:10:04] [INFO    ] At end while loop
+[14:10:04] [INFO    ] Got keycode 97, a
+[14:10:04] [INFO    ] appending a to typed
+[14:10:04] [INFO    ] At end while loop
+[14:10:04] [INFO    ] Got keycode 109, m
+[14:10:04] [INFO    ] appending m to typed
+[14:10:04] [INFO    ] At end while loop
+[14:10:04] [INFO    ] Got keycode 101, e
+[14:10:04] [INFO    ] appending e to typed
+[14:10:04] [INFO    ] At end while loop
+[14:10:05] [INFO    ] Got keycode 116, t
+[14:10:05] [INFO    ] appending t to typed
+[14:10:05] [INFO    ] At end while loop
+[14:10:05] [INFO    ] Got keycode 46, .
+[14:10:05] [INFO    ] appending . to typed
+[14:10:05] [INFO    ] At end while loop
