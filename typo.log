@@ -1,191 +1,22 @@
-[22:10:15] [INFO    ] TERM=xterm-256color
-[22:10:16] [INFO    ] Starting main function
-[22:10:16] [INFO    ] TERM=xterm-256color
-[22:10:16] [INFO    ] stdscr is window? True
-[22:10:16] [DEBUG   ] self.maxx:52, textx:50, textwin_xy = s_win_xy(nlines=27, ncols=52, begin_y=0, begin_x=1)
-[22:10:16] [DEBUG   ] Created subwindows
-[22:10:16] [INFO    ] starting run
-[22:10:19] [DEBUG   ] self.maxx:52, textx:50, textwin_xy = s_win_xy(nlines=27, ncols=52, begin_y=0, begin_x=1)
-[22:10:19] [DEBUG   ] Created subwindows
-[22:10:20] [INFO    ] Got keycode 410, 410
-[22:10:20] [DEBUG   ] self.maxx:45, textx:43, textwin_xy = s_win_xy(nlines=32, ncols=45, begin_y=0, begin_x=1)
-[22:10:20] [DEBUG   ] Created subwindows
-[22:10:20] [INFO    ] At end while loop
-[22:10:27] [INFO    ] Got keycode 410, 410
-[22:10:27] [DEBUG   ] self.maxx:52, textx:50, textwin_xy = s_win_xy(nlines=27, ncols=52, begin_y=0, begin_x=1)
-[22:10:27] [DEBUG   ] Created subwindows
-[22:10:27] [INFO    ] At end while loop
-[22:10:29] [INFO    ] Got keycode 410, 410
-[22:10:29] [DEBUG   ] self.maxx:58, textx:56, textwin_xy = s_win_xy(nlines=25, ncols=58, begin_y=0, begin_x=1)
-[22:10:29] [DEBUG   ] Created subwindows
-[22:10:29] [INFO    ] At end while loop
-[22:10:31] [INFO    ] Got keycode 410, 410
-[22:10:31] [DEBUG   ] self.maxx:52, textx:50, textwin_xy = s_win_xy(nlines=27, ncols=52, begin_y=0, begin_x=1)
-[22:10:31] [DEBUG   ] Created subwindows
-[22:10:31] [INFO    ] At end while loop
-[22:10:31] [INFO    ] Got keycode 410, 410
-[22:10:31] [DEBUG   ] self.maxx:45, textx:43, textwin_xy = s_win_xy(nlines=32, ncols=45, begin_y=0, begin_x=1)
-[22:10:31] [DEBUG   ] Created subwindows
-[22:10:31] [INFO    ] At end while loop
-[22:10:32] [INFO    ] Got keycode 410, 410
-[22:10:32] [DEBUG   ] self.maxx:52, textx:50, textwin_xy = s_win_xy(nlines=27, ncols=52, begin_y=0, begin_x=1)
-[22:10:32] [DEBUG   ] Created subwindows
-[22:10:32] [INFO    ] At end while loop
-[22:10:32] [INFO    ] Got keycode 410, 410
-[22:10:32] [DEBUG   ] self.maxx:58, textx:56, textwin_xy = s_win_xy(nlines=25, ncols=58, begin_y=0, begin_x=1)
-[22:10:32] [DEBUG   ] Created subwindows
-[22:10:32] [INFO    ] At end while loop
-[22:10:33] [INFO    ] Got keycode 410, 410
-[22:10:33] [DEBUG   ] self.maxx:65, textx:61, textwin_xy = s_win_xy(nlines=22, ncols=63, begin_y=0, begin_x=2)
-[22:10:33] [DEBUG   ] Created subwindows
-[22:10:33] [INFO    ] At end while loop
-[22:10:33] [INFO    ] Got keycode 410, 410
-[22:10:33] [DEBUG   ] self.maxx:72, textx:70, textwin_xy = s_win_xy(nlines=20, ncols=72, begin_y=0, begin_x=1)
-[22:10:33] [DEBUG   ] Created subwindows
-[22:10:33] [INFO    ] At end while loop
-[22:10:33] [INFO    ] Got keycode 410, 410
-[22:10:33] [DEBUG   ] self.maxx:79, textx:77, textwin_xy = s_win_xy(nlines=19, ncols=79, begin_y=0, begin_x=1)
-[22:10:33] [DEBUG   ] Created subwindows
-[22:10:33] [INFO    ] At end while loop
-[22:10:33] [INFO    ] Got keycode 410, 410
-[22:10:33] [DEBUG   ] self.maxx:86, textx:84, textwin_xy = s_win_xy(nlines=17, ncols=86, begin_y=0, begin_x=1)
-[22:10:33] [DEBUG   ] Created subwindows
-[22:10:33] [INFO    ] At end while loop
-[22:10:34] [INFO    ] Got keycode 410, 410
-[22:10:34] [DEBUG   ] self.maxx:92, textx:89, textwin_xy = s_win_xy(nlines=16, ncols=91, begin_y=0, begin_x=1)
-[22:10:34] [DEBUG   ] Created subwindows
-[22:10:34] [INFO    ] At end while loop
-[22:10:34] [INFO    ] Got keycode 410, 410
-[22:10:34] [DEBUG   ] self.maxx:99, textx:97, textwin_xy = s_win_xy(nlines=15, ncols=99, begin_y=0, begin_x=1)
-[22:10:34] [DEBUG   ] Created subwindows
-[22:10:34] [INFO    ] At end while loop
-[22:10:34] [INFO    ] Got keycode 410, 410
-[22:10:34] [DEBUG   ] self.maxx:92, textx:89, textwin_xy = s_win_xy(nlines=16, ncols=91, begin_y=0, begin_x=1)
-[22:10:34] [DEBUG   ] Created subwindows
-[22:10:34] [INFO    ] At end while loop
-[22:10:34] [INFO    ] Got keycode 410, 410
-[22:10:34] [DEBUG   ] self.maxx:86, textx:84, textwin_xy = s_win_xy(nlines=17, ncols=86, begin_y=0, begin_x=1)
-[22:10:34] [DEBUG   ] Created subwindows
-[22:10:34] [INFO    ] At end while loop
-[22:10:35] [INFO    ] Got keycode 410, 410
-[22:10:35] [DEBUG   ] self.maxx:79, textx:77, textwin_xy = s_win_xy(nlines=19, ncols=79, begin_y=0, begin_x=1)
-[22:10:35] [DEBUG   ] Created subwindows
-[22:10:35] [INFO    ] At end while loop
-[22:10:35] [INFO    ] Got keycode 410, 410
-[22:10:35] [DEBUG   ] self.maxx:72, textx:70, textwin_xy = s_win_xy(nlines=20, ncols=72, begin_y=0, begin_x=1)
-[22:10:35] [DEBUG   ] Created subwindows
-[22:10:35] [INFO    ] At end while loop
-[22:10:35] [INFO    ] Got keycode 410, 410
-[22:10:35] [DEBUG   ] self.maxx:65, textx:61, textwin_xy = s_win_xy(nlines=22, ncols=63, begin_y=0, begin_x=2)
-[22:10:35] [DEBUG   ] Created subwindows
-[22:10:35] [INFO    ] At end while loop
-[22:10:35] [INFO    ] Got keycode 410, 410
-[22:10:35] [DEBUG   ] self.maxx:58, textx:56, textwin_xy = s_win_xy(nlines=25, ncols=58, begin_y=0, begin_x=1)
-[22:10:35] [DEBUG   ] Created subwindows
-[22:10:35] [INFO    ] At end while loop
-[22:10:35] [INFO    ] Got keycode 410, 410
-[22:10:35] [DEBUG   ] self.maxx:52, textx:50, textwin_xy = s_win_xy(nlines=27, ncols=52, begin_y=0, begin_x=1)
-[22:10:35] [DEBUG   ] Created subwindows
-[22:10:35] [INFO    ] At end while loop
-[22:10:36] [INFO    ] Got keycode 410, 410
-[22:10:36] [DEBUG   ] self.maxx:45, textx:43, textwin_xy = s_win_xy(nlines=32, ncols=45, begin_y=0, begin_x=1)
-[22:10:36] [DEBUG   ] Created subwindows
-[22:10:36] [INFO    ] At end while loop
-[22:10:36] [INFO    ] Got keycode 410, 410
-[22:10:36] [DEBUG   ] self.maxx:52, textx:50, textwin_xy = s_win_xy(nlines=27, ncols=52, begin_y=0, begin_x=1)
-[22:10:36] [DEBUG   ] Created subwindows
-[22:10:36] [INFO    ] At end while loop
-[22:10:36] [INFO    ] Got keycode 410, 410
-[22:10:36] [DEBUG   ] self.maxx:58, textx:56, textwin_xy = s_win_xy(nlines=25, ncols=58, begin_y=0, begin_x=1)
-[22:10:36] [DEBUG   ] Created subwindows
-[22:10:36] [INFO    ] At end while loop
-[22:10:36] [INFO    ] Got keycode 410, 410
-[22:10:36] [DEBUG   ] self.maxx:65, textx:61, textwin_xy = s_win_xy(nlines=22, ncols=63, begin_y=0, begin_x=2)
-[22:10:36] [DEBUG   ] Created subwindows
-[22:10:36] [INFO    ] At end while loop
-[22:10:37] [INFO    ] Got keycode 410, 410
-[22:10:37] [DEBUG   ] self.maxx:72, textx:70, textwin_xy = s_win_xy(nlines=20, ncols=72, begin_y=0, begin_x=1)
-[22:10:37] [DEBUG   ] Created subwindows
-[22:10:37] [INFO    ] At end while loop
-[22:10:37] [INFO    ] Got keycode 410, 410
-[22:10:37] [DEBUG   ] self.maxx:79, textx:77, textwin_xy = s_win_xy(nlines=19, ncols=79, begin_y=0, begin_x=1)
-[22:10:37] [DEBUG   ] Created subwindows
-[22:10:37] [INFO    ] At end while loop
-[22:10:37] [INFO    ] Got keycode 410, 410
-[22:10:37] [DEBUG   ] self.maxx:86, textx:84, textwin_xy = s_win_xy(nlines=17, ncols=86, begin_y=0, begin_x=1)
-[22:10:37] [DEBUG   ] Created subwindows
-[22:10:37] [INFO    ] At end while loop
-[22:10:37] [INFO    ] Got keycode 410, 410
-[22:10:37] [DEBUG   ] self.maxx:92, textx:89, textwin_xy = s_win_xy(nlines=16, ncols=91, begin_y=0, begin_x=1)
-[22:10:37] [DEBUG   ] Created subwindows
-[22:10:37] [INFO    ] At end while loop
-[22:10:37] [INFO    ] Got keycode 410, 410
-[22:10:37] [DEBUG   ] self.maxx:99, textx:97, textwin_xy = s_win_xy(nlines=15, ncols=99, begin_y=0, begin_x=1)
-[22:10:37] [DEBUG   ] Created subwindows
-[22:10:37] [INFO    ] At end while loop
-[22:10:37] [INFO    ] Got keycode 410, 410
-[22:10:37] [DEBUG   ] self.maxx:106, textx:104, textwin_xy = s_win_xy(nlines=14, ncols=106, begin_y=0, begin_x=1)
-[22:10:37] [DEBUG   ] Created subwindows
-[22:10:37] [INFO    ] At end while loop
-[22:10:38] [INFO    ] Got keycode 410, 410
-[22:10:38] [DEBUG   ] self.maxx:113, textx:111, textwin_xy = s_win_xy(nlines=13, ncols=113, begin_y=0, begin_x=1)
-[22:10:38] [DEBUG   ] Created subwindows
-[22:10:38] [INFO    ] At end while loop
-[22:10:38] [INFO    ] Got keycode 410, 410
-[22:10:38] [DEBUG   ] self.maxx:120, textx:118, textwin_xy = s_win_xy(nlines=13, ncols=120, begin_y=0, begin_x=1)
-[22:10:38] [DEBUG   ] Created subwindows
-[22:10:38] [INFO    ] At end while loop
-[22:10:38] [INFO    ] Got keycode 410, 410
-[22:10:38] [DEBUG   ] self.maxx:126, textx:122, textwin_xy = s_win_xy(nlines=12, ncols=124, begin_y=0, begin_x=2)
-[22:10:38] [DEBUG   ] Created subwindows
-[22:10:38] [INFO    ] At end while loop
-[22:10:38] [INFO    ] Got keycode 410, 410
-[22:10:38] [DEBUG   ] self.maxx:120, textx:118, textwin_xy = s_win_xy(nlines=13, ncols=120, begin_y=0, begin_x=1)
-[22:10:38] [DEBUG   ] Created subwindows
-[22:10:38] [INFO    ] At end while loop
-[22:10:39] [INFO    ] Got keycode 410, 410
-[22:10:39] [DEBUG   ] self.maxx:113, textx:111, textwin_xy = s_win_xy(nlines=13, ncols=113, begin_y=0, begin_x=1)
-[22:10:39] [DEBUG   ] Created subwindows
-[22:10:39] [INFO    ] At end while loop
-[22:10:39] [INFO    ] Got keycode 410, 410
-[22:10:39] [DEBUG   ] self.maxx:106, textx:104, textwin_xy = s_win_xy(nlines=14, ncols=106, begin_y=0, begin_x=1)
-[22:10:39] [DEBUG   ] Created subwindows
-[22:10:39] [INFO    ] At end while loop
-[22:10:39] [INFO    ] Got keycode 410, 410
-[22:10:39] [DEBUG   ] self.maxx:99, textx:97, textwin_xy = s_win_xy(nlines=15, ncols=99, begin_y=0, begin_x=1)
-[22:10:39] [DEBUG   ] Created subwindows
-[22:10:39] [INFO    ] At end while loop
-[22:10:39] [INFO    ] Got keycode 410, 410
-[22:10:39] [DEBUG   ] self.maxx:92, textx:89, textwin_xy = s_win_xy(nlines=16, ncols=91, begin_y=0, begin_x=1)
-[22:10:39] [DEBUG   ] Created subwindows
-[22:10:39] [INFO    ] At end while loop
-[22:10:39] [INFO    ] Got keycode 410, 410
-[22:10:39] [DEBUG   ] self.maxx:86, textx:84, textwin_xy = s_win_xy(nlines=17, ncols=86, begin_y=0, begin_x=1)
-[22:10:39] [DEBUG   ] Created subwindows
-[22:10:39] [INFO    ] At end while loop
-[22:10:40] [INFO    ] Got keycode 410, 410
-[22:10:40] [DEBUG   ] self.maxx:79, textx:77, textwin_xy = s_win_xy(nlines=19, ncols=79, begin_y=0, begin_x=1)
-[22:10:40] [DEBUG   ] Created subwindows
-[22:10:40] [INFO    ] At end while loop
-[22:10:40] [INFO    ] Got keycode 410, 410
-[22:10:40] [DEBUG   ] self.maxx:72, textx:70, textwin_xy = s_win_xy(nlines=20, ncols=72, begin_y=0, begin_x=1)
-[22:10:40] [DEBUG   ] Created subwindows
-[22:10:40] [INFO    ] At end while loop
-[22:10:40] [INFO    ] Got keycode 410, 410
-[22:10:40] [DEBUG   ] self.maxx:65, textx:61, textwin_xy = s_win_xy(nlines=22, ncols=63, begin_y=0, begin_x=2)
-[22:10:40] [DEBUG   ] Created subwindows
-[22:10:40] [INFO    ] At end while loop
-[22:10:40] [INFO    ] Got keycode 410, 410
-[22:10:40] [DEBUG   ] self.maxx:58, textx:56, textwin_xy = s_win_xy(nlines=25, ncols=58, begin_y=0, begin_x=1)
-[22:10:40] [DEBUG   ] Created subwindows
-[22:10:40] [INFO    ] At end while loop
-[22:10:40] [INFO    ] Got keycode 410, 410
-[22:10:40] [DEBUG   ] self.maxx:52, textx:50, textwin_xy = s_win_xy(nlines=27, ncols=52, begin_y=0, begin_x=1)
-[22:10:40] [DEBUG   ] Created subwindows
-[22:10:40] [INFO    ] At end while loop
-[22:10:40] [INFO    ] Got keycode 410, 410
-[22:10:40] [DEBUG   ] self.maxx:45, textx:43, textwin_xy = s_win_xy(nlines=32, ncols=45, begin_y=0, begin_x=1)
-[22:10:40] [DEBUG   ] Created subwindows
-[22:10:40] [INFO    ] At end while loop
-[22:10:41] [INFO    ] Got keycode 410, 410
-[22:10:41] [DEBUG   ] self.maxx:38, textx:36, textwin_xy = s_win_xy(nlines=38, ncols=38, begin_y=0, begin_x=1)
+[14:20:17] [INFO    ] TERM=xterm-256color
+[14:20:18] [INFO    ] Starting main function
+[14:20:18] [INFO    ] TERM=xterm-256color
+[14:20:18] [INFO    ] stdscr is window? True
+[14:20:18] [DEBUG   ] Textlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[14:20:18] [DEBUG   ] self.maxx:121, textx:52, texty:1 textwin_xy = s_win_xy(nlines=3, ncols=54, begin_y=0, begin_x=34)
+[14:20:18] [DEBUG   ] Created subwindows
+[14:20:18] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' '], ['j', 'a', 'l', 's', 'd', 'f']]
+[14:20:18] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' '], ['j', 'a', 'l', 's', 'd', 'f']]
+[14:20:18] [INFO    ] starting run
+[14:20:21] [DEBUG   ] Textlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[14:20:21] [DEBUG   ] self.maxx:121, textx:52, texty:1 textwin_xy = s_win_xy(nlines=3, ncols=54, begin_y=0, begin_x=34)
+[14:20:21] [DEBUG   ] Created subwindows
+[14:20:21] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' '], ['j', 'a', 'l', 's', 'd', 'f']]
+[14:20:21] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' '], ['j', 'a', 'l', 's', 'd', 'f']]
+[14:20:22] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' '], ['j', 'a', 'l', 's', 'd', 'f']]
+[14:20:22] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' '], ['j', 'a', 'l', 's', 'd', 'f']]
+[14:20:23] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' '], ['j', 'a', 'l', 's', 'd', 'f']]
+[14:20:23] [INFO    ] Got keycode 27, 
+[14:20:23] [DEBUG   ] Got esc event inp_char,inp_key('\x1b', 27),None
+[14:20:23] [INFO    ] At end while loop
+[14:20:23] [INFO    ] Exiting while loop
