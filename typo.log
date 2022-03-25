@@ -1,22 +1,180 @@
-[14:20:17] [INFO    ] TERM=xterm-256color
-[14:20:18] [INFO    ] Starting main function
-[14:20:18] [INFO    ] TERM=xterm-256color
-[14:20:18] [INFO    ] stdscr is window? True
-[14:20:18] [DEBUG   ] Textlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
-[14:20:18] [DEBUG   ] self.maxx:121, textx:52, texty:1 textwin_xy = s_win_xy(nlines=3, ncols=54, begin_y=0, begin_x=34)
-[14:20:18] [DEBUG   ] Created subwindows
-[14:20:18] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' '], ['j', 'a', 'l', 's', 'd', 'f']]
-[14:20:18] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' '], ['j', 'a', 'l', 's', 'd', 'f']]
-[14:20:18] [INFO    ] starting run
-[14:20:21] [DEBUG   ] Textlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
-[14:20:21] [DEBUG   ] self.maxx:121, textx:52, texty:1 textwin_xy = s_win_xy(nlines=3, ncols=54, begin_y=0, begin_x=34)
-[14:20:21] [DEBUG   ] Created subwindows
-[14:20:21] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' '], ['j', 'a', 'l', 's', 'd', 'f']]
-[14:20:21] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' '], ['j', 'a', 'l', 's', 'd', 'f']]
-[14:20:22] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' '], ['j', 'a', 'l', 's', 'd', 'f']]
-[14:20:22] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' '], ['j', 'a', 'l', 's', 'd', 'f']]
-[14:20:23] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' '], ['j', 'a', 'l', 's', 'd', 'f']]
-[14:20:23] [INFO    ] Got keycode 27, 
-[14:20:23] [DEBUG   ] Got esc event inp_char,inp_key('\x1b', 27),None
-[14:20:23] [INFO    ] At end while loop
-[14:20:23] [INFO    ] Exiting while loop
+[00:37:59] [INFO    ] TERM=alacritty
+[00:38:00] [INFO    ] Starting main function
+[00:38:00] [INFO    ] TERM=alacritty
+[00:38:00] [INFO    ] stdscr is window? True
+[00:38:00] [DEBUG   ] Textlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:00] [DEBUG   ] self.maxx:188, textx:52, texty:1 textwin_xy = s_win_xy(nlines=3, ncols=54, begin_y=0, begin_x=68)
+[00:38:00] [DEBUG   ] Created subwindows
+[00:38:00] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:00] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:00] [INFO    ] starting run
+[00:38:03] [DEBUG   ] Textlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:03] [DEBUG   ] self.maxx:188, textx:52, texty:1 textwin_xy = s_win_xy(nlines=3, ncols=54, begin_y=0, begin_x=68)
+[00:38:03] [DEBUG   ] Created subwindows
+[00:38:03] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:04] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:04] [INFO    ] Got keycode 84, T
+[00:38:04] [INFO    ] appending T to typed
+[00:38:04] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:05] [INFO    ] Got keycode 104, h
+[00:38:05] [INFO    ] appending h to typed
+[00:38:05] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:05] [INFO    ] Got keycode 101, e
+[00:38:05] [INFO    ] appending e to typed
+[00:38:05] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:05] [INFO    ] Got keycode 32,  
+[00:38:05] [INFO    ] appending   to typed
+[00:38:05] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:05] [INFO    ] Got keycode 114, r
+[00:38:05] [INFO    ] appending r to typed
+[00:38:05] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:05] [INFO    ] Got keycode 101, e
+[00:38:05] [INFO    ] appending e to typed
+[00:38:05] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:05] [INFO    ] Got keycode 100, d
+[00:38:05] [INFO    ] appending d to typed
+[00:38:05] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:06] [INFO    ] Got keycode 32,  
+[00:38:06] [INFO    ] appending   to typed
+[00:38:06] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:06] [INFO    ] Got keycode 102, f
+[00:38:06] [INFO    ] appending f to typed
+[00:38:06] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:06] [INFO    ] Got keycode 111, o
+[00:38:06] [INFO    ] appending o to typed
+[00:38:06] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:06] [INFO    ] Got keycode 120, x
+[00:38:06] [INFO    ] appending x to typed
+[00:38:06] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:06] [INFO    ] Got keycode 32,  
+[00:38:06] [INFO    ] appending   to typed
+[00:38:06] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:06] [INFO    ] Got keycode 106, j
+[00:38:06] [INFO    ] appending j to typed
+[00:38:06] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:07] [INFO    ] Got keycode 117, u
+[00:38:07] [INFO    ] appending u to typed
+[00:38:07] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:07] [INFO    ] Got keycode 109, m
+[00:38:07] [INFO    ] appending m to typed
+[00:38:07] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:07] [INFO    ] Got keycode 112, p
+[00:38:07] [INFO    ] appending p to typed
+[00:38:07] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:07] [INFO    ] Got keycode 101, e
+[00:38:07] [INFO    ] appending e to typed
+[00:38:07] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:07] [INFO    ] Got keycode 115, s
+[00:38:07] [INFO    ] appending s to typed
+[00:38:07] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:08] [INFO    ] Got keycode 32,  
+[00:38:08] [INFO    ] appending   to typed
+[00:38:08] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:08] [INFO    ] Got keycode 111, o
+[00:38:08] [INFO    ] appending o to typed
+[00:38:08] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:08] [INFO    ] Got keycode 118, v
+[00:38:08] [INFO    ] appending v to typed
+[00:38:08] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:08] [INFO    ] Got keycode 101, e
+[00:38:08] [INFO    ] appending e to typed
+[00:38:08] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:08] [INFO    ] Got keycode 114, r
+[00:38:08] [INFO    ] appending r to typed
+[00:38:08] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:08] [INFO    ] Got keycode 32,  
+[00:38:08] [INFO    ] appending   to typed
+[00:38:08] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:08] [INFO    ] Got keycode 116, t
+[00:38:08] [INFO    ] appending t to typed
+[00:38:08] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:09] [INFO    ] Got keycode 104, h
+[00:38:09] [INFO    ] appending h to typed
+[00:38:09] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:09] [INFO    ] Got keycode 101, e
+[00:38:09] [INFO    ] appending e to typed
+[00:38:09] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:09] [INFO    ] Got keycode 32,  
+[00:38:09] [INFO    ] appending   to typed
+[00:38:09] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:09] [INFO    ] Got keycode 108, l
+[00:38:09] [INFO    ] appending l to typed
+[00:38:09] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:09] [INFO    ] Got keycode 97, a
+[00:38:09] [INFO    ] appending a to typed
+[00:38:09] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:10] [INFO    ] Got keycode 122, z
+[00:38:10] [INFO    ] appending z to typed
+[00:38:10] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:10] [INFO    ] Got keycode 121, y
+[00:38:10] [INFO    ] appending y to typed
+[00:38:10] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:10] [INFO    ] Got keycode 32,  
+[00:38:10] [INFO    ] appending   to typed
+[00:38:10] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:10] [INFO    ] Got keycode 100, d
+[00:38:10] [INFO    ] appending d to typed
+[00:38:10] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:10] [INFO    ] Got keycode 111, o
+[00:38:10] [INFO    ] appending o to typed
+[00:38:10] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:10] [INFO    ] Got keycode 103, g
+[00:38:10] [INFO    ] appending g to typed
+[00:38:10] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:11] [INFO    ] Got keycode 46, .
+[00:38:11] [INFO    ] appending . to typed
+[00:38:11] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:11] [INFO    ] Got keycode 32,  
+[00:38:11] [INFO    ] appending   to typed
+[00:38:11] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:11] [INFO    ] Got keycode 97, a
+[00:38:11] [INFO    ] appending a to typed
+[00:38:11] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:11] [INFO    ] Got keycode 115, s
+[00:38:11] [INFO    ] appending s to typed
+[00:38:11] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:12] [INFO    ] Got keycode 106, j
+[00:38:12] [INFO    ] appending j to typed
+[00:38:12] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:12] [INFO    ] Got keycode 100, d
+[00:38:12] [INFO    ] appending d to typed
+[00:38:12] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:12] [INFO    ] Got keycode 107, k
+[00:38:12] [INFO    ] appending k to typed
+[00:38:12] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:12] [INFO    ] Got keycode 102, f
+[00:38:12] [INFO    ] appending f to typed
+[00:38:12] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:13] [INFO    ] Got keycode 108, l
+[00:38:13] [INFO    ] appending l to typed
+[00:38:13] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:13] [INFO    ] Got keycode 32,  
+[00:38:13] [INFO    ] appending   to typed
+[00:38:13] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:13] [INFO    ] Got keycode 108, l
+[00:38:13] [INFO    ] appending l to typed
+[00:38:13] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:13] [INFO    ] Got keycode 263, 263
+[00:38:13] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:14] [INFO    ] Got keycode 106, j
+[00:38:14] [INFO    ] appending j to typed
+[00:38:14] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:14] [INFO    ] Got keycode 97, a
+[00:38:14] [INFO    ] appending a to typed
+[00:38:14] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:14] [INFO    ] Got keycode 108, l
+[00:38:14] [INFO    ] appending l to typed
+[00:38:14] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:14] [INFO    ] Got keycode 115, s
+[00:38:14] [INFO    ] appending s to typed
+[00:38:14] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:14] [INFO    ] Got keycode 100, d
+[00:38:14] [INFO    ] appending d to typed
+[00:38:14] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:15] [INFO    ] Got keycode 102, f
+[00:38:15] [INFO    ] appending f to typed
+[00:38:15] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:15] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:16] [DEBUG   ] txtlst:[['T', 'h', 'e', ' ', 'r', 'e', 'd', ' ', 'f', 'o', 'x', ' ', 'j', 'u', 'm', 'p', 'e', 's', ' ', 'o', 'v', 'e', 'r', ' ', 't', 'h', 'e', ' ', 'l', 'a', 'z', 'y', ' ', 'd', 'o', 'g', '.', ' ', 'a', 's', 'j', 'd', 'k', 'f', 'l', ' ', 'j', 'a', 'l', 's', 'd', 'f']]
+[00:38:16] [INFO    ] At end while loop
+[00:38:16] [INFO    ] Exiting while loop

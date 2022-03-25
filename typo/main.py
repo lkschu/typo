@@ -69,12 +69,17 @@ def textlst(txtstr: str, width: int):
     ret_lst = []
     current_lst = []
 
-    for word in tmp_lst:
-        if len(word) > width:
-            # this word doesn't fit at all
-            raise ValueError(f"Can't fit <{word}> in a width of {width}!")
-        # +1 for space before, +1 for space after word
-        if len(current_lst) + len(word)+1+1 >= width:
+    for i, word in enumerate(tmp_lst):
+
+        if len(word) > width or (len(word) +1 > width and len(tmp_lst)>1):
+            # this word (and 1 space) doesn't fit at all
+            # if there are at least 2 words there must be place for 1 space
+            raise ValueError(f"Can't fit <{word}> (plus possible space) in a width of {width}!")
+
+        # if it's the last word we need no space at the end
+        # +1 for space after word
+        if (len(current_lst) + len(word)+1 > width and i+1 != len(tmp_lst)) \
+                or (len(current_lst) + len(word) > width and i+1 == len(tmp_lst)):
             # line + word to long -> new line
             ret_lst.append(current_lst)
             current_lst = []
@@ -119,6 +124,7 @@ class MainScreen():
 
     @property
     def maxx(self):
+        """ Max width for text, so decoration is not included """
         maxx = self.scr.getmaxyx()[1]
         # -1 so len(range(-0-,maxx) = max -2
         return maxx -1
@@ -175,7 +181,7 @@ class MainScreen():
         )
 
         self.textwin = self.scr.subwin(*self.textwin_xy)
-        self.textwin.keypad(True) # allow capturing esc sequences!
+        self.textwin.keypad(True)  # allow capturing esc sequences!
         self.wpmwin = self.scr.subwin(*self.wpmwin_xy)
         self.errwin = self.scr.subwin(*self.errwin_xy)
         logger.debug(f"Created subwindows")
@@ -191,7 +197,9 @@ class MainScreen():
         assert isinstance(self.wpmwin, curses.window)
         # y, x = self.textwin.getyx()
         # origin is 1,1 (because of border)
-        txtlst = textlst(self.text, self.textwin_xy.ncols)
+
+        #txtlst = textlst(self.text, self.textwin_xy.ncols)
+        txtlst = textlst(self.text, self.maxx)
         logger.debug(f"txtlst:{txtlst}")
         for i, line in enumerate(txtlst):
             self.textwin.addstr(i+1,1,''.join(line))
