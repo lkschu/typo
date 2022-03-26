@@ -40,27 +40,15 @@ lorem2 = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonu
         "et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum." \
         " Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
 sampletext = "The red fox jumpes over the lazy dog. asjdkfl jalsdf"
+samp = "a a a a aaaaaaaaa aaaa aaa aaaaaaa aaaaaaaaa aaaaaaaa aaaaaaaaaa aaaaaaa"
 
-texts = [lorem1, sampletext]
-texts = [sampletext]
+texts = [sampletext, lorem1]
+texts = [lorem1, samp]
 
 S_SPACE = "_"
 S_RETURN = "⏎"
 
 B_DOUBLE = ("║", "║", "═", "═", "╔", "╗", "╚", "╝")
-
-# How to 'zip' 2 lists, while alternating values
-# # tstr = "asoid j iua ai ji"
-# # tstrlst = tstr.split()
-# # spaces = [' ' for i in range(len(tstrlst)-1)]
-# # for i,v in enumerate(tstrlst):
-# #     if len(spaces)>i:
-# #         tstrlst.insert((2*i)+1,spaces[i])
-
-
-# print(make_list_of_fitting_length(sampletext, 9))
-# [print("".join(x)) for x in make_list_of_fitting_length(lorem, 40)]
-# time.sleep(5)
 
 
 def textlst(txtstr: str, width: int):
@@ -111,8 +99,10 @@ class MainScreen():
 
         self.text = txtlst[0]
         self.texts = txtlst
+        # TODO maybe give typed lists for sections like this [[chars from sec1], [chars from sec2]]
         self.typed = []
-        self.errors = 0
+        self.typed_sum = 0  # save carrie over when new section starts
+        self.err_lst = []
         self.start = time.time()
         # Windows
         self.textwin = None
@@ -123,30 +113,35 @@ class MainScreen():
         self.draw()
 
     @property
-    def maxx(self):
+    def maxx(self) -> int:
         """ Max width for text, so decoration is not included """
         maxx = self.scr.getmaxyx()[1]
         # -1 so len(range(-0-,maxx) = max -2
         return maxx -1
 
-    def wpm(self):
+    @property
+    def errors(self) -> int:
+        """ Gives sum of errors """
+        return len(self.err_lst)
+
+    def wpm(self) -> float:
         """ Get current wpm by len of self.typed and time since self.start"""
         # let's say a word is ~4 letters
         delta = time.time() - self.start
-        charpersec = len(self.typed)/delta
+        charpersec = (len(self.typed)+self.typed_sum)/delta
         wpm = (charpersec * 60)/4
-        return f"WPM:{int(wpm):>3}"
+        return wpm
 
-    def err(self):
+    def err(self) -> int:
         """ Get current error percentage by len of self.typed and self.errors"""
         if len(self.typed) == 0:
             percent = 0
         else:
-            percent = self.errors / len(self.typed)
+            percent = self.errors / (len(self.typed)+self.typed_sum)
         if percent > 1:
             percent = 1
         percent = int(percent*100)
-        return f"ERR:{percent:>3}%"
+        return percent
 
     def setsize(self):
         self.scr.erase()
@@ -200,12 +195,11 @@ class MainScreen():
 
         #txtlst = textlst(self.text, self.textwin_xy.ncols)
         txtlst = textlst(self.text, self.maxx)
-        logger.debug(f"txtlst:{txtlst}")
         for i, line in enumerate(txtlst):
             self.textwin.addstr(i+1,1,''.join(line))
-        self.wpmwin.addstr(1,1,self.wpm(), curses.A_BOLD)
+        self.wpmwin.addstr(1,1,f"WPM:{int(self.wpm()):>3}", curses.A_BOLD)
         self.wpmwin.noutrefresh()  # mark for refresh
-        self.errwin.addstr(1,1,self.err(), curses.A_BOLD)
+        self.errwin.addstr(1,1,f"ERR:{self.err():>3}%", curses.A_BOLD)
         self.errwin.noutrefresh()
         self.textwin.move(1,1)
 
@@ -248,8 +242,8 @@ class MainScreen():
         time.sleep(1)
         self.start = time.time()
 
-        for textsnip in self.texts:
-            self.text = textsnip
+        for section in self.texts:
+            self.text = section
             self.setsize()
 
             while True:
@@ -304,8 +298,14 @@ class MainScreen():
 
                         typedstr = "".join(self.typed)
                         orgstr = ''.join([''.join(line) for line in textlst(self.text, self.textwin_xy.ncols)])
-                        errors = 0 if typedstr[-1] == orgstr[len(typedstr) - 1] else 1
-                        self.errors += errors
+
+                        if typedstr[-1] == orgstr[len(typedstr) - 1]:
+                            # correct
+                            logger.debug(f"Registered correct key {inp_char}")
+                        else:
+                            # incorrect
+                            logger.debug(f"Registered wrong key {inp_char}")
+                            self.err_lst.append(inp_char)
                         self.draw()
 
                     else:
@@ -331,7 +331,9 @@ class MainScreen():
                     # time.sleep(10)
                     # demo.visibility = ueberzug.Visibility.INVISIBLE
 
+                    logger.debug(f"Finished sec. {section}: Typed:{len(self.typed)}, WPM:{int(self.wpm())}, err:{self.err()}%, errors:{self.err_lst}")
                     self.textwin.border()
+                    self.typed_sum = len(self.typed)
                     self.typed = []
                     self.draw()
                     break
