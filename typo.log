@@ -1,1153 +1,1005 @@
-[01:11:49] [INFO    ] TERM=alacritty
-[01:11:50] [INFO    ] Starting main function
-[01:11:50] [INFO    ] TERM=alacritty
-[01:11:50] [INFO    ] stdscr is window? True
-[01:11:50] [DEBUG   ] Textlst:[['L', 'o', 'r', 'e', 'm', ' ', 'i', 'p', 's', 'u', 'm', ' ', 'd', 'o', 'l', 'o', 'r', ' ', 's', 'i', 't', ' ', 'a', 'm', 'e', 't', ',', ' ', 'c', 'o', 'n', 's', 'e', 't', 'e', 't', 'u', 'r', ' ', 's', 'a', 'd', 'i', 'p', 's', 'c', 'i', 'n', 'g', ' ', 'e', 'l', 'i', 't', 'r', ',', ' ', 's', 'e', 'd', ' ', 'd', 'i', 'a', 'm', ' ', 'n', 'o', 'n', 'u', 'm', 'y', ' ', 'e', 'i', 'r', 'm', 'o', 'd', ' ', 't', 'e', 'm', 'p', 'o', 'r', ' ', 'i', 'n', 'v', 'i', 'd', 'u', 'n', 't', ' ', 'u', 't', ' ', 'l', 'a', 'b', 'o', 'r', 'e', ' ', 'e', 't', ' ', 'd', 'o', 'l', 'o', 'r', 'e', ' ', 'm', 'a', 'g', 'n', 'a', ' ', 'a', 'l', 'i', 'q', 'u', 'y', 'a', 'm', ' ', 'e', 'r', 'a', 't', ',', ' ', 's', 'e', 'd', ' ', 'd', 'i', 'a', 'm', ' ', 'v', 'o', 'l', 'u', 'p', 't', 'u', 'a', '.', ' ', 'A', 't', ' ', 'v', 'e', 'r', 'o', ' ', 'e', 'o', 's', ' ', 'e', 't', ' ', 'a', 'c', 'c', 'u', 's', 'a', 'm', ' ', 'e', 't', ' ', 'j', 'u', 's', 't', 'o', ' ', 'd', 'u', 'o', ' '], ['d', 'o', 'l', 'o', 'r', 'e', 's', ' ', 'e', 't', ' ', 'e', 'a', ' ', 'r', 'e', 'b', 'u', 'm', '.', ' ', 'S', 't', 'e', 't', ' ', 'c', 'l', 'i', 't', 'a', ' ', 'k', 'a', 's', 'd', ' ', 'g', 'u', 'b', 'e', 'r', 'g', 'r', 'e', 'n', ',', ' ', 'n', 'o', ' ', 's', 'e', 'a', ' ', 't', 'a', 'k', 'i', 'm', 'a', 't', 'a', ' ', 's', 'a', 'n', 'c', 't', 'u', 's', ' ', 'e', 's', 't', ' ', 'L', 'o', 'r', 'e', 'm', ' ', 'i', 'p', 's', 'u', 'm', ' ', 'd', 'o', 'l', 'o', 'r', ' ', 's', 'i', 't', ' ', 'a', 'm', 'e', 't', '.']]
-[01:11:50] [DEBUG   ] self.maxx:193, textx:192, texty:2 textwin_xy = s_win_xy(nlines=4, ncols=194, begin_y=0, begin_x=0)
-[01:11:50] [DEBUG   ] Created subwindows
-[01:11:50] [INFO    ] starting run
-[01:11:53] [DEBUG   ] Textlst:[['L', 'o', 'r', 'e', 'm', ' ', 'i', 'p', 's', 'u', 'm', ' ', 'd', 'o', 'l', 'o', 'r', ' ', 's', 'i', 't', ' ', 'a', 'm', 'e', 't', ',', ' ', 'c', 'o', 'n', 's', 'e', 't', 'e', 't', 'u', 'r', ' ', 's', 'a', 'd', 'i', 'p', 's', 'c', 'i', 'n', 'g', ' ', 'e', 'l', 'i', 't', 'r', ',', ' ', 's', 'e', 'd', ' ', 'd', 'i', 'a', 'm', ' ', 'n', 'o', 'n', 'u', 'm', 'y', ' ', 'e', 'i', 'r', 'm', 'o', 'd', ' ', 't', 'e', 'm', 'p', 'o', 'r', ' ', 'i', 'n', 'v', 'i', 'd', 'u', 'n', 't', ' ', 'u', 't', ' ', 'l', 'a', 'b', 'o', 'r', 'e', ' ', 'e', 't', ' ', 'd', 'o', 'l', 'o', 'r', 'e', ' ', 'm', 'a', 'g', 'n', 'a', ' ', 'a', 'l', 'i', 'q', 'u', 'y', 'a', 'm', ' ', 'e', 'r', 'a', 't', ',', ' ', 's', 'e', 'd', ' ', 'd', 'i', 'a', 'm', ' ', 'v', 'o', 'l', 'u', 'p', 't', 'u', 'a', '.', ' ', 'A', 't', ' ', 'v', 'e', 'r', 'o', ' ', 'e', 'o', 's', ' ', 'e', 't', ' ', 'a', 'c', 'c', 'u', 's', 'a', 'm', ' ', 'e', 't', ' ', 'j', 'u', 's', 't', 'o', ' ', 'd', 'u', 'o', ' '], ['d', 'o', 'l', 'o', 'r', 'e', 's', ' ', 'e', 't', ' ', 'e', 'a', ' ', 'r', 'e', 'b', 'u', 'm', '.', ' ', 'S', 't', 'e', 't', ' ', 'c', 'l', 'i', 't', 'a', ' ', 'k', 'a', 's', 'd', ' ', 'g', 'u', 'b', 'e', 'r', 'g', 'r', 'e', 'n', ',', ' ', 'n', 'o', ' ', 's', 'e', 'a', ' ', 't', 'a', 'k', 'i', 'm', 'a', 't', 'a', ' ', 's', 'a', 'n', 'c', 't', 'u', 's', ' ', 'e', 's', 't', ' ', 'L', 'o', 'r', 'e', 'm', ' ', 'i', 'p', 's', 'u', 'm', ' ', 'd', 'o', 'l', 'o', 'r', ' ', 's', 'i', 't', ' ', 'a', 'm', 'e', 't', '.']]
-[01:11:53] [DEBUG   ] self.maxx:193, textx:192, texty:2 textwin_xy = s_win_xy(nlines=4, ncols=194, begin_y=0, begin_x=0)
-[01:11:53] [DEBUG   ] Created subwindows
-[01:11:54] [INFO    ] Got keycode 76, L
-[01:11:54] [INFO    ] appending L to typed
-[01:11:54] [DEBUG   ] Registered correct key L
-[01:11:55] [INFO    ] Got keycode 111, o
-[01:11:55] [INFO    ] appending o to typed
-[01:11:55] [DEBUG   ] Registered correct key o
-[01:11:55] [INFO    ] Got keycode 114, r
-[01:11:55] [INFO    ] appending r to typed
-[01:11:55] [DEBUG   ] Registered correct key r
-[01:11:55] [INFO    ] Got keycode 101, e
-[01:11:55] [INFO    ] appending e to typed
-[01:11:55] [DEBUG   ] Registered correct key e
-[01:11:55] [INFO    ] Got keycode 109, m
-[01:11:55] [INFO    ] appending m to typed
-[01:11:55] [DEBUG   ] Registered correct key m
-[01:11:55] [INFO    ] Got keycode 32,  
-[01:11:55] [INFO    ] appending   to typed
-[01:11:55] [DEBUG   ] Registered correct key  
-[01:11:55] [INFO    ] Got keycode 105, i
-[01:11:55] [INFO    ] appending i to typed
-[01:11:55] [DEBUG   ] Registered correct key i
-[01:11:56] [INFO    ] Got keycode 112, p
-[01:11:56] [INFO    ] appending p to typed
-[01:11:56] [DEBUG   ] Registered correct key p
-[01:11:56] [INFO    ] Got keycode 115, s
-[01:11:56] [INFO    ] appending s to typed
-[01:11:56] [DEBUG   ] Registered correct key s
-[01:11:56] [INFO    ] Got keycode 117, u
-[01:11:56] [INFO    ] appending u to typed
-[01:11:56] [DEBUG   ] Registered correct key u
-[01:11:56] [INFO    ] Got keycode 109, m
-[01:11:56] [INFO    ] appending m to typed
-[01:11:56] [DEBUG   ] Registered correct key m
-[01:11:57] [INFO    ] Got keycode 32,  
-[01:11:57] [INFO    ] appending   to typed
-[01:11:57] [DEBUG   ] Registered correct key  
-[01:11:57] [INFO    ] Got keycode 100, d
-[01:11:57] [INFO    ] appending d to typed
-[01:11:57] [DEBUG   ] Registered correct key d
-[01:11:57] [INFO    ] Got keycode 111, o
-[01:11:57] [INFO    ] appending o to typed
-[01:11:57] [DEBUG   ] Registered correct key o
-[01:11:57] [INFO    ] Got keycode 108, l
-[01:11:57] [INFO    ] appending l to typed
-[01:11:57] [DEBUG   ] Registered correct key l
-[01:11:57] [INFO    ] Got keycode 111, o
-[01:11:57] [INFO    ] appending o to typed
-[01:11:57] [DEBUG   ] Registered correct key o
-[01:11:57] [INFO    ] Got keycode 114, r
-[01:11:57] [INFO    ] appending r to typed
-[01:11:57] [DEBUG   ] Registered correct key r
-[01:11:58] [INFO    ] Got keycode 32,  
-[01:11:58] [INFO    ] appending   to typed
-[01:11:58] [DEBUG   ] Registered correct key  
-[01:11:58] [INFO    ] Got keycode 115, s
-[01:11:58] [INFO    ] appending s to typed
-[01:11:58] [DEBUG   ] Registered correct key s
-[01:11:58] [INFO    ] Got keycode 105, i
-[01:11:58] [INFO    ] appending i to typed
-[01:11:58] [DEBUG   ] Registered correct key i
-[01:11:58] [INFO    ] Got keycode 116, t
-[01:11:58] [INFO    ] appending t to typed
-[01:11:58] [DEBUG   ] Registered correct key t
-[01:11:58] [INFO    ] Got keycode 97, a
-[01:11:58] [INFO    ] appending a to typed
-[01:11:58] [DEBUG   ] Registered wrong key a
-[01:11:58] [INFO    ] Got keycode 32,  
-[01:11:58] [INFO    ] appending   to typed
-[01:11:58] [DEBUG   ] Registered wrong key  
-[01:11:59] [INFO    ] Got keycode 263, 263
-[01:12:00] [INFO    ] Got keycode 97, a
-[01:12:00] [INFO    ] appending a to typed
-[01:12:00] [DEBUG   ] Registered correct key a
-[01:12:00] [INFO    ] Got keycode 109, m
-[01:12:00] [INFO    ] appending m to typed
-[01:12:00] [DEBUG   ] Registered correct key m
-[01:12:00] [INFO    ] Got keycode 101, e
-[01:12:00] [INFO    ] appending e to typed
-[01:12:00] [DEBUG   ] Registered correct key e
-[01:12:00] [INFO    ] Got keycode 116, t
-[01:12:00] [INFO    ] appending t to typed
-[01:12:00] [DEBUG   ] Registered correct key t
-[01:12:01] [INFO    ] Got keycode 44, ,
-[01:12:01] [INFO    ] appending , to typed
-[01:12:01] [DEBUG   ] Registered correct key ,
-[01:12:01] [INFO    ] Got keycode 32,  
-[01:12:01] [INFO    ] appending   to typed
-[01:12:01] [DEBUG   ] Registered correct key  
-[01:12:01] [INFO    ] Got keycode 115, s
-[01:12:01] [INFO    ] appending s to typed
-[01:12:01] [DEBUG   ] Registered wrong key s
-[01:12:02] [INFO    ] Got keycode 263, 263
-[01:12:02] [INFO    ] Got keycode 99, c
-[01:12:02] [INFO    ] appending c to typed
-[01:12:02] [DEBUG   ] Registered correct key c
-[01:12:02] [INFO    ] Got keycode 111, o
-[01:12:02] [INFO    ] appending o to typed
-[01:12:02] [DEBUG   ] Registered correct key o
-[01:12:02] [INFO    ] Got keycode 110, n
-[01:12:02] [INFO    ] appending n to typed
-[01:12:02] [DEBUG   ] Registered correct key n
-[01:12:03] [INFO    ] Got keycode 115, s
-[01:12:03] [INFO    ] appending s to typed
-[01:12:03] [DEBUG   ] Registered correct key s
-[01:12:03] [INFO    ] Got keycode 101, e
-[01:12:03] [INFO    ] appending e to typed
-[01:12:03] [DEBUG   ] Registered correct key e
-[01:12:03] [INFO    ] Got keycode 116, t
-[01:12:03] [INFO    ] appending t to typed
-[01:12:03] [DEBUG   ] Registered correct key t
-[01:12:03] [INFO    ] Got keycode 101, e
-[01:12:03] [INFO    ] appending e to typed
-[01:12:03] [DEBUG   ] Registered correct key e
-[01:12:04] [INFO    ] Got keycode 116, t
-[01:12:04] [INFO    ] appending t to typed
-[01:12:04] [DEBUG   ] Registered correct key t
-[01:12:04] [INFO    ] Got keycode 117, u
-[01:12:04] [INFO    ] appending u to typed
-[01:12:04] [DEBUG   ] Registered correct key u
-[01:12:04] [INFO    ] Got keycode 114, r
-[01:12:04] [INFO    ] appending r to typed
-[01:12:04] [DEBUG   ] Registered correct key r
-[01:12:04] [INFO    ] Got keycode 32,  
-[01:12:04] [INFO    ] appending   to typed
-[01:12:04] [DEBUG   ] Registered correct key  
-[01:12:05] [INFO    ] Got keycode 115, s
-[01:12:05] [INFO    ] appending s to typed
-[01:12:05] [DEBUG   ] Registered correct key s
-[01:12:05] [INFO    ] Got keycode 97, a
-[01:12:05] [INFO    ] appending a to typed
-[01:12:05] [DEBUG   ] Registered correct key a
-[01:12:05] [INFO    ] Got keycode 100, d
-[01:12:05] [INFO    ] appending d to typed
-[01:12:05] [DEBUG   ] Registered correct key d
-[01:12:05] [INFO    ] Got keycode 105, i
-[01:12:05] [INFO    ] appending i to typed
-[01:12:05] [DEBUG   ] Registered correct key i
-[01:12:06] [INFO    ] Got keycode 112, p
-[01:12:06] [INFO    ] appending p to typed
-[01:12:06] [DEBUG   ] Registered correct key p
-[01:12:07] [INFO    ] Got keycode 115, s
-[01:12:07] [INFO    ] appending s to typed
-[01:12:07] [DEBUG   ] Registered correct key s
-[01:12:07] [INFO    ] Got keycode 99, c
-[01:12:07] [INFO    ] appending c to typed
-[01:12:07] [DEBUG   ] Registered correct key c
-[01:12:07] [INFO    ] Got keycode 105, i
-[01:12:07] [INFO    ] appending i to typed
-[01:12:07] [DEBUG   ] Registered correct key i
-[01:12:08] [INFO    ] Got keycode 110, n
-[01:12:08] [INFO    ] appending n to typed
-[01:12:08] [DEBUG   ] Registered correct key n
-[01:12:08] [INFO    ] Got keycode 103, g
-[01:12:08] [INFO    ] appending g to typed
-[01:12:08] [DEBUG   ] Registered correct key g
-[01:12:08] [INFO    ] Got keycode 32,  
-[01:12:08] [INFO    ] appending   to typed
-[01:12:08] [DEBUG   ] Registered correct key  
-[01:12:08] [INFO    ] Got keycode 101, e
-[01:12:08] [INFO    ] appending e to typed
-[01:12:08] [DEBUG   ] Registered correct key e
-[01:12:08] [INFO    ] Got keycode 108, l
-[01:12:08] [INFO    ] appending l to typed
-[01:12:08] [DEBUG   ] Registered correct key l
-[01:12:08] [INFO    ] Got keycode 105, i
-[01:12:08] [INFO    ] appending i to typed
-[01:12:08] [DEBUG   ] Registered correct key i
-[01:12:09] [INFO    ] Got keycode 116, t
-[01:12:09] [INFO    ] appending t to typed
-[01:12:09] [DEBUG   ] Registered correct key t
-[01:12:09] [INFO    ] Got keycode 114, r
-[01:12:09] [INFO    ] appending r to typed
-[01:12:09] [DEBUG   ] Registered correct key r
-[01:12:09] [INFO    ] Got keycode 44, ,
-[01:12:09] [INFO    ] appending , to typed
-[01:12:09] [DEBUG   ] Registered correct key ,
-[01:12:10] [INFO    ] Got keycode 32,  
-[01:12:10] [INFO    ] appending   to typed
-[01:12:10] [DEBUG   ] Registered correct key  
-[01:12:10] [INFO    ] Got keycode 115, s
-[01:12:10] [INFO    ] appending s to typed
-[01:12:10] [DEBUG   ] Registered correct key s
-[01:12:10] [INFO    ] Got keycode 101, e
-[01:12:10] [INFO    ] appending e to typed
-[01:12:10] [DEBUG   ] Registered correct key e
-[01:12:10] [INFO    ] Got keycode 100, d
-[01:12:10] [INFO    ] appending d to typed
-[01:12:10] [DEBUG   ] Registered correct key d
-[01:12:10] [INFO    ] Got keycode 32,  
-[01:12:10] [INFO    ] appending   to typed
-[01:12:10] [DEBUG   ] Registered correct key  
-[01:12:11] [INFO    ] Got keycode 100, d
-[01:12:11] [INFO    ] appending d to typed
-[01:12:11] [DEBUG   ] Registered correct key d
-[01:12:11] [INFO    ] Got keycode 105, i
-[01:12:11] [INFO    ] appending i to typed
-[01:12:11] [DEBUG   ] Registered correct key i
-[01:12:11] [INFO    ] Got keycode 97, a
-[01:12:11] [INFO    ] appending a to typed
-[01:12:11] [DEBUG   ] Registered correct key a
-[01:12:11] [INFO    ] Got keycode 109, m
-[01:12:11] [INFO    ] appending m to typed
-[01:12:11] [DEBUG   ] Registered correct key m
-[01:12:11] [INFO    ] Got keycode 32,  
-[01:12:11] [INFO    ] appending   to typed
-[01:12:11] [DEBUG   ] Registered correct key  
-[01:12:11] [INFO    ] Got keycode 110, n
-[01:12:11] [INFO    ] appending n to typed
-[01:12:11] [DEBUG   ] Registered correct key n
-[01:12:12] [INFO    ] Got keycode 117, u
-[01:12:12] [INFO    ] appending u to typed
-[01:12:12] [DEBUG   ] Registered wrong key u
-[01:12:12] [INFO    ] Got keycode 263, 263
-[01:12:13] [INFO    ] Got keycode 111, o
-[01:12:13] [INFO    ] appending o to typed
-[01:12:13] [DEBUG   ] Registered correct key o
-[01:12:13] [INFO    ] Got keycode 110, n
-[01:12:13] [INFO    ] appending n to typed
-[01:12:13] [DEBUG   ] Registered correct key n
-[01:12:13] [INFO    ] Got keycode 117, u
-[01:12:13] [INFO    ] appending u to typed
-[01:12:13] [DEBUG   ] Registered correct key u
-[01:12:14] [INFO    ] Got keycode 109, m
-[01:12:14] [INFO    ] appending m to typed
-[01:12:14] [DEBUG   ] Registered correct key m
-[01:12:14] [INFO    ] Got keycode 121, y
-[01:12:14] [INFO    ] appending y to typed
-[01:12:14] [DEBUG   ] Registered correct key y
-[01:12:14] [INFO    ] Got keycode 32,  
-[01:12:14] [INFO    ] appending   to typed
-[01:12:14] [DEBUG   ] Registered correct key  
-[01:12:14] [INFO    ] Got keycode 101, e
-[01:12:14] [INFO    ] appending e to typed
-[01:12:14] [DEBUG   ] Registered correct key e
-[01:12:15] [INFO    ] Got keycode 105, i
-[01:12:15] [INFO    ] appending i to typed
-[01:12:15] [DEBUG   ] Registered correct key i
-[01:12:15] [INFO    ] Got keycode 114, r
-[01:12:15] [INFO    ] appending r to typed
-[01:12:15] [DEBUG   ] Registered correct key r
-[01:12:15] [INFO    ] Got keycode 109, m
-[01:12:15] [INFO    ] appending m to typed
-[01:12:15] [DEBUG   ] Registered correct key m
-[01:12:15] [INFO    ] Got keycode 111, o
-[01:12:15] [INFO    ] appending o to typed
-[01:12:15] [DEBUG   ] Registered correct key o
-[01:12:15] [INFO    ] Got keycode 100, d
-[01:12:15] [INFO    ] appending d to typed
-[01:12:15] [DEBUG   ] Registered correct key d
-[01:12:15] [INFO    ] Got keycode 32,  
-[01:12:15] [INFO    ] appending   to typed
-[01:12:15] [DEBUG   ] Registered correct key  
-[01:12:16] [INFO    ] Got keycode 116, t
-[01:12:16] [INFO    ] appending t to typed
-[01:12:16] [DEBUG   ] Registered correct key t
-[01:12:16] [INFO    ] Got keycode 101, e
-[01:12:16] [INFO    ] appending e to typed
-[01:12:16] [DEBUG   ] Registered correct key e
-[01:12:16] [INFO    ] Got keycode 109, m
-[01:12:16] [INFO    ] appending m to typed
-[01:12:16] [DEBUG   ] Registered correct key m
-[01:12:16] [INFO    ] Got keycode 112, p
-[01:12:16] [INFO    ] appending p to typed
-[01:12:16] [DEBUG   ] Registered correct key p
-[01:12:17] [INFO    ] Got keycode 111, o
-[01:12:17] [INFO    ] appending o to typed
-[01:12:17] [DEBUG   ] Registered correct key o
-[01:12:17] [INFO    ] Got keycode 114, r
-[01:12:17] [INFO    ] appending r to typed
-[01:12:17] [DEBUG   ] Registered correct key r
-[01:12:17] [INFO    ] Got keycode 32,  
-[01:12:17] [INFO    ] appending   to typed
-[01:12:17] [DEBUG   ] Registered correct key  
-[01:12:18] [INFO    ] Got keycode 105, i
-[01:12:18] [INFO    ] appending i to typed
-[01:12:18] [DEBUG   ] Registered correct key i
-[01:12:18] [INFO    ] Got keycode 110, n
-[01:12:18] [INFO    ] appending n to typed
-[01:12:18] [DEBUG   ] Registered correct key n
-[01:12:18] [INFO    ] Got keycode 118, v
-[01:12:18] [INFO    ] appending v to typed
-[01:12:18] [DEBUG   ] Registered correct key v
-[01:12:18] [INFO    ] Got keycode 105, i
-[01:12:18] [INFO    ] appending i to typed
-[01:12:18] [DEBUG   ] Registered correct key i
-[01:12:18] [INFO    ] Got keycode 100, d
-[01:12:18] [INFO    ] appending d to typed
-[01:12:18] [DEBUG   ] Registered correct key d
-[01:12:19] [INFO    ] Got keycode 117, u
-[01:12:19] [INFO    ] appending u to typed
-[01:12:19] [DEBUG   ] Registered correct key u
-[01:12:19] [INFO    ] Got keycode 110, n
-[01:12:19] [INFO    ] appending n to typed
-[01:12:19] [DEBUG   ] Registered correct key n
-[01:12:19] [INFO    ] Got keycode 116, t
-[01:12:19] [INFO    ] appending t to typed
-[01:12:19] [DEBUG   ] Registered correct key t
-[01:12:19] [INFO    ] Got keycode 32,  
-[01:12:19] [INFO    ] appending   to typed
-[01:12:19] [DEBUG   ] Registered correct key  
-[01:12:20] [INFO    ] Got keycode 117, u
-[01:12:20] [INFO    ] appending u to typed
-[01:12:20] [DEBUG   ] Registered correct key u
-[01:12:20] [INFO    ] Got keycode 116, t
-[01:12:20] [INFO    ] appending t to typed
-[01:12:20] [DEBUG   ] Registered correct key t
-[01:12:20] [INFO    ] Got keycode 32,  
-[01:12:20] [INFO    ] appending   to typed
-[01:12:20] [DEBUG   ] Registered correct key  
-[01:12:20] [INFO    ] Got keycode 108, l
-[01:12:20] [INFO    ] appending l to typed
-[01:12:20] [DEBUG   ] Registered correct key l
-[01:12:20] [INFO    ] Got keycode 97, a
-[01:12:20] [INFO    ] appending a to typed
-[01:12:20] [DEBUG   ] Registered correct key a
-[01:12:21] [INFO    ] Got keycode 98, b
-[01:12:21] [INFO    ] appending b to typed
-[01:12:21] [DEBUG   ] Registered correct key b
-[01:12:21] [INFO    ] Got keycode 111, o
-[01:12:21] [INFO    ] appending o to typed
-[01:12:21] [DEBUG   ] Registered correct key o
-[01:12:21] [INFO    ] Got keycode 114, r
-[01:12:21] [INFO    ] appending r to typed
-[01:12:21] [DEBUG   ] Registered correct key r
-[01:12:21] [INFO    ] Got keycode 101, e
-[01:12:21] [INFO    ] appending e to typed
-[01:12:21] [DEBUG   ] Registered correct key e
-[01:12:21] [INFO    ] Got keycode 32,  
-[01:12:21] [INFO    ] appending   to typed
-[01:12:21] [DEBUG   ] Registered correct key  
-[01:12:22] [INFO    ] Got keycode 101, e
-[01:12:22] [INFO    ] appending e to typed
-[01:12:22] [DEBUG   ] Registered correct key e
-[01:12:22] [INFO    ] Got keycode 116, t
-[01:12:22] [INFO    ] appending t to typed
-[01:12:22] [DEBUG   ] Registered correct key t
-[01:12:22] [INFO    ] Got keycode 32,  
-[01:12:22] [INFO    ] appending   to typed
-[01:12:22] [DEBUG   ] Registered correct key  
-[01:12:22] [INFO    ] Got keycode 100, d
-[01:12:22] [INFO    ] appending d to typed
-[01:12:22] [DEBUG   ] Registered correct key d
-[01:12:22] [INFO    ] Got keycode 111, o
-[01:12:22] [INFO    ] appending o to typed
-[01:12:22] [DEBUG   ] Registered correct key o
-[01:12:23] [INFO    ] Got keycode 108, l
-[01:12:23] [INFO    ] appending l to typed
-[01:12:23] [DEBUG   ] Registered correct key l
-[01:12:23] [INFO    ] Got keycode 111, o
-[01:12:23] [INFO    ] appending o to typed
-[01:12:23] [DEBUG   ] Registered correct key o
-[01:12:23] [INFO    ] Got keycode 114, r
-[01:12:23] [INFO    ] appending r to typed
-[01:12:23] [DEBUG   ] Registered correct key r
-[01:12:23] [INFO    ] Got keycode 101, e
-[01:12:23] [INFO    ] appending e to typed
-[01:12:23] [DEBUG   ] Registered correct key e
-[01:12:23] [INFO    ] Got keycode 32,  
-[01:12:23] [INFO    ] appending   to typed
-[01:12:23] [DEBUG   ] Registered correct key  
-[01:12:24] [INFO    ] Got keycode 97, a
-[01:12:24] [INFO    ] appending a to typed
-[01:12:24] [DEBUG   ] Registered wrong key a
-[01:12:24] [INFO    ] Got keycode 109, m
-[01:12:24] [INFO    ] appending m to typed
-[01:12:24] [DEBUG   ] Registered wrong key m
-[01:12:24] [INFO    ] Got keycode 263, 263
-[01:12:24] [INFO    ] Got keycode 263, 263
-[01:12:25] [INFO    ] Got keycode 109, m
-[01:12:25] [INFO    ] appending m to typed
-[01:12:25] [DEBUG   ] Registered correct key m
-[01:12:25] [INFO    ] Got keycode 97, a
-[01:12:25] [INFO    ] appending a to typed
-[01:12:25] [DEBUG   ] Registered correct key a
-[01:12:25] [INFO    ] Got keycode 103, g
-[01:12:25] [INFO    ] appending g to typed
-[01:12:25] [DEBUG   ] Registered correct key g
-[01:12:25] [INFO    ] Got keycode 110, n
-[01:12:25] [INFO    ] appending n to typed
-[01:12:25] [DEBUG   ] Registered correct key n
-[01:12:25] [INFO    ] Got keycode 97, a
-[01:12:25] [INFO    ] appending a to typed
-[01:12:25] [DEBUG   ] Registered correct key a
-[01:12:26] [INFO    ] Got keycode 32,  
-[01:12:26] [INFO    ] appending   to typed
-[01:12:26] [DEBUG   ] Registered correct key  
-[01:12:26] [INFO    ] Got keycode 97, a
-[01:12:26] [INFO    ] appending a to typed
-[01:12:26] [DEBUG   ] Registered correct key a
-[01:12:26] [INFO    ] Got keycode 108, l
-[01:12:26] [INFO    ] appending l to typed
-[01:12:26] [DEBUG   ] Registered correct key l
-[01:12:26] [INFO    ] Got keycode 105, i
-[01:12:26] [INFO    ] appending i to typed
-[01:12:26] [DEBUG   ] Registered correct key i
-[01:12:27] [INFO    ] Got keycode 113, q
-[01:12:27] [INFO    ] appending q to typed
-[01:12:27] [DEBUG   ] Registered correct key q
-[01:12:27] [INFO    ] Got keycode 117, u
-[01:12:27] [INFO    ] appending u to typed
-[01:12:27] [DEBUG   ] Registered correct key u
-[01:12:27] [INFO    ] Got keycode 121, y
-[01:12:27] [INFO    ] appending y to typed
-[01:12:27] [DEBUG   ] Registered correct key y
-[01:12:27] [INFO    ] Got keycode 97, a
-[01:12:27] [INFO    ] appending a to typed
-[01:12:27] [DEBUG   ] Registered correct key a
-[01:12:28] [INFO    ] Got keycode 109, m
-[01:12:28] [INFO    ] appending m to typed
-[01:12:28] [DEBUG   ] Registered correct key m
-[01:12:28] [INFO    ] Got keycode 32,  
-[01:12:28] [INFO    ] appending   to typed
-[01:12:28] [DEBUG   ] Registered correct key  
-[01:12:28] [INFO    ] Got keycode 101, e
-[01:12:28] [INFO    ] appending e to typed
-[01:12:28] [DEBUG   ] Registered correct key e
-[01:12:28] [INFO    ] Got keycode 114, r
-[01:12:28] [INFO    ] appending r to typed
-[01:12:28] [DEBUG   ] Registered correct key r
-[01:12:28] [INFO    ] Got keycode 97, a
-[01:12:28] [INFO    ] appending a to typed
-[01:12:28] [DEBUG   ] Registered correct key a
-[01:12:28] [INFO    ] Got keycode 116, t
-[01:12:28] [INFO    ] appending t to typed
-[01:12:28] [DEBUG   ] Registered correct key t
-[01:12:29] [INFO    ] Got keycode 44, ,
-[01:12:29] [INFO    ] appending , to typed
-[01:12:29] [DEBUG   ] Registered correct key ,
-[01:12:29] [INFO    ] Got keycode 32,  
-[01:12:29] [INFO    ] appending   to typed
-[01:12:29] [DEBUG   ] Registered correct key  
-[01:12:29] [INFO    ] Got keycode 115, s
-[01:12:29] [INFO    ] appending s to typed
-[01:12:29] [DEBUG   ] Registered correct key s
-[01:12:29] [INFO    ] Got keycode 101, e
-[01:12:29] [INFO    ] appending e to typed
-[01:12:29] [DEBUG   ] Registered correct key e
-[01:12:30] [INFO    ] Got keycode 100, d
-[01:12:30] [INFO    ] appending d to typed
-[01:12:30] [DEBUG   ] Registered correct key d
-[01:12:30] [INFO    ] Got keycode 32,  
-[01:12:30] [INFO    ] appending   to typed
-[01:12:30] [DEBUG   ] Registered correct key  
-[01:12:30] [INFO    ] Got keycode 100, d
-[01:12:30] [INFO    ] appending d to typed
-[01:12:30] [DEBUG   ] Registered correct key d
-[01:12:30] [INFO    ] Got keycode 105, i
-[01:12:30] [INFO    ] appending i to typed
-[01:12:30] [DEBUG   ] Registered correct key i
-[01:12:30] [INFO    ] Got keycode 97, a
-[01:12:30] [INFO    ] appending a to typed
-[01:12:30] [DEBUG   ] Registered correct key a
-[01:12:31] [INFO    ] Got keycode 109, m
-[01:12:31] [INFO    ] appending m to typed
-[01:12:31] [DEBUG   ] Registered correct key m
-[01:12:31] [INFO    ] Got keycode 32,  
-[01:12:31] [INFO    ] appending   to typed
-[01:12:31] [DEBUG   ] Registered correct key  
-[01:12:31] [INFO    ] Got keycode 97, a
-[01:12:31] [INFO    ] appending a to typed
-[01:12:31] [DEBUG   ] Registered wrong key a
-[01:12:31] [INFO    ] Got keycode 263, 263
-[01:12:31] [INFO    ] Got keycode 118, v
-[01:12:31] [INFO    ] appending v to typed
-[01:12:31] [DEBUG   ] Registered correct key v
-[01:12:32] [INFO    ] Got keycode 111, o
-[01:12:32] [INFO    ] appending o to typed
-[01:12:32] [DEBUG   ] Registered correct key o
-[01:12:32] [INFO    ] Got keycode 108, l
-[01:12:32] [INFO    ] appending l to typed
-[01:12:32] [DEBUG   ] Registered correct key l
-[01:12:32] [INFO    ] Got keycode 117, u
-[01:12:32] [INFO    ] appending u to typed
-[01:12:32] [DEBUG   ] Registered correct key u
-[01:12:32] [INFO    ] Got keycode 112, p
-[01:12:32] [INFO    ] appending p to typed
-[01:12:32] [DEBUG   ] Registered correct key p
-[01:12:33] [INFO    ] Got keycode 116, t
-[01:12:33] [INFO    ] appending t to typed
-[01:12:33] [DEBUG   ] Registered correct key t
-[01:12:33] [INFO    ] Got keycode 117, u
-[01:12:33] [INFO    ] appending u to typed
-[01:12:33] [DEBUG   ] Registered correct key u
-[01:12:33] [INFO    ] Got keycode 97, a
-[01:12:33] [INFO    ] appending a to typed
-[01:12:33] [DEBUG   ] Registered correct key a
-[01:12:33] [INFO    ] Got keycode 46, .
-[01:12:33] [INFO    ] appending . to typed
-[01:12:33] [DEBUG   ] Registered correct key .
-[01:12:34] [INFO    ] Got keycode 32,  
-[01:12:34] [INFO    ] appending   to typed
-[01:12:34] [DEBUG   ] Registered correct key  
-[01:12:34] [INFO    ] Got keycode 65, A
-[01:12:34] [INFO    ] appending A to typed
-[01:12:34] [DEBUG   ] Registered correct key A
-[01:12:34] [INFO    ] Got keycode 116, t
-[01:12:34] [INFO    ] appending t to typed
-[01:12:34] [DEBUG   ] Registered correct key t
-[01:12:34] [INFO    ] Got keycode 32,  
-[01:12:34] [INFO    ] appending   to typed
-[01:12:34] [DEBUG   ] Registered correct key  
-[01:12:35] [INFO    ] Got keycode 118, v
-[01:12:35] [INFO    ] appending v to typed
-[01:12:35] [DEBUG   ] Registered correct key v
-[01:12:35] [INFO    ] Got keycode 101, e
-[01:12:35] [INFO    ] appending e to typed
-[01:12:35] [DEBUG   ] Registered correct key e
-[01:12:35] [INFO    ] Got keycode 114, r
-[01:12:35] [INFO    ] appending r to typed
-[01:12:35] [DEBUG   ] Registered correct key r
-[01:12:36] [INFO    ] Got keycode 111, o
-[01:12:36] [INFO    ] appending o to typed
-[01:12:36] [DEBUG   ] Registered correct key o
-[01:12:36] [INFO    ] Got keycode 32,  
-[01:12:36] [INFO    ] appending   to typed
-[01:12:36] [DEBUG   ] Registered correct key  
-[01:12:36] [INFO    ] Got keycode 101, e
-[01:12:36] [INFO    ] appending e to typed
-[01:12:36] [DEBUG   ] Registered correct key e
-[01:12:37] [INFO    ] Got keycode 111, o
-[01:12:37] [INFO    ] appending o to typed
-[01:12:37] [DEBUG   ] Registered correct key o
-[01:12:37] [INFO    ] Got keycode 32,  
-[01:12:37] [INFO    ] appending   to typed
-[01:12:37] [DEBUG   ] Registered wrong key  
-[01:12:38] [INFO    ] Got keycode 263, 263
-[01:12:38] [INFO    ] Got keycode 115, s
-[01:12:38] [INFO    ] appending s to typed
-[01:12:38] [DEBUG   ] Registered correct key s
-[01:12:38] [INFO    ] Got keycode 32,  
-[01:12:38] [INFO    ] appending   to typed
-[01:12:38] [DEBUG   ] Registered correct key  
-[01:12:38] [INFO    ] Got keycode 101, e
-[01:12:38] [INFO    ] appending e to typed
-[01:12:38] [DEBUG   ] Registered correct key e
-[01:12:38] [INFO    ] Got keycode 116, t
-[01:12:38] [INFO    ] appending t to typed
-[01:12:38] [DEBUG   ] Registered correct key t
-[01:12:39] [INFO    ] Got keycode 32,  
-[01:12:39] [INFO    ] appending   to typed
-[01:12:39] [DEBUG   ] Registered correct key  
-[01:12:39] [INFO    ] Got keycode 97, a
-[01:12:39] [INFO    ] appending a to typed
-[01:12:39] [DEBUG   ] Registered correct key a
-[01:12:39] [INFO    ] Got keycode 99, c
-[01:12:39] [INFO    ] appending c to typed
-[01:12:39] [DEBUG   ] Registered correct key c
-[01:12:39] [INFO    ] Got keycode 99, c
-[01:12:39] [INFO    ] appending c to typed
-[01:12:39] [DEBUG   ] Registered correct key c
-[01:12:40] [INFO    ] Got keycode 117, u
-[01:12:40] [INFO    ] appending u to typed
-[01:12:40] [DEBUG   ] Registered correct key u
-[01:12:40] [INFO    ] Got keycode 115, s
-[01:12:40] [INFO    ] appending s to typed
-[01:12:40] [DEBUG   ] Registered correct key s
-[01:12:40] [INFO    ] Got keycode 97, a
-[01:12:40] [INFO    ] appending a to typed
-[01:12:40] [DEBUG   ] Registered correct key a
-[01:12:41] [INFO    ] Got keycode 109, m
-[01:12:41] [INFO    ] appending m to typed
-[01:12:41] [DEBUG   ] Registered correct key m
-[01:12:41] [INFO    ] Got keycode 32,  
-[01:12:41] [INFO    ] appending   to typed
-[01:12:41] [DEBUG   ] Registered correct key  
-[01:12:41] [INFO    ] Got keycode 32,  
-[01:12:41] [INFO    ] appending   to typed
-[01:12:41] [DEBUG   ] Registered wrong key  
-[01:12:41] [INFO    ] Got keycode 263, 263
-[01:12:42] [INFO    ] Got keycode 101, e
-[01:12:42] [INFO    ] appending e to typed
-[01:12:42] [DEBUG   ] Registered correct key e
-[01:12:42] [INFO    ] Got keycode 116, t
-[01:12:42] [INFO    ] appending t to typed
-[01:12:42] [DEBUG   ] Registered correct key t
-[01:12:42] [INFO    ] Got keycode 32,  
-[01:12:42] [INFO    ] appending   to typed
-[01:12:42] [DEBUG   ] Registered correct key  
-[01:12:42] [INFO    ] Got keycode 106, j
-[01:12:42] [INFO    ] appending j to typed
-[01:12:42] [DEBUG   ] Registered correct key j
-[01:12:43] [INFO    ] Got keycode 117, u
-[01:12:43] [INFO    ] appending u to typed
-[01:12:43] [DEBUG   ] Registered correct key u
-[01:12:43] [INFO    ] Got keycode 115, s
-[01:12:43] [INFO    ] appending s to typed
-[01:12:43] [DEBUG   ] Registered correct key s
-[01:12:43] [INFO    ] Got keycode 116, t
-[01:12:43] [INFO    ] appending t to typed
-[01:12:43] [DEBUG   ] Registered correct key t
-[01:12:43] [INFO    ] Got keycode 111, o
-[01:12:43] [INFO    ] appending o to typed
-[01:12:43] [DEBUG   ] Registered correct key o
-[01:12:44] [INFO    ] Got keycode 32,  
-[01:12:44] [INFO    ] appending   to typed
-[01:12:44] [DEBUG   ] Registered correct key  
-[01:12:44] [INFO    ] Got keycode 100, d
-[01:12:44] [INFO    ] appending d to typed
-[01:12:44] [DEBUG   ] Registered correct key d
-[01:12:44] [INFO    ] Got keycode 117, u
-[01:12:44] [INFO    ] appending u to typed
-[01:12:44] [DEBUG   ] Registered correct key u
-[01:12:44] [INFO    ] Got keycode 111, o
-[01:12:44] [INFO    ] appending o to typed
-[01:12:44] [DEBUG   ] Registered correct key o
-[01:12:45] [INFO    ] Got keycode 32,  
-[01:12:45] [INFO    ] appending   to typed
-[01:12:45] [DEBUG   ] Registered correct key  
-[01:12:45] [INFO    ] Got keycode 100, d
-[01:12:45] [INFO    ] appending d to typed
-[01:12:45] [DEBUG   ] Registered correct key d
-[01:12:46] [INFO    ] Got keycode 111, o
-[01:12:46] [INFO    ] appending o to typed
-[01:12:46] [DEBUG   ] Registered correct key o
-[01:12:46] [INFO    ] Got keycode 108, l
-[01:12:46] [INFO    ] appending l to typed
-[01:12:46] [DEBUG   ] Registered correct key l
-[01:12:46] [INFO    ] Got keycode 111, o
-[01:12:46] [INFO    ] appending o to typed
-[01:12:46] [DEBUG   ] Registered correct key o
-[01:12:46] [INFO    ] Got keycode 114, r
-[01:12:46] [INFO    ] appending r to typed
-[01:12:46] [DEBUG   ] Registered correct key r
-[01:12:46] [INFO    ] Got keycode 101, e
-[01:12:46] [INFO    ] appending e to typed
-[01:12:46] [DEBUG   ] Registered correct key e
-[01:12:47] [INFO    ] Got keycode 115, s
-[01:12:47] [INFO    ] appending s to typed
-[01:12:47] [DEBUG   ] Registered correct key s
-[01:12:47] [INFO    ] Got keycode 32,  
-[01:12:47] [INFO    ] appending   to typed
-[01:12:47] [DEBUG   ] Registered correct key  
-[01:12:47] [INFO    ] Got keycode 101, e
-[01:12:47] [INFO    ] appending e to typed
-[01:12:47] [DEBUG   ] Registered correct key e
-[01:12:47] [INFO    ] Got keycode 116, t
-[01:12:47] [INFO    ] appending t to typed
-[01:12:47] [DEBUG   ] Registered correct key t
-[01:12:47] [INFO    ] Got keycode 32,  
-[01:12:47] [INFO    ] appending   to typed
-[01:12:47] [DEBUG   ] Registered correct key  
-[01:12:48] [INFO    ] Got keycode 101, e
-[01:12:48] [INFO    ] appending e to typed
-[01:12:48] [DEBUG   ] Registered correct key e
-[01:12:48] [INFO    ] Got keycode 97, a
-[01:12:48] [INFO    ] appending a to typed
-[01:12:48] [DEBUG   ] Registered correct key a
-[01:12:48] [INFO    ] Got keycode 32,  
-[01:12:48] [INFO    ] appending   to typed
-[01:12:48] [DEBUG   ] Registered correct key  
-[01:12:48] [INFO    ] Got keycode 114, r
-[01:12:48] [INFO    ] appending r to typed
-[01:12:48] [DEBUG   ] Registered correct key r
-[01:12:49] [INFO    ] Got keycode 101, e
-[01:12:49] [INFO    ] appending e to typed
-[01:12:49] [DEBUG   ] Registered correct key e
-[01:12:49] [INFO    ] Got keycode 98, b
-[01:12:49] [INFO    ] appending b to typed
-[01:12:49] [DEBUG   ] Registered correct key b
-[01:12:49] [INFO    ] Got keycode 117, u
-[01:12:49] [INFO    ] appending u to typed
-[01:12:49] [DEBUG   ] Registered correct key u
-[01:12:49] [INFO    ] Got keycode 109, m
-[01:12:49] [INFO    ] appending m to typed
-[01:12:49] [DEBUG   ] Registered correct key m
-[01:12:50] [INFO    ] Got keycode 46, .
-[01:12:50] [INFO    ] appending . to typed
-[01:12:50] [DEBUG   ] Registered correct key .
-[01:12:50] [INFO    ] Got keycode 32,  
-[01:12:50] [INFO    ] appending   to typed
-[01:12:50] [DEBUG   ] Registered correct key  
-[01:12:50] [INFO    ] Got keycode 83, S
-[01:12:50] [INFO    ] appending S to typed
-[01:12:50] [DEBUG   ] Registered correct key S
-[01:12:51] [INFO    ] Got keycode 116, t
-[01:12:51] [INFO    ] appending t to typed
-[01:12:51] [DEBUG   ] Registered correct key t
-[01:12:51] [INFO    ] Got keycode 101, e
-[01:12:51] [INFO    ] appending e to typed
-[01:12:51] [DEBUG   ] Registered correct key e
-[01:12:51] [INFO    ] Got keycode 116, t
-[01:12:51] [INFO    ] appending t to typed
-[01:12:51] [DEBUG   ] Registered correct key t
-[01:12:51] [INFO    ] Got keycode 32,  
-[01:12:51] [INFO    ] appending   to typed
-[01:12:51] [DEBUG   ] Registered correct key  
-[01:12:52] [INFO    ] Got keycode 108, l
-[01:12:52] [INFO    ] appending l to typed
-[01:12:52] [DEBUG   ] Registered wrong key l
-[01:12:52] [INFO    ] Got keycode 263, 263
-[01:12:52] [INFO    ] Got keycode 99, c
-[01:12:52] [INFO    ] appending c to typed
-[01:12:52] [DEBUG   ] Registered correct key c
-[01:12:53] [INFO    ] Got keycode 108, l
-[01:12:53] [INFO    ] appending l to typed
-[01:12:53] [DEBUG   ] Registered correct key l
-[01:12:53] [INFO    ] Got keycode 105, i
-[01:12:53] [INFO    ] appending i to typed
-[01:12:53] [DEBUG   ] Registered correct key i
-[01:12:53] [INFO    ] Got keycode 116, t
-[01:12:53] [INFO    ] appending t to typed
-[01:12:53] [DEBUG   ] Registered correct key t
-[01:12:53] [INFO    ] Got keycode 97, a
-[01:12:53] [INFO    ] appending a to typed
-[01:12:53] [DEBUG   ] Registered correct key a
-[01:12:53] [INFO    ] Got keycode 32,  
-[01:12:53] [INFO    ] appending   to typed
-[01:12:53] [DEBUG   ] Registered correct key  
-[01:12:54] [INFO    ] Got keycode 107, k
-[01:12:54] [INFO    ] appending k to typed
-[01:12:54] [DEBUG   ] Registered correct key k
-[01:12:54] [INFO    ] Got keycode 97, a
-[01:12:54] [INFO    ] appending a to typed
-[01:12:54] [DEBUG   ] Registered correct key a
-[01:12:54] [INFO    ] Got keycode 115, s
-[01:12:54] [INFO    ] appending s to typed
-[01:12:54] [DEBUG   ] Registered correct key s
-[01:12:54] [INFO    ] Got keycode 100, d
-[01:12:54] [INFO    ] appending d to typed
-[01:12:54] [DEBUG   ] Registered correct key d
-[01:12:55] [INFO    ] Got keycode 32,  
-[01:12:55] [INFO    ] appending   to typed
-[01:12:55] [DEBUG   ] Registered correct key  
-[01:12:55] [INFO    ] Got keycode 103, g
-[01:12:55] [INFO    ] appending g to typed
-[01:12:55] [DEBUG   ] Registered correct key g
-[01:12:55] [INFO    ] Got keycode 117, u
-[01:12:55] [INFO    ] appending u to typed
-[01:12:55] [DEBUG   ] Registered correct key u
-[01:12:55] [INFO    ] Got keycode 98, b
-[01:12:55] [INFO    ] appending b to typed
-[01:12:55] [DEBUG   ] Registered correct key b
-[01:12:56] [INFO    ] Got keycode 101, e
-[01:12:56] [INFO    ] appending e to typed
-[01:12:56] [DEBUG   ] Registered correct key e
-[01:12:56] [INFO    ] Got keycode 114, r
-[01:12:56] [INFO    ] appending r to typed
-[01:12:56] [DEBUG   ] Registered correct key r
-[01:12:56] [INFO    ] Got keycode 103, g
-[01:12:56] [INFO    ] appending g to typed
-[01:12:56] [DEBUG   ] Registered correct key g
-[01:12:57] [INFO    ] Got keycode 114, r
-[01:12:57] [INFO    ] appending r to typed
-[01:12:57] [DEBUG   ] Registered correct key r
-[01:12:57] [INFO    ] Got keycode 101, e
-[01:12:57] [INFO    ] appending e to typed
-[01:12:57] [DEBUG   ] Registered correct key e
-[01:12:57] [INFO    ] Got keycode 110, n
-[01:12:57] [INFO    ] appending n to typed
-[01:12:57] [DEBUG   ] Registered correct key n
-[01:12:57] [INFO    ] Got keycode 44, ,
-[01:12:57] [INFO    ] appending , to typed
-[01:12:57] [DEBUG   ] Registered correct key ,
-[01:12:57] [INFO    ] Got keycode 32,  
-[01:12:57] [INFO    ] appending   to typed
-[01:12:57] [DEBUG   ] Registered correct key  
-[01:12:57] [INFO    ] Got keycode 110, n
-[01:12:57] [INFO    ] appending n to typed
-[01:12:57] [DEBUG   ] Registered correct key n
-[01:12:58] [INFO    ] Got keycode 111, o
-[01:12:58] [INFO    ] appending o to typed
-[01:12:58] [DEBUG   ] Registered correct key o
-[01:12:58] [INFO    ] Got keycode 32,  
-[01:12:58] [INFO    ] appending   to typed
-[01:12:58] [DEBUG   ] Registered correct key  
-[01:12:58] [INFO    ] Got keycode 115, s
-[01:12:58] [INFO    ] appending s to typed
-[01:12:58] [DEBUG   ] Registered correct key s
-[01:12:58] [INFO    ] Got keycode 101, e
-[01:12:58] [INFO    ] appending e to typed
-[01:12:58] [DEBUG   ] Registered correct key e
-[01:12:58] [INFO    ] Got keycode 97, a
-[01:12:58] [INFO    ] appending a to typed
-[01:12:58] [DEBUG   ] Registered correct key a
-[01:12:58] [INFO    ] Got keycode 32,  
-[01:12:58] [INFO    ] appending   to typed
-[01:12:58] [DEBUG   ] Registered correct key  
-[01:12:59] [INFO    ] Got keycode 116, t
-[01:12:59] [INFO    ] appending t to typed
-[01:12:59] [DEBUG   ] Registered correct key t
-[01:12:59] [INFO    ] Got keycode 97, a
-[01:12:59] [INFO    ] appending a to typed
-[01:12:59] [DEBUG   ] Registered correct key a
-[01:12:59] [INFO    ] Got keycode 107, k
-[01:12:59] [INFO    ] appending k to typed
-[01:12:59] [DEBUG   ] Registered correct key k
-[01:12:59] [INFO    ] Got keycode 105, i
-[01:12:59] [INFO    ] appending i to typed
-[01:12:59] [DEBUG   ] Registered correct key i
-[01:13:00] [INFO    ] Got keycode 109, m
-[01:13:00] [INFO    ] appending m to typed
-[01:13:00] [DEBUG   ] Registered correct key m
-[01:13:00] [INFO    ] Got keycode 97, a
-[01:13:00] [INFO    ] appending a to typed
-[01:13:00] [DEBUG   ] Registered correct key a
-[01:13:00] [INFO    ] Got keycode 116, t
-[01:13:00] [INFO    ] appending t to typed
-[01:13:00] [DEBUG   ] Registered correct key t
-[01:13:00] [INFO    ] Got keycode 97, a
-[01:13:00] [INFO    ] appending a to typed
-[01:13:00] [DEBUG   ] Registered correct key a
-[01:13:01] [INFO    ] Got keycode 32,  
-[01:13:01] [INFO    ] appending   to typed
-[01:13:01] [DEBUG   ] Registered correct key  
-[01:13:01] [INFO    ] Got keycode 115, s
-[01:13:01] [INFO    ] appending s to typed
-[01:13:01] [DEBUG   ] Registered correct key s
-[01:13:01] [INFO    ] Got keycode 97, a
-[01:13:01] [INFO    ] appending a to typed
-[01:13:01] [DEBUG   ] Registered correct key a
-[01:13:01] [INFO    ] Got keycode 110, n
-[01:13:01] [INFO    ] appending n to typed
-[01:13:01] [DEBUG   ] Registered correct key n
-[01:13:02] [INFO    ] Got keycode 99, c
-[01:13:02] [INFO    ] appending c to typed
-[01:13:02] [DEBUG   ] Registered correct key c
-[01:13:02] [INFO    ] Got keycode 116, t
-[01:13:02] [INFO    ] appending t to typed
-[01:13:02] [DEBUG   ] Registered correct key t
-[01:13:02] [INFO    ] Got keycode 117, u
-[01:13:02] [INFO    ] appending u to typed
-[01:13:02] [DEBUG   ] Registered correct key u
-[01:13:02] [INFO    ] Got keycode 115, s
-[01:13:02] [INFO    ] appending s to typed
-[01:13:02] [DEBUG   ] Registered correct key s
-[01:13:02] [INFO    ] Got keycode 32,  
-[01:13:02] [INFO    ] appending   to typed
-[01:13:02] [DEBUG   ] Registered correct key  
-[01:13:03] [INFO    ] Got keycode 101, e
-[01:13:03] [INFO    ] appending e to typed
-[01:13:03] [DEBUG   ] Registered correct key e
-[01:13:03] [INFO    ] Got keycode 115, s
-[01:13:03] [INFO    ] appending s to typed
-[01:13:03] [DEBUG   ] Registered correct key s
-[01:13:03] [INFO    ] Got keycode 116, t
-[01:13:03] [INFO    ] appending t to typed
-[01:13:03] [DEBUG   ] Registered correct key t
-[01:13:03] [INFO    ] Got keycode 32,  
-[01:13:03] [INFO    ] appending   to typed
-[01:13:03] [DEBUG   ] Registered correct key  
-[01:13:04] [INFO    ] Got keycode 76, L
-[01:13:04] [INFO    ] appending L to typed
-[01:13:04] [DEBUG   ] Registered correct key L
-[01:13:04] [INFO    ] Got keycode 111, o
-[01:13:04] [INFO    ] appending o to typed
-[01:13:04] [DEBUG   ] Registered correct key o
-[01:13:04] [INFO    ] Got keycode 114, r
-[01:13:04] [INFO    ] appending r to typed
-[01:13:04] [DEBUG   ] Registered correct key r
-[01:13:04] [INFO    ] Got keycode 101, e
-[01:13:04] [INFO    ] appending e to typed
-[01:13:04] [DEBUG   ] Registered correct key e
-[01:13:04] [INFO    ] Got keycode 109, m
-[01:13:04] [INFO    ] appending m to typed
-[01:13:04] [DEBUG   ] Registered correct key m
-[01:13:04] [INFO    ] Got keycode 32,  
-[01:13:04] [INFO    ] appending   to typed
-[01:13:04] [DEBUG   ] Registered correct key  
-[01:13:05] [INFO    ] Got keycode 105, i
-[01:13:05] [INFO    ] appending i to typed
-[01:13:05] [DEBUG   ] Registered correct key i
-[01:13:05] [INFO    ] Got keycode 112, p
-[01:13:05] [INFO    ] appending p to typed
-[01:13:05] [DEBUG   ] Registered correct key p
-[01:13:05] [INFO    ] Got keycode 115, s
-[01:13:05] [INFO    ] appending s to typed
-[01:13:05] [DEBUG   ] Registered correct key s
-[01:13:06] [INFO    ] Got keycode 117, u
-[01:13:06] [INFO    ] appending u to typed
-[01:13:06] [DEBUG   ] Registered correct key u
-[01:13:06] [INFO    ] Got keycode 109, m
-[01:13:06] [INFO    ] appending m to typed
-[01:13:06] [DEBUG   ] Registered correct key m
-[01:13:06] [INFO    ] Got keycode 32,  
-[01:13:06] [INFO    ] appending   to typed
-[01:13:06] [DEBUG   ] Registered correct key  
-[01:13:06] [INFO    ] Got keycode 100, d
-[01:13:06] [INFO    ] appending d to typed
-[01:13:06] [DEBUG   ] Registered correct key d
-[01:13:06] [INFO    ] Got keycode 111, o
-[01:13:06] [INFO    ] appending o to typed
-[01:13:06] [DEBUG   ] Registered correct key o
-[01:13:06] [INFO    ] Got keycode 108, l
-[01:13:06] [INFO    ] appending l to typed
-[01:13:06] [DEBUG   ] Registered correct key l
-[01:13:07] [INFO    ] Got keycode 111, o
-[01:13:07] [INFO    ] appending o to typed
-[01:13:07] [DEBUG   ] Registered correct key o
-[01:13:07] [INFO    ] Got keycode 114, r
-[01:13:07] [INFO    ] appending r to typed
-[01:13:07] [DEBUG   ] Registered correct key r
-[01:13:07] [INFO    ] Got keycode 32,  
-[01:13:07] [INFO    ] appending   to typed
-[01:13:07] [DEBUG   ] Registered correct key  
-[01:13:08] [INFO    ] Got keycode 115, s
-[01:13:08] [INFO    ] appending s to typed
-[01:13:08] [DEBUG   ] Registered correct key s
-[01:13:08] [INFO    ] Got keycode 105, i
-[01:13:08] [INFO    ] appending i to typed
-[01:13:08] [DEBUG   ] Registered correct key i
-[01:13:08] [INFO    ] Got keycode 116, t
-[01:13:08] [INFO    ] appending t to typed
-[01:13:08] [DEBUG   ] Registered correct key t
-[01:13:08] [INFO    ] Got keycode 32,  
-[01:13:08] [INFO    ] appending   to typed
-[01:13:08] [DEBUG   ] Registered correct key  
-[01:13:08] [INFO    ] Got keycode 32,  
-[01:13:08] [INFO    ] appending   to typed
-[01:13:08] [DEBUG   ] Registered wrong key  
-[01:13:08] [INFO    ] Got keycode 97, a
-[01:13:08] [INFO    ] appending a to typed
-[01:13:08] [DEBUG   ] Registered wrong key a
-[01:13:08] [INFO    ] Got keycode 109, m
-[01:13:08] [INFO    ] appending m to typed
-[01:13:08] [DEBUG   ] Registered wrong key m
-[01:13:09] [INFO    ] Got keycode 101, e
-[01:13:09] [INFO    ] appending e to typed
-[01:13:09] [DEBUG   ] Registered wrong key e
-[01:13:09] [INFO    ] Got keycode 116, t
-[01:13:09] [INFO    ] appending t to typed
-[01:13:09] [DEBUG   ] Registered wrong key t
-[01:13:10] [DEBUG   ] Finished sec. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.: Typed:295, WPM:57, err:5%, errors:['a', ' ', 's', 'u', 'a', 'm', 'a', ' ', ' ', 'l', ' ', 'a', 'm', 'e', 't']
-[01:13:10] [INFO    ] At end while loop
-[01:13:10] [DEBUG   ] Textlst:[['a', ' ', 'a', ' ', 'a', ' ', 'a', ' ', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', ' ', 'a', 'a', 'a', 'a', ' ', 'a', 'a', 'a', ' ', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', ' ', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', ' ', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', ' ', 'a', 'a', 'a', 'a', 'a', 'a', 'a']]
-[01:13:10] [DEBUG   ] self.maxx:193, textx:71, texty:1 textwin_xy = s_win_xy(nlines=3, ncols=73, begin_y=0, begin_x=61)
-[01:13:10] [DEBUG   ] Created subwindows
-[01:13:11] [INFO    ] Got keycode 97, a
-[01:13:11] [INFO    ] appending a to typed
-[01:13:11] [DEBUG   ] Registered correct key a
-[01:13:11] [INFO    ] Got keycode 32,  
-[01:13:11] [INFO    ] appending   to typed
-[01:13:11] [DEBUG   ] Registered correct key  
-[01:13:12] [INFO    ] Got keycode 97, a
-[01:13:12] [INFO    ] appending a to typed
-[01:13:12] [DEBUG   ] Registered correct key a
-[01:13:12] [INFO    ] Got keycode 32,  
-[01:13:12] [INFO    ] appending   to typed
-[01:13:12] [DEBUG   ] Registered correct key  
-[01:13:12] [INFO    ] Got keycode 97, a
-[01:13:12] [INFO    ] appending a to typed
-[01:13:12] [DEBUG   ] Registered correct key a
-[01:13:12] [INFO    ] Got keycode 32,  
-[01:13:12] [INFO    ] appending   to typed
-[01:13:12] [DEBUG   ] Registered correct key  
-[01:13:12] [INFO    ] Got keycode 97, a
-[01:13:12] [INFO    ] appending a to typed
-[01:13:12] [DEBUG   ] Registered correct key a
-[01:13:13] [INFO    ] Got keycode 32,  
-[01:13:13] [INFO    ] appending   to typed
-[01:13:13] [DEBUG   ] Registered correct key  
-[01:13:13] [INFO    ] Got keycode 97, a
-[01:13:13] [INFO    ] appending a to typed
-[01:13:13] [DEBUG   ] Registered correct key a
-[01:13:14] [INFO    ] Got keycode 97, a
-[01:13:14] [INFO    ] appending a to typed
-[01:13:14] [DEBUG   ] Registered correct key a
-[01:13:14] [INFO    ] Got keycode 97, a
-[01:13:14] [INFO    ] appending a to typed
-[01:13:14] [DEBUG   ] Registered correct key a
-[01:13:14] [INFO    ] Got keycode 97, a
-[01:13:14] [INFO    ] appending a to typed
-[01:13:14] [DEBUG   ] Registered correct key a
-[01:13:14] [INFO    ] Got keycode 97, a
-[01:13:14] [INFO    ] appending a to typed
-[01:13:14] [DEBUG   ] Registered correct key a
-[01:13:14] [INFO    ] Got keycode 97, a
-[01:13:14] [INFO    ] appending a to typed
-[01:13:14] [DEBUG   ] Registered correct key a
-[01:13:14] [INFO    ] Got keycode 97, a
-[01:13:14] [INFO    ] appending a to typed
-[01:13:14] [DEBUG   ] Registered correct key a
-[01:13:14] [INFO    ] Got keycode 97, a
-[01:13:14] [INFO    ] appending a to typed
-[01:13:14] [DEBUG   ] Registered correct key a
-[01:13:15] [INFO    ] Got keycode 97, a
-[01:13:15] [INFO    ] appending a to typed
-[01:13:15] [DEBUG   ] Registered correct key a
-[01:13:15] [INFO    ] Got keycode 32,  
-[01:13:15] [INFO    ] appending   to typed
-[01:13:15] [DEBUG   ] Registered correct key  
-[01:13:15] [INFO    ] Got keycode 97, a
-[01:13:15] [INFO    ] appending a to typed
-[01:13:15] [DEBUG   ] Registered correct key a
-[01:13:16] [INFO    ] Got keycode 97, a
-[01:13:16] [INFO    ] appending a to typed
-[01:13:16] [DEBUG   ] Registered correct key a
-[01:13:16] [INFO    ] Got keycode 97, a
-[01:13:16] [INFO    ] appending a to typed
-[01:13:16] [DEBUG   ] Registered correct key a
-[01:13:16] [INFO    ] Got keycode 97, a
-[01:13:16] [INFO    ] appending a to typed
-[01:13:16] [DEBUG   ] Registered correct key a
-[01:13:16] [INFO    ] Got keycode 32,  
-[01:13:16] [INFO    ] appending   to typed
-[01:13:16] [DEBUG   ] Registered correct key  
-[01:13:16] [INFO    ] Got keycode 97, a
-[01:13:16] [INFO    ] appending a to typed
-[01:13:16] [DEBUG   ] Registered correct key a
-[01:13:17] [INFO    ] Got keycode 97, a
-[01:13:17] [INFO    ] appending a to typed
-[01:13:17] [DEBUG   ] Registered correct key a
-[01:13:17] [INFO    ] Got keycode 97, a
-[01:13:17] [INFO    ] appending a to typed
-[01:13:17] [DEBUG   ] Registered correct key a
-[01:13:17] [INFO    ] Got keycode 32,  
-[01:13:17] [INFO    ] appending   to typed
-[01:13:17] [DEBUG   ] Registered correct key  
-[01:13:17] [INFO    ] Got keycode 97, a
-[01:13:17] [INFO    ] appending a to typed
-[01:13:17] [DEBUG   ] Registered correct key a
-[01:13:18] [INFO    ] Got keycode 97, a
-[01:13:18] [INFO    ] appending a to typed
-[01:13:18] [DEBUG   ] Registered correct key a
-[01:13:18] [INFO    ] Got keycode 97, a
-[01:13:18] [INFO    ] appending a to typed
-[01:13:18] [DEBUG   ] Registered correct key a
-[01:13:18] [INFO    ] Got keycode 97, a
-[01:13:18] [INFO    ] appending a to typed
-[01:13:18] [DEBUG   ] Registered correct key a
-[01:13:18] [INFO    ] Got keycode 97, a
-[01:13:18] [INFO    ] appending a to typed
-[01:13:18] [DEBUG   ] Registered correct key a
-[01:13:18] [INFO    ] Got keycode 97, a
-[01:13:18] [INFO    ] appending a to typed
-[01:13:18] [DEBUG   ] Registered correct key a
-[01:13:18] [INFO    ] Got keycode 97, a
-[01:13:18] [INFO    ] appending a to typed
-[01:13:18] [DEBUG   ] Registered correct key a
-[01:13:18] [INFO    ] Got keycode 97, a
-[01:13:18] [INFO    ] appending a to typed
-[01:13:18] [DEBUG   ] Registered correct key a
-[01:13:18] [INFO    ] Got keycode 97, a
-[01:13:18] [INFO    ] appending a to typed
-[01:13:18] [DEBUG   ] Registered correct key a
-[01:13:18] [INFO    ] Got keycode 97, a
-[01:13:18] [INFO    ] appending a to typed
-[01:13:18] [DEBUG   ] Registered correct key a
-[01:13:18] [INFO    ] Got keycode 97, a
-[01:13:18] [INFO    ] appending a to typed
-[01:13:18] [DEBUG   ] Registered correct key a
-[01:13:18] [INFO    ] Got keycode 97, a
-[01:13:18] [INFO    ] appending a to typed
-[01:13:18] [DEBUG   ] Registered correct key a
-[01:13:18] [INFO    ] Got keycode 97, a
-[01:13:18] [INFO    ] appending a to typed
-[01:13:18] [DEBUG   ] Registered correct key a
-[01:13:18] [INFO    ] Got keycode 97, a
-[01:13:18] [INFO    ] appending a to typed
-[01:13:18] [DEBUG   ] Registered correct key a
-[01:13:18] [INFO    ] Got keycode 97, a
-[01:13:18] [INFO    ] appending a to typed
-[01:13:18] [DEBUG   ] Registered correct key a
-[01:13:19] [INFO    ] Got keycode 97, a
-[01:13:19] [INFO    ] appending a to typed
-[01:13:19] [DEBUG   ] Registered correct key a
-[01:13:19] [INFO    ] Got keycode 32,  
-[01:13:19] [INFO    ] appending   to typed
-[01:13:19] [DEBUG   ] Registered correct key  
-[01:13:19] [INFO    ] Got keycode 97, a
-[01:13:19] [INFO    ] appending a to typed
-[01:13:19] [DEBUG   ] Registered correct key a
-[01:13:19] [INFO    ] Got keycode 97, a
-[01:13:19] [INFO    ] appending a to typed
-[01:13:19] [DEBUG   ] Registered correct key a
-[01:13:19] [INFO    ] Got keycode 97, a
-[01:13:19] [INFO    ] appending a to typed
-[01:13:19] [DEBUG   ] Registered correct key a
-[01:13:20] [INFO    ] Got keycode 97, a
-[01:13:20] [INFO    ] appending a to typed
-[01:13:20] [DEBUG   ] Registered correct key a
-[01:13:20] [INFO    ] Got keycode 97, a
-[01:13:20] [INFO    ] appending a to typed
-[01:13:20] [DEBUG   ] Registered correct key a
-[01:13:20] [INFO    ] Got keycode 97, a
-[01:13:20] [INFO    ] appending a to typed
-[01:13:20] [DEBUG   ] Registered correct key a
-[01:13:20] [INFO    ] Got keycode 97, a
-[01:13:20] [INFO    ] appending a to typed
-[01:13:20] [DEBUG   ] Registered correct key a
-[01:13:21] [INFO    ] Got keycode 97, a
-[01:13:21] [INFO    ] appending a to typed
-[01:13:21] [DEBUG   ] Registered correct key a
-[01:13:21] [INFO    ] Got keycode 32,  
-[01:13:21] [INFO    ] appending   to typed
-[01:13:21] [DEBUG   ] Registered correct key  
-[01:13:21] [INFO    ] Got keycode 97, a
-[01:13:21] [INFO    ] appending a to typed
-[01:13:21] [DEBUG   ] Registered correct key a
-[01:13:21] [INFO    ] Got keycode 97, a
-[01:13:21] [INFO    ] appending a to typed
-[01:13:21] [DEBUG   ] Registered correct key a
-[01:13:21] [INFO    ] Got keycode 97, a
-[01:13:21] [INFO    ] appending a to typed
-[01:13:21] [DEBUG   ] Registered correct key a
-[01:13:22] [INFO    ] Got keycode 97, a
-[01:13:22] [INFO    ] appending a to typed
-[01:13:22] [DEBUG   ] Registered correct key a
-[01:13:22] [INFO    ] Got keycode 97, a
-[01:13:22] [INFO    ] appending a to typed
-[01:13:22] [DEBUG   ] Registered correct key a
-[01:13:22] [INFO    ] Got keycode 97, a
-[01:13:22] [INFO    ] appending a to typed
-[01:13:22] [DEBUG   ] Registered correct key a
-[01:13:22] [INFO    ] Got keycode 97, a
-[01:13:22] [INFO    ] appending a to typed
-[01:13:22] [DEBUG   ] Registered correct key a
-[01:13:22] [INFO    ] Got keycode 97, a
-[01:13:22] [INFO    ] appending a to typed
-[01:13:22] [DEBUG   ] Registered correct key a
-[01:13:23] [INFO    ] Got keycode 97, a
-[01:13:23] [INFO    ] appending a to typed
-[01:13:23] [DEBUG   ] Registered correct key a
-[01:13:23] [INFO    ] Got keycode 97, a
-[01:13:23] [INFO    ] appending a to typed
-[01:13:23] [DEBUG   ] Registered correct key a
-[01:13:23] [INFO    ] Got keycode 32,  
-[01:13:23] [INFO    ] appending   to typed
-[01:13:23] [DEBUG   ] Registered correct key  
-[01:13:23] [INFO    ] Got keycode 97, a
-[01:13:23] [INFO    ] appending a to typed
-[01:13:23] [DEBUG   ] Registered correct key a
-[01:13:24] [INFO    ] Got keycode 97, a
-[01:13:24] [INFO    ] appending a to typed
-[01:13:24] [DEBUG   ] Registered correct key a
-[01:13:24] [INFO    ] Got keycode 97, a
-[01:13:24] [INFO    ] appending a to typed
-[01:13:24] [DEBUG   ] Registered correct key a
-[01:13:24] [INFO    ] Got keycode 97, a
-[01:13:24] [INFO    ] appending a to typed
-[01:13:24] [DEBUG   ] Registered correct key a
-[01:13:24] [INFO    ] Got keycode 97, a
-[01:13:24] [INFO    ] appending a to typed
-[01:13:24] [DEBUG   ] Registered correct key a
-[01:13:25] [INFO    ] Got keycode 97, a
-[01:13:25] [INFO    ] appending a to typed
-[01:13:25] [DEBUG   ] Registered correct key a
-[01:13:25] [INFO    ] Got keycode 97, a
-[01:13:25] [INFO    ] appending a to typed
-[01:13:25] [DEBUG   ] Registered correct key a
-[01:13:26] [DEBUG   ] Finished sec. a a a a aaaaaaaaa aaaa aaa aaaaaaa aaaaaaaaa aaaaaaaa aaaaaaaaaa aaaaaaa: Typed:71, WPM:59, err:4%, errors:['a', ' ', 's', 'u', 'a', 'm', 'a', ' ', ' ', 'l', ' ', 'a', 'm', 'e', 't']
-[01:13:26] [INFO    ] At end while loop
-[01:13:26] [INFO    ] Exiting while loop
+[12:02:34] [INFO    ] TERM=alacritty
+[12:02:35] [INFO    ] Starting main function
+[12:02:35] [INFO    ] TERM=alacritty
+[12:02:35] [INFO    ] stdscr is window? True
+[12:02:35] [DEBUG   ] Textlst:[['L', 'o', 'r', 'e', 'm', ' ', 'i', 'p', 's', 'u', 'm', ' ', 'd', 'o', 'l', 'o', 'r', ' ', 's', 'i', 't', ' ', 'a', 'm', 'e', 't', ',', ' ', 'c', 'o', 'n', 's', 'e', 't', 'e', 't', 'u', 'r', ' ', 's', 'a', 'd', 'i', 'p', 's', 'c', 'i', 'n', 'g', ' ', 'e', 'l', 'i', 't', 'r', ',', ' ', 's', 'e', 'd', ' ', 'd', 'i', 'a', 'm', ' ', 'n', 'o', 'n', 'u', 'm', 'y', ' ', 'e', 'i', 'r', 'm', 'o', 'd', ' ', 't', 'e', 'm', 'p', 'o', 'r', ' ', 'i', 'n', 'v', 'i', 'd', 'u', 'n', 't', ' ', 'u', 't', ' ', 'l', 'a', 'b', 'o', 'r', 'e', ' ', 'e', 't', ' ', 'd', 'o', 'l', 'o', 'r', 'e', ' ', 'm', 'a', 'g', 'n', 'a', ' ', 'a', 'l', 'i', 'q', 'u', 'y', 'a', 'm', ' ', 'e', 'r', 'a', 't', ',', ' ', 's', 'e', 'd', ' ', 'd', 'i', 'a', 'm', ' ', 'v', 'o', 'l', 'u', 'p', 't', 'u', 'a', '.', ' ', 'A', 't', ' ', 'v', 'e', 'r', 'o', ' ', 'e', 'o', 's', ' ', 'e', 't', ' ', 'a', 'c', 'c', 'u', 's', 'a', 'm', ' ', 'e', 't', ' ', 'j', 'u', 's', 't', 'o', ' ', 'd', 'u', 'o', ' ', 'd', 'o', 'l', 'o', 'r', 'e', 's', ' ', 'e', 't', ' '], ['e', 'a', ' ', 'r', 'e', 'b', 'u', 'm', '.', ' ', 'S', 't', 'e', 't', ' ', 'c', 'l', 'i', 't', 'a', ' ', 'k', 'a', 's', 'd', ' ', 'g', 'u', 'b', 'e', 'r', 'g', 'r', 'e', 'n', ',', ' ', 'n', 'o', ' ', 's', 'e', 'a', ' ', 't', 'a', 'k', 'i', 'm', 'a', 't', 'a', ' ', 's', 'a', 'n', 'c', 't', 'u', 's', ' ', 'e', 's', 't', ' ', 'L', 'o', 'r', 'e', 'm', ' ', 'i', 'p', 's', 'u', 'm', ' ', 'd', 'o', 'l', 'o', 'r', ' ', 's', 'i', 't', ' ', 'a', 'm', 'e', 't', '.']]
+[12:02:35] [DEBUG   ] self.maxx:203, textx:203, texty:2 textwin_xy = s_win_xy(nlines=4, ncols=205, begin_y=0, begin_x=0)
+[12:02:35] [DEBUG   ] Created subwindows
+[12:02:35] [INFO    ] starting run
+[12:02:38] [DEBUG   ] Textlst:[['L', 'o', 'r', 'e', 'm', ' ', 'i', 'p', 's', 'u', 'm', ' ', 'd', 'o', 'l', 'o', 'r', ' ', 's', 'i', 't', ' ', 'a', 'm', 'e', 't', ',', ' ', 'c', 'o', 'n', 's', 'e', 't', 'e', 't', 'u', 'r', ' ', 's', 'a', 'd', 'i', 'p', 's', 'c', 'i', 'n', 'g', ' ', 'e', 'l', 'i', 't', 'r', ',', ' ', 's', 'e', 'd', ' ', 'd', 'i', 'a', 'm', ' ', 'n', 'o', 'n', 'u', 'm', 'y', ' ', 'e', 'i', 'r', 'm', 'o', 'd', ' ', 't', 'e', 'm', 'p', 'o', 'r', ' ', 'i', 'n', 'v', 'i', 'd', 'u', 'n', 't', ' ', 'u', 't', ' ', 'l', 'a', 'b', 'o', 'r', 'e', ' ', 'e', 't', ' ', 'd', 'o', 'l', 'o', 'r', 'e', ' ', 'm', 'a', 'g', 'n', 'a', ' ', 'a', 'l', 'i', 'q', 'u', 'y', 'a', 'm', ' ', 'e', 'r', 'a', 't', ',', ' ', 's', 'e', 'd', ' ', 'd', 'i', 'a', 'm', ' ', 'v', 'o', 'l', 'u', 'p', 't', 'u', 'a', '.', ' ', 'A', 't', ' ', 'v', 'e', 'r', 'o', ' ', 'e', 'o', 's', ' ', 'e', 't', ' ', 'a', 'c', 'c', 'u', 's', 'a', 'm', ' ', 'e', 't', ' ', 'j', 'u', 's', 't', 'o', ' ', 'd', 'u', 'o', ' ', 'd', 'o', 'l', 'o', 'r', 'e', 's', ' ', 'e', 't', ' '], ['e', 'a', ' ', 'r', 'e', 'b', 'u', 'm', '.', ' ', 'S', 't', 'e', 't', ' ', 'c', 'l', 'i', 't', 'a', ' ', 'k', 'a', 's', 'd', ' ', 'g', 'u', 'b', 'e', 'r', 'g', 'r', 'e', 'n', ',', ' ', 'n', 'o', ' ', 's', 'e', 'a', ' ', 't', 'a', 'k', 'i', 'm', 'a', 't', 'a', ' ', 's', 'a', 'n', 'c', 't', 'u', 's', ' ', 'e', 's', 't', ' ', 'L', 'o', 'r', 'e', 'm', ' ', 'i', 'p', 's', 'u', 'm', ' ', 'd', 'o', 'l', 'o', 'r', ' ', 's', 'i', 't', ' ', 'a', 'm', 'e', 't', '.']]
+[12:02:38] [DEBUG   ] self.maxx:203, textx:203, texty:2 textwin_xy = s_win_xy(nlines=4, ncols=205, begin_y=0, begin_x=0)
+[12:02:38] [DEBUG   ] Created subwindows
+[12:02:38] [INFO    ] Got keycode 76, L
+[12:02:38] [INFO    ] appending L to typed
+[12:02:38] [DEBUG   ] Registered correct key L
+[12:02:38] [INFO    ] Got keycode 111, o
+[12:02:38] [INFO    ] appending o to typed
+[12:02:38] [DEBUG   ] Registered correct key o
+[12:02:38] [INFO    ] Got keycode 114, r
+[12:02:38] [INFO    ] appending r to typed
+[12:02:38] [DEBUG   ] Registered correct key r
+[12:02:38] [INFO    ] Got keycode 101, e
+[12:02:38] [INFO    ] appending e to typed
+[12:02:38] [DEBUG   ] Registered correct key e
+[12:02:39] [INFO    ] Got keycode 109, m
+[12:02:39] [INFO    ] appending m to typed
+[12:02:39] [DEBUG   ] Registered correct key m
+[12:02:39] [INFO    ] Got keycode 32,  
+[12:02:39] [INFO    ] appending   to typed
+[12:02:39] [DEBUG   ] Registered correct key  
+[12:02:39] [INFO    ] Got keycode 105, i
+[12:02:39] [INFO    ] appending i to typed
+[12:02:39] [DEBUG   ] Registered correct key i
+[12:02:39] [INFO    ] Got keycode 112, p
+[12:02:39] [INFO    ] appending p to typed
+[12:02:39] [DEBUG   ] Registered correct key p
+[12:02:39] [INFO    ] Got keycode 115, s
+[12:02:39] [INFO    ] appending s to typed
+[12:02:39] [DEBUG   ] Registered correct key s
+[12:02:39] [INFO    ] Got keycode 117, u
+[12:02:39] [INFO    ] appending u to typed
+[12:02:39] [DEBUG   ] Registered correct key u
+[12:02:40] [INFO    ] Got keycode 109, m
+[12:02:40] [INFO    ] appending m to typed
+[12:02:40] [DEBUG   ] Registered correct key m
+[12:02:40] [INFO    ] Got keycode 32,  
+[12:02:40] [INFO    ] appending   to typed
+[12:02:40] [DEBUG   ] Registered correct key  
+[12:02:40] [INFO    ] Got keycode 100, d
+[12:02:40] [INFO    ] appending d to typed
+[12:02:40] [DEBUG   ] Registered correct key d
+[12:02:40] [INFO    ] Got keycode 111, o
+[12:02:40] [INFO    ] appending o to typed
+[12:02:40] [DEBUG   ] Registered correct key o
+[12:02:40] [INFO    ] Got keycode 108, l
+[12:02:40] [INFO    ] appending l to typed
+[12:02:40] [DEBUG   ] Registered correct key l
+[12:02:40] [INFO    ] Got keycode 111, o
+[12:02:40] [INFO    ] appending o to typed
+[12:02:40] [DEBUG   ] Registered correct key o
+[12:02:40] [INFO    ] Got keycode 114, r
+[12:02:40] [INFO    ] appending r to typed
+[12:02:40] [DEBUG   ] Registered correct key r
+[12:02:40] [INFO    ] Got keycode 32,  
+[12:02:40] [INFO    ] appending   to typed
+[12:02:40] [DEBUG   ] Registered correct key  
+[12:02:41] [INFO    ] Got keycode 105, i
+[12:02:41] [INFO    ] appending i to typed
+[12:02:41] [DEBUG   ] Registered wrong key i
+[12:02:41] [INFO    ] Got keycode 263, 263
+[12:02:41] [INFO    ] Got keycode 115, s
+[12:02:41] [INFO    ] appending s to typed
+[12:02:41] [DEBUG   ] Registered correct key s
+[12:02:41] [INFO    ] Got keycode 105, i
+[12:02:41] [INFO    ] appending i to typed
+[12:02:41] [DEBUG   ] Registered correct key i
+[12:02:42] [INFO    ] Got keycode 116, t
+[12:02:42] [INFO    ] appending t to typed
+[12:02:42] [DEBUG   ] Registered correct key t
+[12:02:42] [INFO    ] Got keycode 32,  
+[12:02:42] [INFO    ] appending   to typed
+[12:02:42] [DEBUG   ] Registered correct key  
+[12:02:42] [INFO    ] Got keycode 97, a
+[12:02:42] [INFO    ] appending a to typed
+[12:02:42] [DEBUG   ] Registered correct key a
+[12:02:42] [INFO    ] Got keycode 109, m
+[12:02:42] [INFO    ] appending m to typed
+[12:02:42] [DEBUG   ] Registered correct key m
+[12:02:42] [INFO    ] Got keycode 101, e
+[12:02:42] [INFO    ] appending e to typed
+[12:02:42] [DEBUG   ] Registered correct key e
+[12:02:42] [INFO    ] Got keycode 116, t
+[12:02:42] [INFO    ] appending t to typed
+[12:02:42] [DEBUG   ] Registered correct key t
+[12:02:42] [INFO    ] Got keycode 44, ,
+[12:02:42] [INFO    ] appending , to typed
+[12:02:42] [DEBUG   ] Registered correct key ,
+[12:02:43] [INFO    ] Got keycode 32,  
+[12:02:43] [INFO    ] appending   to typed
+[12:02:43] [DEBUG   ] Registered correct key  
+[12:02:43] [INFO    ] Got keycode 99, c
+[12:02:43] [INFO    ] appending c to typed
+[12:02:43] [DEBUG   ] Registered correct key c
+[12:02:43] [INFO    ] Got keycode 111, o
+[12:02:43] [INFO    ] appending o to typed
+[12:02:43] [DEBUG   ] Registered correct key o
+[12:02:43] [INFO    ] Got keycode 110, n
+[12:02:43] [INFO    ] appending n to typed
+[12:02:43] [DEBUG   ] Registered correct key n
+[12:02:43] [INFO    ] Got keycode 115, s
+[12:02:43] [INFO    ] appending s to typed
+[12:02:43] [DEBUG   ] Registered correct key s
+[12:02:44] [INFO    ] Got keycode 101, e
+[12:02:44] [INFO    ] appending e to typed
+[12:02:44] [DEBUG   ] Registered correct key e
+[12:02:44] [INFO    ] Got keycode 116, t
+[12:02:44] [INFO    ] appending t to typed
+[12:02:44] [DEBUG   ] Registered correct key t
+[12:02:44] [INFO    ] Got keycode 101, e
+[12:02:44] [INFO    ] appending e to typed
+[12:02:44] [DEBUG   ] Registered correct key e
+[12:02:44] [INFO    ] Got keycode 116, t
+[12:02:44] [INFO    ] appending t to typed
+[12:02:44] [DEBUG   ] Registered correct key t
+[12:02:44] [INFO    ] Got keycode 117, u
+[12:02:44] [INFO    ] appending u to typed
+[12:02:44] [DEBUG   ] Registered correct key u
+[12:02:44] [INFO    ] Got keycode 114, r
+[12:02:44] [INFO    ] appending r to typed
+[12:02:44] [DEBUG   ] Registered correct key r
+[12:02:45] [INFO    ] Got keycode 32,  
+[12:02:45] [INFO    ] appending   to typed
+[12:02:45] [DEBUG   ] Registered correct key  
+[12:02:45] [INFO    ] Got keycode 115, s
+[12:02:45] [INFO    ] appending s to typed
+[12:02:45] [DEBUG   ] Registered correct key s
+[12:02:45] [INFO    ] Got keycode 97, a
+[12:02:45] [INFO    ] appending a to typed
+[12:02:45] [DEBUG   ] Registered correct key a
+[12:02:45] [INFO    ] Got keycode 100, d
+[12:02:45] [INFO    ] appending d to typed
+[12:02:45] [DEBUG   ] Registered correct key d
+[12:02:45] [INFO    ] Got keycode 105, i
+[12:02:45] [INFO    ] appending i to typed
+[12:02:45] [DEBUG   ] Registered correct key i
+[12:02:46] [INFO    ] Got keycode 112, p
+[12:02:46] [INFO    ] appending p to typed
+[12:02:46] [DEBUG   ] Registered correct key p
+[12:02:46] [INFO    ] Got keycode 115, s
+[12:02:46] [INFO    ] appending s to typed
+[12:02:46] [DEBUG   ] Registered correct key s
+[12:02:46] [INFO    ] Got keycode 99, c
+[12:02:46] [INFO    ] appending c to typed
+[12:02:46] [DEBUG   ] Registered correct key c
+[12:02:46] [INFO    ] Got keycode 105, i
+[12:02:46] [INFO    ] appending i to typed
+[12:02:46] [DEBUG   ] Registered correct key i
+[12:02:46] [INFO    ] Got keycode 110, n
+[12:02:46] [INFO    ] appending n to typed
+[12:02:46] [DEBUG   ] Registered correct key n
+[12:02:47] [INFO    ] Got keycode 103, g
+[12:02:47] [INFO    ] appending g to typed
+[12:02:47] [DEBUG   ] Registered correct key g
+[12:02:47] [INFO    ] Got keycode 32,  
+[12:02:47] [INFO    ] appending   to typed
+[12:02:47] [DEBUG   ] Registered correct key  
+[12:02:47] [INFO    ] Got keycode 101, e
+[12:02:47] [INFO    ] appending e to typed
+[12:02:47] [DEBUG   ] Registered correct key e
+[12:02:47] [INFO    ] Got keycode 108, l
+[12:02:47] [INFO    ] appending l to typed
+[12:02:47] [DEBUG   ] Registered correct key l
+[12:02:47] [INFO    ] Got keycode 105, i
+[12:02:47] [INFO    ] appending i to typed
+[12:02:47] [DEBUG   ] Registered correct key i
+[12:02:47] [INFO    ] Got keycode 116, t
+[12:02:47] [INFO    ] appending t to typed
+[12:02:47] [DEBUG   ] Registered correct key t
+[12:02:47] [INFO    ] Got keycode 114, r
+[12:02:47] [INFO    ] appending r to typed
+[12:02:47] [DEBUG   ] Registered correct key r
+[12:02:48] [INFO    ] Got keycode 44, ,
+[12:02:48] [INFO    ] appending , to typed
+[12:02:48] [DEBUG   ] Registered correct key ,
+[12:02:48] [INFO    ] Got keycode 32,  
+[12:02:48] [INFO    ] appending   to typed
+[12:02:48] [DEBUG   ] Registered correct key  
+[12:02:48] [INFO    ] Got keycode 115, s
+[12:02:48] [INFO    ] appending s to typed
+[12:02:48] [DEBUG   ] Registered correct key s
+[12:02:48] [INFO    ] Got keycode 101, e
+[12:02:48] [INFO    ] appending e to typed
+[12:02:48] [DEBUG   ] Registered correct key e
+[12:02:48] [INFO    ] Got keycode 100, d
+[12:02:48] [INFO    ] appending d to typed
+[12:02:48] [DEBUG   ] Registered correct key d
+[12:02:48] [INFO    ] Got keycode 32,  
+[12:02:48] [INFO    ] appending   to typed
+[12:02:48] [DEBUG   ] Registered correct key  
+[12:02:48] [INFO    ] Got keycode 100, d
+[12:02:48] [INFO    ] appending d to typed
+[12:02:48] [DEBUG   ] Registered correct key d
+[12:02:49] [INFO    ] Got keycode 105, i
+[12:02:49] [INFO    ] appending i to typed
+[12:02:49] [DEBUG   ] Registered correct key i
+[12:02:49] [INFO    ] Got keycode 97, a
+[12:02:49] [INFO    ] appending a to typed
+[12:02:49] [DEBUG   ] Registered correct key a
+[12:02:49] [INFO    ] Got keycode 109, m
+[12:02:49] [INFO    ] appending m to typed
+[12:02:49] [DEBUG   ] Registered correct key m
+[12:02:49] [INFO    ] Got keycode 32,  
+[12:02:49] [INFO    ] appending   to typed
+[12:02:49] [DEBUG   ] Registered correct key  
+[12:02:49] [INFO    ] Got keycode 110, n
+[12:02:49] [INFO    ] appending n to typed
+[12:02:49] [DEBUG   ] Registered correct key n
+[12:02:49] [INFO    ] Got keycode 111, o
+[12:02:49] [INFO    ] appending o to typed
+[12:02:49] [DEBUG   ] Registered correct key o
+[12:02:50] [INFO    ] Got keycode 110, n
+[12:02:50] [INFO    ] appending n to typed
+[12:02:50] [DEBUG   ] Registered correct key n
+[12:02:50] [INFO    ] Got keycode 117, u
+[12:02:50] [INFO    ] appending u to typed
+[12:02:50] [DEBUG   ] Registered correct key u
+[12:02:50] [INFO    ] Got keycode 109, m
+[12:02:50] [INFO    ] appending m to typed
+[12:02:50] [DEBUG   ] Registered correct key m
+[12:02:50] [INFO    ] Got keycode 121, y
+[12:02:50] [INFO    ] appending y to typed
+[12:02:50] [DEBUG   ] Registered correct key y
+[12:02:50] [INFO    ] Got keycode 32,  
+[12:02:50] [INFO    ] appending   to typed
+[12:02:50] [DEBUG   ] Registered correct key  
+[12:02:50] [INFO    ] Got keycode 101, e
+[12:02:50] [INFO    ] appending e to typed
+[12:02:50] [DEBUG   ] Registered correct key e
+[12:02:51] [INFO    ] Got keycode 105, i
+[12:02:51] [INFO    ] appending i to typed
+[12:02:51] [DEBUG   ] Registered correct key i
+[12:02:51] [INFO    ] Got keycode 114, r
+[12:02:51] [INFO    ] appending r to typed
+[12:02:51] [DEBUG   ] Registered correct key r
+[12:02:51] [INFO    ] Got keycode 109, m
+[12:02:51] [INFO    ] appending m to typed
+[12:02:51] [DEBUG   ] Registered correct key m
+[12:02:51] [INFO    ] Got keycode 111, o
+[12:02:51] [INFO    ] appending o to typed
+[12:02:51] [DEBUG   ] Registered correct key o
+[12:02:51] [INFO    ] Got keycode 100, d
+[12:02:51] [INFO    ] appending d to typed
+[12:02:51] [DEBUG   ] Registered correct key d
+[12:02:51] [INFO    ] Got keycode 32,  
+[12:02:51] [INFO    ] appending   to typed
+[12:02:51] [DEBUG   ] Registered correct key  
+[12:02:52] [INFO    ] Got keycode 116, t
+[12:02:52] [INFO    ] appending t to typed
+[12:02:52] [DEBUG   ] Registered correct key t
+[12:02:52] [INFO    ] Got keycode 101, e
+[12:02:52] [INFO    ] appending e to typed
+[12:02:52] [DEBUG   ] Registered correct key e
+[12:02:52] [INFO    ] Got keycode 109, m
+[12:02:52] [INFO    ] appending m to typed
+[12:02:52] [DEBUG   ] Registered correct key m
+[12:02:52] [INFO    ] Got keycode 112, p
+[12:02:52] [INFO    ] appending p to typed
+[12:02:52] [DEBUG   ] Registered correct key p
+[12:02:52] [INFO    ] Got keycode 111, o
+[12:02:52] [INFO    ] appending o to typed
+[12:02:52] [DEBUG   ] Registered correct key o
+[12:02:52] [INFO    ] Got keycode 114, r
+[12:02:52] [INFO    ] appending r to typed
+[12:02:52] [DEBUG   ] Registered correct key r
+[12:02:53] [INFO    ] Got keycode 32,  
+[12:02:53] [INFO    ] appending   to typed
+[12:02:53] [DEBUG   ] Registered correct key  
+[12:02:53] [INFO    ] Got keycode 105, i
+[12:02:53] [INFO    ] appending i to typed
+[12:02:53] [DEBUG   ] Registered correct key i
+[12:02:53] [INFO    ] Got keycode 110, n
+[12:02:53] [INFO    ] appending n to typed
+[12:02:53] [DEBUG   ] Registered correct key n
+[12:02:53] [INFO    ] Got keycode 118, v
+[12:02:53] [INFO    ] appending v to typed
+[12:02:53] [DEBUG   ] Registered correct key v
+[12:02:54] [INFO    ] Got keycode 105, i
+[12:02:54] [INFO    ] appending i to typed
+[12:02:54] [DEBUG   ] Registered correct key i
+[12:02:54] [INFO    ] Got keycode 100, d
+[12:02:54] [INFO    ] appending d to typed
+[12:02:54] [DEBUG   ] Registered correct key d
+[12:02:54] [INFO    ] Got keycode 117, u
+[12:02:54] [INFO    ] appending u to typed
+[12:02:54] [DEBUG   ] Registered correct key u
+[12:02:54] [INFO    ] Got keycode 110, n
+[12:02:54] [INFO    ] appending n to typed
+[12:02:54] [DEBUG   ] Registered correct key n
+[12:02:54] [INFO    ] Got keycode 116, t
+[12:02:54] [INFO    ] appending t to typed
+[12:02:54] [DEBUG   ] Registered correct key t
+[12:02:55] [INFO    ] Got keycode 32,  
+[12:02:55] [INFO    ] appending   to typed
+[12:02:55] [DEBUG   ] Registered correct key  
+[12:02:55] [INFO    ] Got keycode 117, u
+[12:02:55] [INFO    ] appending u to typed
+[12:02:55] [DEBUG   ] Registered correct key u
+[12:02:55] [INFO    ] Got keycode 116, t
+[12:02:55] [INFO    ] appending t to typed
+[12:02:55] [DEBUG   ] Registered correct key t
+[12:02:55] [INFO    ] Got keycode 32,  
+[12:02:55] [INFO    ] appending   to typed
+[12:02:55] [DEBUG   ] Registered correct key  
+[12:02:55] [INFO    ] Got keycode 108, l
+[12:02:55] [INFO    ] appending l to typed
+[12:02:55] [DEBUG   ] Registered correct key l
+[12:02:55] [INFO    ] Got keycode 97, a
+[12:02:55] [INFO    ] appending a to typed
+[12:02:55] [DEBUG   ] Registered correct key a
+[12:02:55] [INFO    ] Got keycode 98, b
+[12:02:55] [INFO    ] appending b to typed
+[12:02:55] [DEBUG   ] Registered correct key b
+[12:02:56] [INFO    ] Got keycode 111, o
+[12:02:56] [INFO    ] appending o to typed
+[12:02:56] [DEBUG   ] Registered correct key o
+[12:02:56] [INFO    ] Got keycode 114, r
+[12:02:56] [INFO    ] appending r to typed
+[12:02:56] [DEBUG   ] Registered correct key r
+[12:02:56] [INFO    ] Got keycode 101, e
+[12:02:56] [INFO    ] appending e to typed
+[12:02:56] [DEBUG   ] Registered correct key e
+[12:02:56] [INFO    ] Got keycode 32,  
+[12:02:56] [INFO    ] appending   to typed
+[12:02:56] [DEBUG   ] Registered correct key  
+[12:02:56] [INFO    ] Got keycode 101, e
+[12:02:56] [INFO    ] appending e to typed
+[12:02:56] [DEBUG   ] Registered correct key e
+[12:02:56] [INFO    ] Got keycode 116, t
+[12:02:56] [INFO    ] appending t to typed
+[12:02:56] [DEBUG   ] Registered correct key t
+[12:02:56] [INFO    ] Got keycode 32,  
+[12:02:56] [INFO    ] appending   to typed
+[12:02:56] [DEBUG   ] Registered correct key  
+[12:02:57] [INFO    ] Got keycode 100, d
+[12:02:57] [INFO    ] appending d to typed
+[12:02:57] [DEBUG   ] Registered correct key d
+[12:02:57] [INFO    ] Got keycode 111, o
+[12:02:57] [INFO    ] appending o to typed
+[12:02:57] [DEBUG   ] Registered correct key o
+[12:02:57] [INFO    ] Got keycode 108, l
+[12:02:57] [INFO    ] appending l to typed
+[12:02:57] [DEBUG   ] Registered correct key l
+[12:02:57] [INFO    ] Got keycode 111, o
+[12:02:57] [INFO    ] appending o to typed
+[12:02:57] [DEBUG   ] Registered correct key o
+[12:02:57] [INFO    ] Got keycode 114, r
+[12:02:57] [INFO    ] appending r to typed
+[12:02:57] [DEBUG   ] Registered correct key r
+[12:02:57] [INFO    ] Got keycode 101, e
+[12:02:57] [INFO    ] appending e to typed
+[12:02:57] [DEBUG   ] Registered correct key e
+[12:02:57] [INFO    ] Got keycode 32,  
+[12:02:57] [INFO    ] appending   to typed
+[12:02:57] [DEBUG   ] Registered correct key  
+[12:02:58] [INFO    ] Got keycode 101, e
+[12:02:58] [INFO    ] appending e to typed
+[12:02:58] [DEBUG   ] Registered wrong key e
+[12:02:58] [INFO    ] Got keycode 263, 263
+[12:02:58] [INFO    ] Got keycode 109, m
+[12:02:58] [INFO    ] appending m to typed
+[12:02:58] [DEBUG   ] Registered correct key m
+[12:02:58] [INFO    ] Got keycode 97, a
+[12:02:58] [INFO    ] appending a to typed
+[12:02:58] [DEBUG   ] Registered correct key a
+[12:02:58] [INFO    ] Got keycode 103, g
+[12:02:58] [INFO    ] appending g to typed
+[12:02:58] [DEBUG   ] Registered correct key g
+[12:02:58] [INFO    ] Got keycode 110, n
+[12:02:58] [INFO    ] appending n to typed
+[12:02:58] [DEBUG   ] Registered correct key n
+[12:02:59] [INFO    ] Got keycode 97, a
+[12:02:59] [INFO    ] appending a to typed
+[12:02:59] [DEBUG   ] Registered correct key a
+[12:02:59] [INFO    ] Got keycode 32,  
+[12:02:59] [INFO    ] appending   to typed
+[12:02:59] [DEBUG   ] Registered correct key  
+[12:02:59] [INFO    ] Got keycode 101, e
+[12:02:59] [INFO    ] appending e to typed
+[12:02:59] [DEBUG   ] Registered wrong key e
+[12:03:00] [INFO    ] Got keycode 263, 263
+[12:03:00] [INFO    ] Got keycode 97, a
+[12:03:00] [INFO    ] appending a to typed
+[12:03:00] [DEBUG   ] Registered correct key a
+[12:03:00] [INFO    ] Got keycode 108, l
+[12:03:00] [INFO    ] appending l to typed
+[12:03:00] [DEBUG   ] Registered correct key l
+[12:03:00] [INFO    ] Got keycode 105, i
+[12:03:00] [INFO    ] appending i to typed
+[12:03:00] [DEBUG   ] Registered correct key i
+[12:03:00] [INFO    ] Got keycode 113, q
+[12:03:00] [INFO    ] appending q to typed
+[12:03:00] [DEBUG   ] Registered correct key q
+[12:03:01] [INFO    ] Got keycode 117, u
+[12:03:01] [INFO    ] appending u to typed
+[12:03:01] [DEBUG   ] Registered correct key u
+[12:03:01] [INFO    ] Got keycode 121, y
+[12:03:01] [INFO    ] appending y to typed
+[12:03:01] [DEBUG   ] Registered correct key y
+[12:03:01] [INFO    ] Got keycode 97, a
+[12:03:01] [INFO    ] appending a to typed
+[12:03:01] [DEBUG   ] Registered correct key a
+[12:03:01] [INFO    ] Got keycode 109, m
+[12:03:01] [INFO    ] appending m to typed
+[12:03:01] [DEBUG   ] Registered correct key m
+[12:03:01] [INFO    ] Got keycode 32,  
+[12:03:01] [INFO    ] appending   to typed
+[12:03:01] [DEBUG   ] Registered correct key  
+[12:03:02] [INFO    ] Got keycode 101, e
+[12:03:02] [INFO    ] appending e to typed
+[12:03:02] [DEBUG   ] Registered correct key e
+[12:03:02] [INFO    ] Got keycode 114, r
+[12:03:02] [INFO    ] appending r to typed
+[12:03:02] [DEBUG   ] Registered correct key r
+[12:03:02] [INFO    ] Got keycode 97, a
+[12:03:02] [INFO    ] appending a to typed
+[12:03:02] [DEBUG   ] Registered correct key a
+[12:03:02] [INFO    ] Got keycode 116, t
+[12:03:02] [INFO    ] appending t to typed
+[12:03:02] [DEBUG   ] Registered correct key t
+[12:03:02] [INFO    ] Got keycode 44, ,
+[12:03:02] [INFO    ] appending , to typed
+[12:03:02] [DEBUG   ] Registered correct key ,
+[12:03:02] [INFO    ] Got keycode 32,  
+[12:03:02] [INFO    ] appending   to typed
+[12:03:02] [DEBUG   ] Registered correct key  
+[12:03:03] [INFO    ] Got keycode 115, s
+[12:03:03] [INFO    ] appending s to typed
+[12:03:03] [DEBUG   ] Registered correct key s
+[12:03:03] [INFO    ] Got keycode 101, e
+[12:03:03] [INFO    ] appending e to typed
+[12:03:03] [DEBUG   ] Registered correct key e
+[12:03:03] [INFO    ] Got keycode 100, d
+[12:03:03] [INFO    ] appending d to typed
+[12:03:03] [DEBUG   ] Registered correct key d
+[12:03:03] [INFO    ] Got keycode 32,  
+[12:03:03] [INFO    ] appending   to typed
+[12:03:03] [DEBUG   ] Registered correct key  
+[12:03:04] [INFO    ] Got keycode 100, d
+[12:03:04] [INFO    ] appending d to typed
+[12:03:04] [DEBUG   ] Registered correct key d
+[12:03:04] [INFO    ] Got keycode 105, i
+[12:03:04] [INFO    ] appending i to typed
+[12:03:04] [DEBUG   ] Registered correct key i
+[12:03:04] [INFO    ] Got keycode 97, a
+[12:03:04] [INFO    ] appending a to typed
+[12:03:04] [DEBUG   ] Registered correct key a
+[12:03:04] [INFO    ] Got keycode 109, m
+[12:03:04] [INFO    ] appending m to typed
+[12:03:04] [DEBUG   ] Registered correct key m
+[12:03:04] [INFO    ] Got keycode 32,  
+[12:03:04] [INFO    ] appending   to typed
+[12:03:04] [DEBUG   ] Registered correct key  
+[12:03:04] [INFO    ] Got keycode 118, v
+[12:03:04] [INFO    ] appending v to typed
+[12:03:04] [DEBUG   ] Registered correct key v
+[12:03:04] [INFO    ] Got keycode 111, o
+[12:03:04] [INFO    ] appending o to typed
+[12:03:04] [DEBUG   ] Registered correct key o
+[12:03:05] [INFO    ] Got keycode 108, l
+[12:03:05] [INFO    ] appending l to typed
+[12:03:05] [DEBUG   ] Registered correct key l
+[12:03:05] [INFO    ] Got keycode 117, u
+[12:03:05] [INFO    ] appending u to typed
+[12:03:05] [DEBUG   ] Registered correct key u
+[12:03:05] [INFO    ] Got keycode 112, p
+[12:03:05] [INFO    ] appending p to typed
+[12:03:05] [DEBUG   ] Registered correct key p
+[12:03:05] [INFO    ] Got keycode 116, t
+[12:03:05] [INFO    ] appending t to typed
+[12:03:05] [DEBUG   ] Registered correct key t
+[12:03:05] [INFO    ] Got keycode 117, u
+[12:03:05] [INFO    ] appending u to typed
+[12:03:05] [DEBUG   ] Registered correct key u
+[12:03:06] [INFO    ] Got keycode 97, a
+[12:03:06] [INFO    ] appending a to typed
+[12:03:06] [DEBUG   ] Registered correct key a
+[12:03:06] [INFO    ] Got keycode 46, .
+[12:03:06] [INFO    ] appending . to typed
+[12:03:06] [DEBUG   ] Registered correct key .
+[12:03:06] [INFO    ] Got keycode 32,  
+[12:03:06] [INFO    ] appending   to typed
+[12:03:06] [DEBUG   ] Registered correct key  
+[12:03:06] [INFO    ] Got keycode 65, A
+[12:03:06] [INFO    ] appending A to typed
+[12:03:06] [DEBUG   ] Registered correct key A
+[12:03:07] [INFO    ] Got keycode 116, t
+[12:03:07] [INFO    ] appending t to typed
+[12:03:07] [DEBUG   ] Registered correct key t
+[12:03:07] [INFO    ] Got keycode 32,  
+[12:03:07] [INFO    ] appending   to typed
+[12:03:07] [DEBUG   ] Registered correct key  
+[12:03:07] [INFO    ] Got keycode 118, v
+[12:03:07] [INFO    ] appending v to typed
+[12:03:07] [DEBUG   ] Registered correct key v
+[12:03:07] [INFO    ] Got keycode 101, e
+[12:03:07] [INFO    ] appending e to typed
+[12:03:07] [DEBUG   ] Registered correct key e
+[12:03:07] [INFO    ] Got keycode 114, r
+[12:03:07] [INFO    ] appending r to typed
+[12:03:07] [DEBUG   ] Registered correct key r
+[12:03:08] [INFO    ] Got keycode 111, o
+[12:03:08] [INFO    ] appending o to typed
+[12:03:08] [DEBUG   ] Registered correct key o
+[12:03:08] [INFO    ] Got keycode 32,  
+[12:03:08] [INFO    ] appending   to typed
+[12:03:08] [DEBUG   ] Registered correct key  
+[12:03:08] [INFO    ] Got keycode 101, e
+[12:03:08] [INFO    ] appending e to typed
+[12:03:08] [DEBUG   ] Registered correct key e
+[12:03:08] [INFO    ] Got keycode 111, o
+[12:03:08] [INFO    ] appending o to typed
+[12:03:08] [DEBUG   ] Registered correct key o
+[12:03:09] [INFO    ] Got keycode 115, s
+[12:03:09] [INFO    ] appending s to typed
+[12:03:09] [DEBUG   ] Registered correct key s
+[12:03:09] [INFO    ] Got keycode 32,  
+[12:03:09] [INFO    ] appending   to typed
+[12:03:09] [DEBUG   ] Registered correct key  
+[12:03:09] [INFO    ] Got keycode 101, e
+[12:03:09] [INFO    ] appending e to typed
+[12:03:09] [DEBUG   ] Registered correct key e
+[12:03:10] [INFO    ] Got keycode 116, t
+[12:03:10] [INFO    ] appending t to typed
+[12:03:10] [DEBUG   ] Registered correct key t
+[12:03:10] [INFO    ] Got keycode 32,  
+[12:03:10] [INFO    ] appending   to typed
+[12:03:10] [DEBUG   ] Registered correct key  
+[12:03:10] [INFO    ] Got keycode 97, a
+[12:03:10] [INFO    ] appending a to typed
+[12:03:10] [DEBUG   ] Registered correct key a
+[12:03:10] [INFO    ] Got keycode 99, c
+[12:03:10] [INFO    ] appending c to typed
+[12:03:10] [DEBUG   ] Registered correct key c
+[12:03:10] [INFO    ] Got keycode 99, c
+[12:03:10] [INFO    ] appending c to typed
+[12:03:10] [DEBUG   ] Registered correct key c
+[12:03:11] [INFO    ] Got keycode 117, u
+[12:03:11] [INFO    ] appending u to typed
+[12:03:11] [DEBUG   ] Registered correct key u
+[12:03:11] [INFO    ] Got keycode 115, s
+[12:03:11] [INFO    ] appending s to typed
+[12:03:11] [DEBUG   ] Registered correct key s
+[12:03:11] [INFO    ] Got keycode 97, a
+[12:03:11] [INFO    ] appending a to typed
+[12:03:11] [DEBUG   ] Registered correct key a
+[12:03:11] [INFO    ] Got keycode 109, m
+[12:03:11] [INFO    ] appending m to typed
+[12:03:11] [DEBUG   ] Registered correct key m
+[12:03:11] [INFO    ] Got keycode 32,  
+[12:03:11] [INFO    ] appending   to typed
+[12:03:11] [DEBUG   ] Registered correct key  
+[12:03:11] [INFO    ] Got keycode 101, e
+[12:03:11] [INFO    ] appending e to typed
+[12:03:11] [DEBUG   ] Registered correct key e
+[12:03:11] [INFO    ] Got keycode 116, t
+[12:03:11] [INFO    ] appending t to typed
+[12:03:11] [DEBUG   ] Registered correct key t
+[12:03:11] [INFO    ] Got keycode 32,  
+[12:03:11] [INFO    ] appending   to typed
+[12:03:11] [DEBUG   ] Registered correct key  
+[12:03:12] [INFO    ] Got keycode 106, j
+[12:03:12] [INFO    ] appending j to typed
+[12:03:12] [DEBUG   ] Registered correct key j
+[12:03:12] [INFO    ] Got keycode 115, s
+[12:03:12] [INFO    ] appending s to typed
+[12:03:12] [DEBUG   ] Registered wrong key s
+[12:03:12] [INFO    ] Got keycode 117, u
+[12:03:12] [INFO    ] appending u to typed
+[12:03:12] [DEBUG   ] Registered wrong key u
+[12:03:12] [INFO    ] Got keycode 116, t
+[12:03:12] [INFO    ] appending t to typed
+[12:03:12] [DEBUG   ] Registered correct key t
+[12:03:12] [INFO    ] Got keycode 111, o
+[12:03:12] [INFO    ] appending o to typed
+[12:03:12] [DEBUG   ] Registered correct key o
+[12:03:13] [INFO    ] Got keycode 32,  
+[12:03:13] [INFO    ] appending   to typed
+[12:03:13] [DEBUG   ] Registered correct key  
+[12:03:13] [INFO    ] Got keycode 100, d
+[12:03:13] [INFO    ] appending d to typed
+[12:03:13] [DEBUG   ] Registered correct key d
+[12:03:13] [INFO    ] Got keycode 117, u
+[12:03:13] [INFO    ] appending u to typed
+[12:03:13] [DEBUG   ] Registered correct key u
+[12:03:13] [INFO    ] Got keycode 111, o
+[12:03:13] [INFO    ] appending o to typed
+[12:03:13] [DEBUG   ] Registered correct key o
+[12:03:14] [INFO    ] Got keycode 32,  
+[12:03:14] [INFO    ] appending   to typed
+[12:03:14] [DEBUG   ] Registered correct key  
+[12:03:14] [INFO    ] Got keycode 100, d
+[12:03:14] [INFO    ] appending d to typed
+[12:03:14] [DEBUG   ] Registered correct key d
+[12:03:14] [INFO    ] Got keycode 111, o
+[12:03:14] [INFO    ] appending o to typed
+[12:03:14] [DEBUG   ] Registered correct key o
+[12:03:14] [INFO    ] Got keycode 108, l
+[12:03:14] [INFO    ] appending l to typed
+[12:03:14] [DEBUG   ] Registered correct key l
+[12:03:14] [INFO    ] Got keycode 111, o
+[12:03:14] [INFO    ] appending o to typed
+[12:03:14] [DEBUG   ] Registered correct key o
+[12:03:14] [INFO    ] Got keycode 114, r
+[12:03:14] [INFO    ] appending r to typed
+[12:03:14] [DEBUG   ] Registered correct key r
+[12:03:15] [INFO    ] Got keycode 101, e
+[12:03:15] [INFO    ] appending e to typed
+[12:03:15] [DEBUG   ] Registered correct key e
+[12:03:15] [INFO    ] Got keycode 115, s
+[12:03:15] [INFO    ] appending s to typed
+[12:03:15] [DEBUG   ] Registered correct key s
+[12:03:15] [INFO    ] Got keycode 32,  
+[12:03:15] [INFO    ] appending   to typed
+[12:03:15] [DEBUG   ] Registered correct key  
+[12:03:15] [INFO    ] Got keycode 101, e
+[12:03:15] [INFO    ] appending e to typed
+[12:03:15] [DEBUG   ] Registered correct key e
+[12:03:15] [INFO    ] Got keycode 116, t
+[12:03:15] [INFO    ] appending t to typed
+[12:03:15] [DEBUG   ] Registered correct key t
+[12:03:15] [INFO    ] Got keycode 32,  
+[12:03:15] [INFO    ] appending   to typed
+[12:03:15] [DEBUG   ] Registered correct key  
+[12:03:16] [INFO    ] Got keycode 101, e
+[12:03:16] [INFO    ] appending e to typed
+[12:03:16] [DEBUG   ] Registered correct key e
+[12:03:16] [INFO    ] Got keycode 97, a
+[12:03:16] [INFO    ] appending a to typed
+[12:03:16] [DEBUG   ] Registered correct key a
+[12:03:16] [INFO    ] Got keycode 32,  
+[12:03:16] [INFO    ] appending   to typed
+[12:03:16] [DEBUG   ] Registered correct key  
+[12:03:17] [INFO    ] Got keycode 114, r
+[12:03:17] [INFO    ] appending r to typed
+[12:03:17] [DEBUG   ] Registered correct key r
+[12:03:17] [INFO    ] Got keycode 101, e
+[12:03:17] [INFO    ] appending e to typed
+[12:03:17] [DEBUG   ] Registered correct key e
+[12:03:17] [INFO    ] Got keycode 98, b
+[12:03:17] [INFO    ] appending b to typed
+[12:03:17] [DEBUG   ] Registered correct key b
+[12:03:17] [INFO    ] Got keycode 117, u
+[12:03:17] [INFO    ] appending u to typed
+[12:03:17] [DEBUG   ] Registered correct key u
+[12:03:18] [INFO    ] Got keycode 109, m
+[12:03:18] [INFO    ] appending m to typed
+[12:03:18] [DEBUG   ] Registered correct key m
+[12:03:18] [INFO    ] Got keycode 46, .
+[12:03:18] [INFO    ] appending . to typed
+[12:03:18] [DEBUG   ] Registered correct key .
+[12:03:18] [INFO    ] Got keycode 32,  
+[12:03:18] [INFO    ] appending   to typed
+[12:03:18] [DEBUG   ] Registered correct key  
+[12:03:18] [INFO    ] Got keycode 83, S
+[12:03:18] [INFO    ] appending S to typed
+[12:03:18] [DEBUG   ] Registered correct key S
+[12:03:18] [INFO    ] Got keycode 116, t
+[12:03:18] [INFO    ] appending t to typed
+[12:03:18] [DEBUG   ] Registered correct key t
+[12:03:19] [INFO    ] Got keycode 101, e
+[12:03:19] [INFO    ] appending e to typed
+[12:03:19] [DEBUG   ] Registered correct key e
+[12:03:19] [INFO    ] Got keycode 116, t
+[12:03:19] [INFO    ] appending t to typed
+[12:03:19] [DEBUG   ] Registered correct key t
+[12:03:19] [INFO    ] Got keycode 32,  
+[12:03:19] [INFO    ] appending   to typed
+[12:03:19] [DEBUG   ] Registered correct key  
+[12:03:19] [INFO    ] Got keycode 99, c
+[12:03:19] [INFO    ] appending c to typed
+[12:03:19] [DEBUG   ] Registered correct key c
+[12:03:19] [INFO    ] Got keycode 108, l
+[12:03:19] [INFO    ] appending l to typed
+[12:03:19] [DEBUG   ] Registered correct key l
+[12:03:19] [INFO    ] Got keycode 105, i
+[12:03:19] [INFO    ] appending i to typed
+[12:03:19] [DEBUG   ] Registered correct key i
+[12:03:20] [INFO    ] Got keycode 116, t
+[12:03:20] [INFO    ] appending t to typed
+[12:03:20] [DEBUG   ] Registered correct key t
+[12:03:20] [INFO    ] Got keycode 97, a
+[12:03:20] [INFO    ] appending a to typed
+[12:03:20] [DEBUG   ] Registered correct key a
+[12:03:20] [INFO    ] Got keycode 32,  
+[12:03:20] [INFO    ] appending   to typed
+[12:03:20] [DEBUG   ] Registered correct key  
+[12:03:20] [INFO    ] Got keycode 107, k
+[12:03:20] [INFO    ] appending k to typed
+[12:03:20] [DEBUG   ] Registered correct key k
+[12:03:20] [INFO    ] Got keycode 97, a
+[12:03:20] [INFO    ] appending a to typed
+[12:03:20] [DEBUG   ] Registered correct key a
+[12:03:20] [INFO    ] Got keycode 115, s
+[12:03:20] [INFO    ] appending s to typed
+[12:03:20] [DEBUG   ] Registered correct key s
+[12:03:21] [INFO    ] Got keycode 100, d
+[12:03:21] [INFO    ] appending d to typed
+[12:03:21] [DEBUG   ] Registered correct key d
+[12:03:21] [INFO    ] Got keycode 32,  
+[12:03:21] [INFO    ] appending   to typed
+[12:03:21] [DEBUG   ] Registered correct key  
+[12:03:21] [INFO    ] Got keycode 103, g
+[12:03:21] [INFO    ] appending g to typed
+[12:03:21] [DEBUG   ] Registered correct key g
+[12:03:21] [INFO    ] Got keycode 117, u
+[12:03:21] [INFO    ] appending u to typed
+[12:03:21] [DEBUG   ] Registered correct key u
+[12:03:21] [INFO    ] Got keycode 98, b
+[12:03:21] [INFO    ] appending b to typed
+[12:03:21] [DEBUG   ] Registered correct key b
+[12:03:22] [INFO    ] Got keycode 101, e
+[12:03:22] [INFO    ] appending e to typed
+[12:03:22] [DEBUG   ] Registered correct key e
+[12:03:22] [INFO    ] Got keycode 114, r
+[12:03:22] [INFO    ] appending r to typed
+[12:03:22] [DEBUG   ] Registered correct key r
+[12:03:22] [INFO    ] Got keycode 103, g
+[12:03:22] [INFO    ] appending g to typed
+[12:03:22] [DEBUG   ] Registered correct key g
+[12:03:22] [INFO    ] Got keycode 114, r
+[12:03:22] [INFO    ] appending r to typed
+[12:03:22] [DEBUG   ] Registered correct key r
+[12:03:22] [INFO    ] Got keycode 101, e
+[12:03:22] [INFO    ] appending e to typed
+[12:03:22] [DEBUG   ] Registered correct key e
+[12:03:22] [INFO    ] Got keycode 110, n
+[12:03:22] [INFO    ] appending n to typed
+[12:03:22] [DEBUG   ] Registered correct key n
+[12:03:23] [INFO    ] Got keycode 44, ,
+[12:03:23] [INFO    ] appending , to typed
+[12:03:23] [DEBUG   ] Registered correct key ,
+[12:03:23] [INFO    ] Got keycode 32,  
+[12:03:23] [INFO    ] appending   to typed
+[12:03:23] [DEBUG   ] Registered correct key  
+[12:03:23] [INFO    ] Got keycode 110, n
+[12:03:23] [INFO    ] appending n to typed
+[12:03:23] [DEBUG   ] Registered correct key n
+[12:03:23] [INFO    ] Got keycode 111, o
+[12:03:23] [INFO    ] appending o to typed
+[12:03:23] [DEBUG   ] Registered correct key o
+[12:03:23] [INFO    ] Got keycode 32,  
+[12:03:23] [INFO    ] appending   to typed
+[12:03:23] [DEBUG   ] Registered correct key  
+[12:03:23] [INFO    ] Got keycode 115, s
+[12:03:23] [INFO    ] appending s to typed
+[12:03:23] [DEBUG   ] Registered correct key s
+[12:03:24] [INFO    ] Got keycode 101, e
+[12:03:24] [INFO    ] appending e to typed
+[12:03:24] [DEBUG   ] Registered correct key e
+[12:03:24] [INFO    ] Got keycode 97, a
+[12:03:24] [INFO    ] appending a to typed
+[12:03:24] [DEBUG   ] Registered correct key a
+[12:03:24] [INFO    ] Got keycode 32,  
+[12:03:24] [INFO    ] appending   to typed
+[12:03:24] [DEBUG   ] Registered correct key  
+[12:03:24] [INFO    ] Got keycode 116, t
+[12:03:24] [INFO    ] appending t to typed
+[12:03:24] [DEBUG   ] Registered correct key t
+[12:03:24] [INFO    ] Got keycode 97, a
+[12:03:24] [INFO    ] appending a to typed
+[12:03:24] [DEBUG   ] Registered correct key a
+[12:03:24] [INFO    ] Got keycode 107, k
+[12:03:24] [INFO    ] appending k to typed
+[12:03:24] [DEBUG   ] Registered correct key k
+[12:03:25] [INFO    ] Got keycode 105, i
+[12:03:25] [INFO    ] appending i to typed
+[12:03:25] [DEBUG   ] Registered correct key i
+[12:03:25] [INFO    ] Got keycode 109, m
+[12:03:25] [INFO    ] appending m to typed
+[12:03:25] [DEBUG   ] Registered correct key m
+[12:03:25] [INFO    ] Got keycode 97, a
+[12:03:25] [INFO    ] appending a to typed
+[12:03:25] [DEBUG   ] Registered correct key a
+[12:03:25] [INFO    ] Got keycode 116, t
+[12:03:25] [INFO    ] appending t to typed
+[12:03:25] [DEBUG   ] Registered correct key t
+[12:03:25] [INFO    ] Got keycode 97, a
+[12:03:25] [INFO    ] appending a to typed
+[12:03:25] [DEBUG   ] Registered correct key a
+[12:03:26] [INFO    ] Got keycode 32,  
+[12:03:26] [INFO    ] appending   to typed
+[12:03:26] [DEBUG   ] Registered correct key  
+[12:03:26] [INFO    ] Got keycode 115, s
+[12:03:26] [INFO    ] appending s to typed
+[12:03:26] [DEBUG   ] Registered correct key s
+[12:03:26] [INFO    ] Got keycode 97, a
+[12:03:26] [INFO    ] appending a to typed
+[12:03:26] [DEBUG   ] Registered correct key a
+[12:03:26] [INFO    ] Got keycode 110, n
+[12:03:26] [INFO    ] appending n to typed
+[12:03:26] [DEBUG   ] Registered correct key n
+[12:03:27] [INFO    ] Got keycode 99, c
+[12:03:27] [INFO    ] appending c to typed
+[12:03:27] [DEBUG   ] Registered correct key c
+[12:03:27] [INFO    ] Got keycode 116, t
+[12:03:27] [INFO    ] appending t to typed
+[12:03:27] [DEBUG   ] Registered correct key t
+[12:03:27] [INFO    ] Got keycode 117, u
+[12:03:27] [INFO    ] appending u to typed
+[12:03:27] [DEBUG   ] Registered correct key u
+[12:03:27] [INFO    ] Got keycode 115, s
+[12:03:27] [INFO    ] appending s to typed
+[12:03:27] [DEBUG   ] Registered correct key s
+[12:03:27] [INFO    ] Got keycode 32,  
+[12:03:27] [INFO    ] appending   to typed
+[12:03:27] [DEBUG   ] Registered correct key  
+[12:03:27] [INFO    ] Got keycode 101, e
+[12:03:27] [INFO    ] appending e to typed
+[12:03:27] [DEBUG   ] Registered correct key e
+[12:03:28] [INFO    ] Got keycode 115, s
+[12:03:28] [INFO    ] appending s to typed
+[12:03:28] [DEBUG   ] Registered correct key s
+[12:03:28] [INFO    ] Got keycode 116, t
+[12:03:28] [INFO    ] appending t to typed
+[12:03:28] [DEBUG   ] Registered correct key t
+[12:03:28] [INFO    ] Got keycode 32,  
+[12:03:28] [INFO    ] appending   to typed
+[12:03:28] [DEBUG   ] Registered correct key  
+[12:03:28] [INFO    ] Got keycode 76, L
+[12:03:28] [INFO    ] appending L to typed
+[12:03:28] [DEBUG   ] Registered correct key L
+[12:03:29] [INFO    ] Got keycode 111, o
+[12:03:29] [INFO    ] appending o to typed
+[12:03:29] [DEBUG   ] Registered correct key o
+[12:03:29] [INFO    ] Got keycode 114, r
+[12:03:29] [INFO    ] appending r to typed
+[12:03:29] [DEBUG   ] Registered correct key r
+[12:03:29] [INFO    ] Got keycode 101, e
+[12:03:29] [INFO    ] appending e to typed
+[12:03:29] [DEBUG   ] Registered correct key e
+[12:03:29] [INFO    ] Got keycode 109, m
+[12:03:29] [INFO    ] appending m to typed
+[12:03:29] [DEBUG   ] Registered correct key m
+[12:03:29] [INFO    ] Got keycode 32,  
+[12:03:29] [INFO    ] appending   to typed
+[12:03:29] [DEBUG   ] Registered correct key  
+[12:03:29] [INFO    ] Got keycode 105, i
+[12:03:29] [INFO    ] appending i to typed
+[12:03:29] [DEBUG   ] Registered correct key i
+[12:03:29] [INFO    ] Got keycode 112, p
+[12:03:29] [INFO    ] appending p to typed
+[12:03:29] [DEBUG   ] Registered correct key p
+[12:03:30] [INFO    ] Got keycode 115, s
+[12:03:30] [INFO    ] appending s to typed
+[12:03:30] [DEBUG   ] Registered correct key s
+[12:03:30] [INFO    ] Got keycode 117, u
+[12:03:30] [INFO    ] appending u to typed
+[12:03:30] [DEBUG   ] Registered correct key u
+[12:03:30] [INFO    ] Got keycode 109, m
+[12:03:30] [INFO    ] appending m to typed
+[12:03:30] [DEBUG   ] Registered correct key m
+[12:03:30] [INFO    ] Got keycode 32,  
+[12:03:30] [INFO    ] appending   to typed
+[12:03:30] [DEBUG   ] Registered correct key  
+[12:03:30] [INFO    ] Got keycode 100, d
+[12:03:30] [INFO    ] appending d to typed
+[12:03:30] [DEBUG   ] Registered correct key d
+[12:03:30] [INFO    ] Got keycode 111, o
+[12:03:30] [INFO    ] appending o to typed
+[12:03:30] [DEBUG   ] Registered correct key o
+[12:03:30] [INFO    ] Got keycode 108, l
+[12:03:30] [INFO    ] appending l to typed
+[12:03:30] [DEBUG   ] Registered correct key l
+[12:03:31] [INFO    ] Got keycode 111, o
+[12:03:31] [INFO    ] appending o to typed
+[12:03:31] [DEBUG   ] Registered correct key o
+[12:03:31] [INFO    ] Got keycode 114, r
+[12:03:31] [INFO    ] appending r to typed
+[12:03:31] [DEBUG   ] Registered correct key r
+[12:03:31] [INFO    ] Got keycode 32,  
+[12:03:31] [INFO    ] appending   to typed
+[12:03:31] [DEBUG   ] Registered correct key  
+[12:03:31] [INFO    ] Got keycode 115, s
+[12:03:31] [INFO    ] appending s to typed
+[12:03:31] [DEBUG   ] Registered correct key s
+[12:03:31] [INFO    ] Got keycode 105, i
+[12:03:31] [INFO    ] appending i to typed
+[12:03:31] [DEBUG   ] Registered correct key i
+[12:03:31] [INFO    ] Got keycode 116, t
+[12:03:31] [INFO    ] appending t to typed
+[12:03:31] [DEBUG   ] Registered correct key t
+[12:03:32] [INFO    ] Got keycode 32,  
+[12:03:32] [INFO    ] appending   to typed
+[12:03:32] [DEBUG   ] Registered correct key  
+[12:03:32] [INFO    ] Got keycode 97, a
+[12:03:32] [INFO    ] appending a to typed
+[12:03:32] [DEBUG   ] Registered correct key a
+[12:03:32] [INFO    ] Got keycode 109, m
+[12:03:32] [INFO    ] appending m to typed
+[12:03:32] [DEBUG   ] Registered correct key m
+[12:03:33] [INFO    ] Got keycode 101, e
+[12:03:33] [INFO    ] appending e to typed
+[12:03:33] [DEBUG   ] Registered correct key e
+[12:03:33] [INFO    ] Got keycode 116, t
+[12:03:33] [INFO    ] appending t to typed
+[12:03:33] [DEBUG   ] Registered correct key t
+[12:03:33] [INFO    ] Got keycode 46, .
+[12:03:33] [INFO    ] appending . to typed
+[12:03:33] [DEBUG   ] Registered correct key .
+[12:03:33] [DEBUG   ] Finished sec. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.: Typed:295, WPM:79, err:1%, errors:['i', 'e', 'e', 's', 'u']
+[12:03:33] [INFO    ] At end while loop
+[12:03:33] [DEBUG   ] Textlst:[['a', ' ', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', ' ', 'a', 'a', 'a', ' ', 'a', 'a', 'a', 'a', 'a']]
+[12:03:33] [DEBUG   ] self.maxx:203, textx:29, texty:1 textwin_xy = s_win_xy(nlines=3, ncols=31, begin_y=0, begin_x=87)
+[12:03:33] [DEBUG   ] Created subwindows
+[12:03:34] [INFO    ] Got keycode 97, a
+[12:03:34] [INFO    ] appending a to typed
+[12:03:34] [DEBUG   ] Registered correct key a
+[12:03:35] [INFO    ] Got keycode 32,  
+[12:03:35] [INFO    ] appending   to typed
+[12:03:35] [DEBUG   ] Registered correct key  
+[12:03:35] [INFO    ] Got keycode 97, a
+[12:03:35] [INFO    ] appending a to typed
+[12:03:35] [DEBUG   ] Registered correct key a
+[12:03:35] [INFO    ] Got keycode 97, a
+[12:03:35] [INFO    ] appending a to typed
+[12:03:35] [DEBUG   ] Registered correct key a
+[12:03:35] [INFO    ] Got keycode 97, a
+[12:03:35] [INFO    ] appending a to typed
+[12:03:35] [DEBUG   ] Registered correct key a
+[12:03:35] [INFO    ] Got keycode 97, a
+[12:03:35] [INFO    ] appending a to typed
+[12:03:35] [DEBUG   ] Registered correct key a
+[12:03:36] [INFO    ] Got keycode 97, a
+[12:03:36] [INFO    ] appending a to typed
+[12:03:36] [DEBUG   ] Registered correct key a
+[12:03:36] [INFO    ] Got keycode 97, a
+[12:03:36] [INFO    ] appending a to typed
+[12:03:36] [DEBUG   ] Registered correct key a
+[12:03:36] [INFO    ] Got keycode 97, a
+[12:03:36] [INFO    ] appending a to typed
+[12:03:36] [DEBUG   ] Registered correct key a
+[12:03:36] [INFO    ] Got keycode 97, a
+[12:03:36] [INFO    ] appending a to typed
+[12:03:36] [DEBUG   ] Registered correct key a
+[12:03:36] [INFO    ] Got keycode 97, a
+[12:03:36] [INFO    ] appending a to typed
+[12:03:36] [DEBUG   ] Registered correct key a
+[12:03:36] [INFO    ] Got keycode 97, a
+[12:03:36] [INFO    ] appending a to typed
+[12:03:36] [DEBUG   ] Registered correct key a
+[12:03:37] [INFO    ] Got keycode 97, a
+[12:03:37] [INFO    ] appending a to typed
+[12:03:37] [DEBUG   ] Registered correct key a
+[12:03:37] [INFO    ] Got keycode 97, a
+[12:03:37] [INFO    ] appending a to typed
+[12:03:37] [DEBUG   ] Registered correct key a
+[12:03:37] [INFO    ] Got keycode 97, a
+[12:03:37] [INFO    ] appending a to typed
+[12:03:37] [DEBUG   ] Registered correct key a
+[12:03:37] [INFO    ] Got keycode 97, a
+[12:03:37] [INFO    ] appending a to typed
+[12:03:37] [DEBUG   ] Registered correct key a
+[12:03:37] [INFO    ] Got keycode 97, a
+[12:03:37] [INFO    ] appending a to typed
+[12:03:37] [DEBUG   ] Registered correct key a
+[12:03:37] [INFO    ] Got keycode 97, a
+[12:03:37] [INFO    ] appending a to typed
+[12:03:37] [DEBUG   ] Registered correct key a
+[12:03:38] [INFO    ] Got keycode 97, a
+[12:03:38] [INFO    ] appending a to typed
+[12:03:38] [DEBUG   ] Registered correct key a
+[12:03:38] [INFO    ] Got keycode 32,  
+[12:03:38] [INFO    ] appending   to typed
+[12:03:38] [DEBUG   ] Registered correct key  
+[12:03:38] [INFO    ] Got keycode 97, a
+[12:03:38] [INFO    ] appending a to typed
+[12:03:38] [DEBUG   ] Registered correct key a
+[12:03:38] [INFO    ] Got keycode 97, a
+[12:03:38] [INFO    ] appending a to typed
+[12:03:38] [DEBUG   ] Registered correct key a
+[12:03:38] [INFO    ] Got keycode 97, a
+[12:03:38] [INFO    ] appending a to typed
+[12:03:38] [DEBUG   ] Registered correct key a
+[12:03:39] [INFO    ] Got keycode 32,  
+[12:03:39] [INFO    ] appending   to typed
+[12:03:39] [DEBUG   ] Registered correct key  
+[12:03:39] [INFO    ] Got keycode 97, a
+[12:03:39] [INFO    ] appending a to typed
+[12:03:39] [DEBUG   ] Registered correct key a
+[12:03:39] [INFO    ] Got keycode 97, a
+[12:03:39] [INFO    ] appending a to typed
+[12:03:39] [DEBUG   ] Registered correct key a
+[12:03:39] [INFO    ] Got keycode 97, a
+[12:03:39] [INFO    ] appending a to typed
+[12:03:39] [DEBUG   ] Registered correct key a
+[12:03:39] [INFO    ] Got keycode 97, a
+[12:03:39] [INFO    ] appending a to typed
+[12:03:39] [DEBUG   ] Registered correct key a
+[12:03:40] [INFO    ] Got keycode 97, a
+[12:03:40] [INFO    ] appending a to typed
+[12:03:40] [DEBUG   ] Registered correct key a
+[12:03:40] [DEBUG   ] Finished sec. a aaaaa aaaaa aaaaaaa aaa aaaaa: Typed:29, WPM:77, err:1%, errors:['i', 'e', 'e', 's', 'u']
+[12:03:40] [INFO    ] At end while loop
+[12:03:40] [INFO    ] Exiting while loop
+[12:03:40] [DEBUG   ] Textlst:[['T', 'y', 'p', 'e', 'd', ' ', '2', '9', ' ', 'c', 'h', 'a', 'r', 'a', 'c', 't', 'e', 'r', 's', ' ', 'i', 'n', ' ', '1', '6', '4', '8', '7', '2', '0', '9', '5', '8', '.', '1', '2', '9', '7', '5', '6', ' ', 's', 'e', 'c', '.', '\n', 'T', 'y', 'p', 'i', 'n', 'g', ' ', 'e', 'r', 'r', 'o', 'r', 's', ':', ' ', ' ', '1', '7', '%', '.', '\n', 'A', 'l', 'l', ' ', 'e', 'r', 'r', 'o', 'r', 's', ':', ' ', '[', "'", 'i', "'", ',', ' ', "'", 'e', "'", ',', ' ', "'", 'e', "'", ',', ' ', "'", 's', "'", ',', ' ', "'", 'u', "'", ']']]
+[12:03:40] [DEBUG   ] self.maxx:203, textx:45, texty:3 textwin_xy = s_win_xy(nlines=5, ncols=47, begin_y=0, begin_x=79)
