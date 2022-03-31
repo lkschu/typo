@@ -396,7 +396,7 @@ class MainScreen:
                         f"Finished sec. {section}: Typed:{len(self.typed)}, WPM:{int(self.wpm())}, err:{self.err()}%, errors:{self.err_lst}"
                     )
                     self.textwin.border()
-                    self.typed_sum = len(self.typed)
+                    self.typed_sum += len(self.typed)
                     self.typed = []
                     self.draw()
                     break
