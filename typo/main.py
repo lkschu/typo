@@ -46,8 +46,10 @@ lorem2 = (
 )
 sampletext = "The red fox jumpes over the lazy dog. asjdkfl jalsdf"
 samp = "a aaaaa aaaaa aaaaaaa aaa aaaaa"
-long = "a aslkd alskdfj lkajsdlfk jalsdjf laskjdflk jasdlfkj alsdjfl asjdfl jasldfjal skjflajs dlfj asldjflas " \
-       "jdflajksdlf jasldfj alsdkjfl asjdflj aslkdjflaks jdlfj alsdjf jasldjf laksjdl 1234567"
+long = (
+    "a aslkd alskdfj lkajsdlfk jalsdjf laskjdflk jasdlfkj alsdjfl asjdfl jasldfjal skjflajs dlfj asldjflas "
+    "jdflajksdlf jasldfj alsdkjfl asjdflj aslkdjflaks jdlfj alsdjf jasldjf laksjdl 1234567"
+)
 
 
 texts1 = [sampletext, lorem2]
@@ -76,7 +78,7 @@ def textlst(txtstr: str, width: int):
         # if it's the last word we need no space at the end
         # +1 for space after word
         if (len(current_lst) + len(word) + 1 > width and i + 1 != len(tmp_lst)) or (
-                len(current_lst) + len(word) > width and i + 1 == len(tmp_lst)
+            len(current_lst) + len(word) > width and i + 1 == len(tmp_lst)
         ):
             # line + word to long -> new line
             ret_lst.append(current_lst)
@@ -110,6 +112,7 @@ class MainScreen:
         self.C_RED = curses.color_pair(3)
         self.scr.erase()  # or scr.clear()
 
+        self.modus = Modus.MENU
         self.modus = Modus.SESSION
 
         self.text = txtlst[0]
@@ -123,12 +126,16 @@ class MainScreen:
         self.choice = 0  # current choice when in option menu mode
         self.scroll = 0
 
+        self.chapter = ""  # keeps track of current chapter
+        self.section = (0,0)  # tuple (current,max) to keep track of sections in chapter
+
         # Windows
         self.textwin = None  # main window in center with box
+        self.titlewin = None
+        self.progresswin = None
         self.wpmwin = None
         self.errwin = None
         self.setsize()
-        assert isinstance(self.textwin, curses.window)
         self.draw()
 
     @property
@@ -145,7 +152,7 @@ class MainScreen:
 
     @property
     def errors(self) -> int:
-        """ Gives sum of errors """
+        """Gives sum of errors"""
         return len(self.err_lst)
 
     def make_menu(self, option_lst: list[str], current: int = 0) -> int:
@@ -169,7 +176,7 @@ class MainScreen:
             # add numbers to each option
             tmp_lst = [f"{i}.) {line}\n" for i, line in enumerate(option_list)]
             # trim to visible part
-            tmp_lst = tmp_lst[self.scroll:min(self.scroll+self.maxy, self.scroll+len(tmp_lst))]
+            tmp_lst = tmp_lst[self.scroll : min(self.scroll + self.maxy, self.scroll + len(tmp_lst))]
             # Trim lines that are too long, padd lines that are too short
             for i, line in enumerate(tmp_lst):
                 if len(line) > self.maxx + 1:
@@ -182,7 +189,7 @@ class MainScreen:
             # Add ^ / v marker
             if self.scroll > 0:
                 tmp_lst[0] = f"{' ^^^':<{self.maxx}}\n"
-            if len(option_lst)-self.scroll > len(tmp_lst):
+            if len(option_lst) - self.scroll > len(tmp_lst):
                 tmp_lst[-1] = f"{' vvv':<{self.maxx}}\n"
             self.text = "".join(tmp_lst)[:-1]
 
@@ -211,10 +218,12 @@ class MainScreen:
                 self.setsize()
                 self.draw()
             elif inp_key == curses.KEY_DOWN:
-                if self.choice < len(self.text.split('\n')) - 1:
+                if self.choice < len(self.text.split("\n")) - 1:
                     self.choice += 1
-                if self.choice == len(self.text.split('\n')) -1 and len(option_lst)-self.scroll > len(self.text.split('\n')):
-                    self.scroll +=1
+                if self.choice == len(self.text.split("\n")) - 1 and len(option_lst) - self.scroll > len(
+                    self.text.split("\n")
+                ):
+                    self.scroll += 1
                 self.setsize()
                 self.draw()
             elif inp_key in [10, curses.KEY_RIGHT]:
@@ -252,7 +261,9 @@ class MainScreen:
         return percent
 
     def setsize(self):
-        """Determine the needed size of textwin and possible subwindows, calls draw at the end"""
+        """
+        Determine the needed size of textwin and possible subwindows, calls draw at the end
+        """
         self.scr.erase()
         self.scr.clear()
 
@@ -267,7 +278,7 @@ class MainScreen:
             self.textwin_xy = self._win_xy(
                 nlines=texty + 2,  # extra space for border
                 ncols=textx + 2,  # extra space for border
-                begin_y=0,
+                begin_y=3,
                 begin_x=(self.maxx - textx) // 2,
             )
         else:
@@ -289,6 +300,20 @@ class MainScreen:
         if self.modus == Modus.SESSION:
             logger.debug(f"Textlst:{textlst(self.text, self.maxx)}")
             logger.debug(f"self.maxx:{self.maxx}, textx:{textx}, texty:{texty} textwin_xy = {self.textwin_xy}")
+            self.titlewin_xy = self._win_xy(
+                nlines=3,
+                ncols=20,
+                begin_y=self.textwin_xy.begin_y - 3,
+                begin_x=self.textwin_xy.begin_x + 3  # 3 is for space
+            )
+            self.progresswin_xy = self._win_xy(
+                nlines=3,
+                ncols=7,  # |xy/xy|
+                begin_y=self.titlewin_xy.begin_y,
+                begin_x=self.titlewin_xy.begin_x
+                        + self.textwin_xy.ncols
+                        - (10 + 3),  # self.wpmwin_xy.begin_x+self.wpmwin_xy.ncols+2
+            )
             self.wpmwin_xy = self._win_xy(
                 nlines=3,
                 ncols=9,
@@ -300,9 +325,13 @@ class MainScreen:
                 ncols=10,
                 begin_y=self.wpmwin_xy.begin_y,
                 begin_x=self.textwin_xy.begin_x
-                        + self.textwin_xy.ncols
-                        - (10 + 3),  # self.wpmwin_xy.begin_x+self.wpmwin_xy.ncols+2
+                + self.textwin_xy.ncols
+                - (10 + 3),  # self.wpmwin_xy.begin_x+self.wpmwin_xy.ncols+2
             )
+            self.titlewin = self.scr.subwin(*self.titlewin_xy)
+            self.titlewin.box()
+            self.progresswin = self.scr.subwin(*self.progresswin_xy)
+            self.progresswin.box()
             self.wpmwin = self.scr.subwin(*self.wpmwin_xy)
             self.wpmwin.box()
             self.errwin = self.scr.subwin(*self.errwin_xy)
@@ -314,15 +343,26 @@ class MainScreen:
         return
 
     def draw(self):
-        assert isinstance(self.textwin, curses.window)
-        assert isinstance(self.wpmwin, curses.window)
-        # origin is 1,1 (because of border)
-
         if self.modus == Modus.SESSION:
+            assert isinstance(self.titlewin, curses.window)
+            assert isinstance(self.progresswin, curses.window)
+            assert isinstance(self.textwin, curses.window)
+            assert isinstance(self.wpmwin, curses.window)
+            # origin is 1,1 (because of border)
+
             txtlst = textlst(self.text, self.maxx)
             for i, line in enumerate(txtlst):
                 self.textwin.addstr(i + 1, 1, "".join(line))
 
+            max_lenth = self.titlewin_xy.ncols-2
+            if len(self.chapter) <= max_lenth:
+                chapter = self.chapter
+            else:
+                chapter = f"{self.chapter[:max_lenth-2]}.."
+            self.titlewin.addstr(1, 1, chapter)
+            self.titlewin.noutrefresh()
+            self.progresswin.addstr(1, 1, f"{self.section[0]}/{self.section[1]}")
+            self.progresswin.noutrefresh()
             self.wpmwin.addstr(1, 1, f"WPM:{int(self.wpm()):>3}", curses.A_BOLD)
             self.wpmwin.noutrefresh()  # mark for refresh
             self.errwin.addstr(1, 1, f"ERR:{self.err():>3}%", curses.A_BOLD)
@@ -370,9 +410,10 @@ class MainScreen:
         menu = [x for x in os.listdir(path) if os.path.isfile(os.path.join(path, x))]
         x = self.make_menu(menu)
         logger.info(f"Menu result: {x}, {menu}")
-        with open(os.path.join(path, menu[x]), 'r') as f:
+        with open(os.path.join(path, menu[x]), "r") as f:
             s = yaml.safe_load(f)
-            self.texts = s['session']
+            self.texts = s["session"]
+        self.chapter = menu[x]
         self.make_session()
         self.make_summary()
 
@@ -413,7 +454,8 @@ class MainScreen:
         self.start = time.time()
         curses.curs_set(2)
 
-        for section in self.texts:
+        for i,section in enumerate(self.texts):
+            self.section = (i+1,len(self.texts))
             self.text = section
             self.setsize()
 
@@ -542,7 +584,7 @@ def main():
         curses.mousemask(curses.BUTTON1_CLICKED)
         stdscr.keypad(True)
         logger.info(f"stdscr is window? {isinstance(stdscr, curses.window)}")
-        myscr = MainScreen(stdscr, ['x'])
+        myscr = MainScreen(stdscr, ["x"])
         myscr.run()
     finally:
         if stdscr is not None:

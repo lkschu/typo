@@ -1,7 +1,0 @@
-[03:41:30] [INFO    ] TERM=alacritty
-[03:41:30] [INFO    ] Starting main function
-[03:41:30] [INFO    ] TERM=alacritty
-[03:41:30] [INFO    ] stdscr is window? True
-[03:41:30] [DEBUG   ] Textlst:[['x']]
-[03:41:30] [DEBUG   ] self.maxx:134, textx:1, texty:1 textwin_xy = s_win_xy(nlines=3, ncols=3, begin_y=0, begin_x=66)
-[03:41:30] [DEBUG   ] Created subwindows
