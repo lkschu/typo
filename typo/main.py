@@ -11,6 +11,8 @@ import yaml
 import locale
 import logging
 
+from dataclasses import dataclass, asdict
+
 from pyfiglet import Figlet
 import ueberzug.lib.v0 as ueberzug
 
@@ -21,41 +23,12 @@ log_filehandler = logging.FileHandler(
     mode="w",
     delay=False,
 )
-log_formatter = logging.Formatter(fmt=f"%(asctime)s [%(levelname)-8s] %(message)s", datefmt="[%H:%M:%S]")
+log_formatter = logging.Formatter(
+    fmt=f"%(asctime)s [%(levelname)-8s] %(message)s", datefmt="[%H:%M:%S]"
+)
 log_filehandler.setFormatter(log_formatter)
 logger.addHandler(log_filehandler)
 
-lorem1 = (
-    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore "
-    "et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum."
-    " Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
-)
-lorem2 = (
-    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore "
-    "et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum."
-    " Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
-    " Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore "
-    "et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum."
-    " Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
-    " Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore "
-    "et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum."
-    " Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
-    " Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore "
-    "et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum."
-    " Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
-)
-sampletext = "The red fox jumpes over the lazy dog. asjdkfl jalsdf"
-samp = "a aaaaa aaaaa aaaaaaa aaa aaaaa"
-long = (
-    "a aslkd alskdfj lkajsdlfk jalsdjf laskjdflk jasdlfkj alsdjfl asjdfl jasldfjal skjflajs dlfj asldjflas "
-    "jdflajksdlf jasldfj alsdkjfl asjdflj aslkdjflaks jdlfj alsdjf jasldjf laksjdl 1234567"
-)
-
-
-texts1 = [sampletext, lorem2]
-texts2 = [lorem1, samp]
-texts3 = [long]
-texts4 = [samp]
 
 S_SPACE = "_"
 S_RETURN = "⏎"
@@ -73,7 +46,9 @@ def textlst(txtstr: str, width: int):
 
         if len(word) > width or (len(word) + 1 > width and len(tmp_lst) > 1):
             # this word (and 1 space) doesn't fit at all if there are at least 2 words there must be place for 1 space
-            raise ValueError(f"Can't fit <{word}> (plus possible space) in a width of {width}!")
+            raise ValueError(
+                f"Can't fit <{word}> (plus possible space) in a width of {width}!"
+            )
 
         # if it's the last word we need no space at the end
         # +1 for space after word
@@ -92,6 +67,24 @@ def textlst(txtstr: str, width: int):
     if len(current_lst) != 0:
         ret_lst.append(current_lst)
     return ret_lst
+
+
+@dataclass
+class TypoChapter:
+    title: str
+    sections: list[str]
+
+    @classmethod
+    def from_dict(cls, chapter_dict):
+        try:
+            return TypoChapter(
+                title=chapter_dict["title"], sections=chapter_dict["sections"]
+            )
+        except BaseException as e:
+            raise ValueError(
+                f"Can't create chapter from chapter_dict! Type title {chapter_dict.get('title', None)}; "
+                f"Type sections {chapter_dict.get('sections', None)}"
+            ) from e
 
 
 class Modus(Enum):
@@ -126,8 +119,14 @@ class MainScreen:
         self.choice = 0  # current choice when in option menu mode
         self.scroll = 0
 
-        self.chapter = ""  # keeps track of current chapter
-        self.section = (0,0)  # tuple (current,max) to keep track of sections in chapter
+        # TODO: encapsulate all (texts/text, section) in chapter class?
+        self.chapter = TypoChapter(
+            title="", sections=[]
+        )  # keeps track of current chapter
+        self.section = (
+            0,
+            0,
+        )  # tuple (current,max) to keep track of sections in chapter
 
         # Windows
         self.textwin = None  # main window in center with box
@@ -176,7 +175,9 @@ class MainScreen:
             # add numbers to each option
             tmp_lst = [f"{i}.) {line}\n" for i, line in enumerate(option_list)]
             # trim to visible part
-            tmp_lst = tmp_lst[self.scroll : min(self.scroll + self.maxy, self.scroll + len(tmp_lst))]
+            tmp_lst = tmp_lst[
+                self.scroll : min(self.scroll + self.maxy, self.scroll + len(tmp_lst))
+            ]
             # Trim lines that are too long, padd lines that are too short
             for i, line in enumerate(tmp_lst):
                 if len(line) > self.maxx + 1:
@@ -220,9 +221,9 @@ class MainScreen:
             elif inp_key == curses.KEY_DOWN:
                 if self.choice < len(self.text.split("\n")) - 1:
                     self.choice += 1
-                if self.choice == len(self.text.split("\n")) - 1 and len(option_lst) - self.scroll > len(
-                    self.text.split("\n")
-                ):
+                if self.choice == len(self.text.split("\n")) - 1 and len(
+                    option_lst
+                ) - self.scroll > len(self.text.split("\n")):
                     self.scroll += 1
                 self.setsize()
                 self.draw()
@@ -299,20 +300,22 @@ class MainScreen:
 
         if self.modus == Modus.SESSION:
             logger.debug(f"Textlst:{textlst(self.text, self.maxx)}")
-            logger.debug(f"self.maxx:{self.maxx}, textx:{textx}, texty:{texty} textwin_xy = {self.textwin_xy}")
+            logger.debug(
+                f"self.maxx:{self.maxx}, textx:{textx}, texty:{texty} textwin_xy = {self.textwin_xy}"
+            )
             self.titlewin_xy = self._win_xy(
                 nlines=3,
                 ncols=20,
                 begin_y=self.textwin_xy.begin_y - 3,
-                begin_x=self.textwin_xy.begin_x + 3  # 3 is for space
+                begin_x=self.textwin_xy.begin_x + 3,  # 3 is for space
             )
             self.progresswin_xy = self._win_xy(
                 nlines=3,
                 ncols=7,  # |xy/xy|
                 begin_y=self.titlewin_xy.begin_y,
                 begin_x=self.titlewin_xy.begin_x
-                        + self.textwin_xy.ncols
-                        - (10 + 3),  # self.wpmwin_xy.begin_x+self.wpmwin_xy.ncols+2
+                + self.textwin_xy.ncols
+                - (10 + 3),  # self.wpmwin_xy.begin_x+self.wpmwin_xy.ncols+2
             )
             self.wpmwin_xy = self._win_xy(
                 nlines=3,
@@ -354,11 +357,12 @@ class MainScreen:
             for i, line in enumerate(txtlst):
                 self.textwin.addstr(i + 1, 1, "".join(line))
 
-            max_lenth = self.titlewin_xy.ncols-2
-            if len(self.chapter) <= max_lenth:
-                chapter = self.chapter
+            max_lenth = self.titlewin_xy.ncols - 2
+            if len(self.chapter.title) <= max_lenth:
+                chapter = self.chapter.title
             else:
-                chapter = f"{self.chapter[:max_lenth-2]}.."
+                chapter = f"{self.chapter.title[:max_lenth-2]}.."
+            logger.debug(f"Chapter: {chapter}")
             self.titlewin.addstr(1, 1, chapter)
             self.titlewin.noutrefresh()
             self.progresswin.addstr(1, 1, f"{self.section[0]}/{self.section[1]}")
@@ -380,10 +384,14 @@ class MainScreen:
                     currentline = "".join(llst[ly])
                 if char == currentline[lx]:
                     # Correct char
-                    self.textwin.addch(ly + 1, lx + 1, char, self.C_GREEN | curses.A_ITALIC)
+                    self.textwin.addch(
+                        ly + 1, lx + 1, char, self.C_GREEN | curses.A_ITALIC
+                    )
                 else:
                     # Wrong char
-                    self.textwin.addch(ly + 1, lx + 1, char, self.C_RED | curses.A_UNDERLINE)
+                    self.textwin.addch(
+                        ly + 1, lx + 1, char, self.C_RED | curses.A_UNDERLINE
+                    )
                 lx += 1
         else:
             self.textwin.move(1, 1)
@@ -412,8 +420,11 @@ class MainScreen:
         logger.info(f"Menu result: {x}, {menu}")
         with open(os.path.join(path, menu[x]), "r") as f:
             s = yaml.safe_load(f)
-            self.texts = s["session"]
-        self.chapter = menu[x]
+            chap1 = TypoChapter.from_dict(
+                {"title": s["title"], "sections": s["sections"]}
+            )
+            self.texts = s["sections"]
+        self.chapter = chap1
         self.make_session()
         self.make_summary()
 
@@ -446,16 +457,16 @@ class MainScreen:
         warnwin = self.scr.subwin(9, 9, 2, self.maxx // 2 - 4)
         warnwin.addstr(0, 0, f.renderText("2"))
         warnwin.refresh()
-        time.sleep(1)
+        time.sleep(0.5)
         warnwin = self.scr.subwin(9, 9, 2, self.maxx // 2 - 4)
         warnwin.addstr(0, 0, f.renderText("  1"))
         warnwin.refresh()
-        time.sleep(1)
+        time.sleep(0.75)
         self.start = time.time()
         curses.curs_set(2)
 
-        for i,section in enumerate(self.texts):
-            self.section = (i+1,len(self.texts))
+        for i, section in enumerate(self.texts):
+            self.section = (i + 1, len(self.texts))
             self.text = section
             self.setsize()
 
@@ -485,7 +496,9 @@ class MainScreen:
                         getmouse = curses.getmouse()
                     except curses.error:
                         getmouse = None
-                    logger.debug(f"Got mouse event inp_char,inp_key{inp_char, inp_key}, getmouse: {getmouse}")
+                    logger.debug(
+                        f"Got mouse event inp_char,inp_key{inp_char, inp_key}, getmouse: {getmouse}"
+                    )
                 elif inp_key in [
                     curses.KEY_UP,
                     curses.KEY_DOWN,
@@ -498,9 +511,15 @@ class MainScreen:
                     pass
                 elif inp_key == 27:
                     # ESC key
-                    logger.debug(f"Got esc event inp_char,inp_key{inp_char, inp_key},{curses.ungetch(inp_char)}")
+                    logger.debug(
+                        f"Got esc event inp_char,inp_key{inp_char, inp_key},{curses.ungetch(inp_char)}"
+                    )
                     break
-                elif inp_key == curses.KEY_BACKSPACE or inp_key == 127 or str(inp_char) == "^?":
+                elif (
+                    inp_key == curses.KEY_BACKSPACE
+                    or inp_key == 127
+                    or str(inp_char) == "^?"
+                ):
                     # elif inp_key in [curses.KEY_BACKSPACE, '\b', '\x7f']:
                     if len(self.typed) != 0:
                         # self.errors += 1
@@ -510,12 +529,19 @@ class MainScreen:
                         self.draw()
                 else:
                     # Accept keys if text not already full
-                    if len(self.typed) < sum([len(x) for x in textlst(self.text, self.textwin_xy.ncols)]):
+                    if len(self.typed) < sum(
+                        [len(x) for x in textlst(self.text, self.textwin_xy.ncols)]
+                    ):
                         logger.info(f"appending {inp_char} to typed")
                         self.typed.append(inp_char)
 
                         typedstr = "".join(self.typed)
-                        orgstr = "".join(["".join(line) for line in textlst(self.text, self.textwin_xy.ncols)])
+                        orgstr = "".join(
+                            [
+                                "".join(line)
+                                for line in textlst(self.text, self.textwin_xy.ncols)
+                            ]
+                        )
 
                         if typedstr[-1] == orgstr[len(typedstr) - 1]:
                             # correct
@@ -532,14 +558,21 @@ class MainScreen:
                             f"sum = {sum([len(x) for x in textlst(self.text, self.textwin_xy.ncols)])};;;{textlst(self.text, self.textwin_xy.ncols)}"
                         )
                         typedstr = "".join(self.typed)
-                        orgstr = "".join(["".join(line) for line in textlst(self.text, self.textwin_xy.ncols)])
+                        orgstr = "".join(
+                            [
+                                "".join(line)
+                                for line in textlst(self.text, self.textwin_xy.ncols)
+                            ]
+                        )
                         logger.debug(f"typed:{typedstr}|")
                         logger.debug(f"orgin:{orgstr}|\n")
 
                 # if correct
                 # if "".join(self.typed) == ''.join([''.join(line) for line in textlst(self.text, self.textwin_xy.ncols)]):
                 # if length is full
-                if len(self.typed) >= sum([len(x) for x in textlst(self.text, self.textwin_xy.ncols)]):
+                if len(self.typed) >= sum(
+                    [len(x) for x in textlst(self.text, self.textwin_xy.ncols)]
+                ):
                     self.textwin.border(*"*" * 8)
                     self.draw()
                     # reset after input
@@ -575,7 +608,9 @@ def main():
         # curses.setupterm('alacritty')  # no need to set this up!
         logger.info(f"Starting main function")
         logger.info(f"TERM={os.environ['TERM']}")
-        curses.set_escdelay(5)  # wait 10 msec on esc to distinguish between esc and esc-sequence
+        curses.set_escdelay(
+            5
+        )  # wait 10 msec on esc to distinguish between esc and esc-sequence
         stdscr = curses.initscr()
         curses.noecho()
         curses.raw()
@@ -593,28 +628,27 @@ def main():
             curses.endwin()
 
 
-def test_textlist():
-    widths = range(11, 44)
-    e = None
-    try:
-        txtlst = textlst(lorem1, 3)
-    except Exception as ex:
-        e = ex
-    assert isinstance(e, Exception)
-
-    for w in widths:
-        txtlst = textlst(lorem1, w)
-        txtlst = ["".join(x) for x in txtlst]
-        length = max([len(x) for x in txtlst])
-        if length > w:
-            print(f"width:{w}, actual:{length}, {txtlst}\n")
+# def test_textlist():
+#     widths = range(11, 44)
+#     e = None
+#     try:
+#         txtlst = textlst(lorem1, 3)
+#     except Exception as ex:
+#         e = ex
+#     assert isinstance(e, Exception)
+#
+#     for w in widths:
+#         txtlst = textlst(lorem1, w)
+#         txtlst = ["".join(x) for x in txtlst]
+#         length = max([len(x) for x in txtlst])
+#         if length > w:
+#             print(f"width:{w}, actual:{length}, {txtlst}\n")
 
 
 if __name__ == "__main__":
     # locale.setlocale(locale.LC_ALL, "")
     logger.info(f"TERM={os.environ['TERM']}")
 
-    test_textlist()
     print(f"all tested")
 
     main()
