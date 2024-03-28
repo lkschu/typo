@@ -35,8 +35,7 @@ logger.handlers.clear()
 logger.addHandler(log_filehandler)
 
 
-teststring = "Mr. Stubb,\" said I, turning to that worthy, who, buttoned up in his oil-jacket, was now calmly smoking his pipe in the rain; \"Mr. Stubb, I think I have heard you say that of all whalemen you ever met, our chief mate, Mr. Starbuck, is by far the most careful and prudent.\nI suppose then, that going plump on a flying whale with your sail set in a foggy squall is the height of a whaleman's discretion?"
-
+teststring = 'Mr. Stubb," said I, turning to that worthy, who, buttoned up in his oil-jacket, was now calmly smoking his pipe in the rain; "Mr. Stubb, I think I have heard you say that of all whalemen you ever met, our chief mate, Mr. Starbuck, is by far the most careful and prudent.\nI suppose then, that going plump on a flying whale with your sail set in a foggy squall is the height of a whaleman\'s discretion?'
 
 
 S_SPACE = "_"
@@ -77,7 +76,7 @@ def textlst(txtstr: str, width: int):
 
 
 def make_ascii(string):
-    """ replace non-ascii elements like quotation marks with their ascii counterparts """
+    """replace non-ascii elements like quotation marks with their ascii counterparts"""
     # wrong chars : —,‘,’,“,”
     if type(string) is not str:
         raise TypeError(f"Expected string, got {type(string)}")
@@ -92,8 +91,9 @@ def make_ascii(string):
     if ret_str.isascii():
         return ret_str
 
+
 def shorten_if_too_long(string: str, max_len: int) -> str:
-    " shorten a given string if it's too long "
+    "shorten a given string if it's too long"
     if max_len <= 0:
         raise ValueError("String length must be bigger than 0!")
     if len(string) <= max_len:
@@ -142,7 +142,6 @@ class MainScreen:
         self.C_NORMAL = curses.color_pair(1)
         self.C_GREEN = curses.color_pair(2)
         self.C_RED = curses.color_pair(3)
-
 
         self.scr.erase()  # or scr.clear()
 
@@ -620,25 +619,26 @@ class MainScreen:
 
 #
 
-#
-class TextSessionObject():
-    def __init__(self,text:str) -> None:
-        self.raw_text = text
-        self.replacements = { '\n':f'{S_RETURN}' }
 
-    def replace(self,s:str):
-        """ handle default keys for the replacements dict """
+#
+class TextSessionObject:
+    def __init__(self, text: str) -> None:
+        self.raw_text = text
+        self.replacements = {"\n": f"{S_RETURN}"}
+
+    def replace(self, s: str):
+        """handle default keys for the replacements dict"""
         return s if s not in self.replacements.keys() else self.replacements[s]
 
     def display_mode(self) -> str:
-        """ replace some symbols (like newline) for displaying in terminal """
+        """replace some symbols (like newline) for displaying in terminal"""
         buf = self.raw_text
-        for k,v in self.replacements.items():
-            buf = buf.replace(k,v)
+        for k, v in self.replacements.items():
+            buf = buf.replace(k, v)
         return buf
 
-    def format_text(self,width:int) -> str:
-        """ fill a string with spaces and linebreaks so it fits into the given width """
+    def format_text(self, width: int) -> str:
+        """fill a string with spaces and linebreaks so it fits into the given width"""
         """returns list of text, splitted into lines not longer than width"""
         tmp_lst = self.display_mode().split(self.replace(" "))
         ret_lst = []
@@ -655,7 +655,6 @@ class TextSessionObject():
                 logger.debug(f"Current list: {current_lst}\n {current_lst[-1][-1]}")
                 ret_lst.append(current_lst)
                 current_lst = []
-
 
             # if it's the last word we need no space at the end
             # +1 for space after word
@@ -694,14 +693,14 @@ def main():
         curses.mousemask(curses.BUTTON1_CLICKED)
         stdscr.keypad(True)
         logger.info(f"stdscr is window? {isinstance(stdscr, curses.window)}")
-        #myscr = MainScreen(stdscr, ["x"])
-        #myscr.run()
+        # myscr = MainScreen(stdscr, ["x"])
+        # myscr.run()
         curses.curs_set(0)
         logger.info(f"stdscr: {stdscr.getmaxyx()}")
-        subwin = stdscr.subwin(0,0)
+        subwin = stdscr.subwin(0, 0)
         logger.info(f"subwin: {subwin.getmaxyx()}")
         ttt = TextSessionObject(teststring)
-        subwin.addstr(0,0, ttt.format_text(subwin.getmaxyx()[1]))
+        subwin.addstr(0, 0, ttt.format_text(subwin.getmaxyx()[1]))
         stdscr.refresh()
         time.sleep(5)
     finally:

@@ -29,5 +29,6 @@ def main(stdscr):
             win.mvderwin(y, x + 1)
             win.mvwin(y, x + 1)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     curses.wrapper(main)
