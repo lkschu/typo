@@ -1,0 +1,17 @@
+title:
+  "Java-01"
+options:
+  RandomShuffle:
+      true
+sections:
+  - "private World worldParser(String str) throws IOException { try { str = str.replace(\"\\r\", \"\"); String[] sar = str.split(\"[x\\n]\"); World world = new World(Integer.parseInt(sar[0]),Integer.parseInt(sar[1])); for (int x = 0; x < world.getWidth(); x++) for (int y = 0; y < world.getHeight(); y++) if (sar[y+2].charAt(x)=='1') world.set(x, y, CellState.ALIVE); else if (sar[y+2].charAt(x)=='0') world.set(x, y, CellState.DEAD); else throw new IOException(\"Unknown Symbol!\"); if (sar.length != Integer.parseInt(sar[1])+2) throw new IndexOutOfBoundsException(); for (int i = 2; i < Integer.parseInt(sar[1])+2; i++) if (sar[i].length() != Integer.parseInt(sar[0])) throw new IndexOutOfBoundsException(); return world;"
+  - "
+    @Override
+    public void save(World world, OutputStream out) throws IOException {
+        if (world == null)
+            throw new IOException(\"Not a valid world!\");
+        if (out == null)
+            throw new IOException(\"Not a valid OutputStream!\");
+        out.write((world.getWidth()+\"x\"+world.getHeight()+\"\\n\"+world.toString()).getBytes());
+    }
+    "

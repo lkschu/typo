@@ -1,5 +1,8 @@
 title:
   "Basic exercise"
+options:
+  RandomShuffle:
+      false
 sections:
   - "asdf asdf fdsa fdsa jkl; jkl; ;lkj asdf ;lkj jkl; fdsa"
   - "rfg lj as fe oi lj as bm ow ut zu pe zvl ajk alkjo owej"
