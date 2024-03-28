@@ -28,7 +28,7 @@ border_chars = namedtuple(
     "border_chars", ["left", "right", "top", "bottom", "topleft", "topright", "bottomleft", "bottomright"]
 )
 window_spacing = namedtuple("window_spacing", ["left", "right", "top", "bottom"])
-window_spacing.__annotations__ = { "left":int, "right":int , "top":int, "bottom":int}
+window_spacing.__annotations__ = {"left": int, "right": int, "top": int, "bottom": int}
 # Used for wpm,accuracy etc.; one of each: horizontal and vertical spacing must be set
 window_dimensions = namedtuple("window_dimensions", ["active", "nlines", "ncols", "window_spacing"])
 window_information = namedtuple("window_information", ["window", "callback"])
@@ -378,9 +378,8 @@ class Session:
         self.sessionscreen.erase()
         self.sessionscreen.border()
         y, x = self.sessionscreen.getmaxyx()
-        y -= BORDER_PADDING.top+BORDER_PADDING.bottom
-        x -= BORDER_PADDING.left+BORDER_PADDING.right
-
+        y -= BORDER_PADDING.top + BORDER_PADDING.bottom
+        x -= BORDER_PADDING.left + BORDER_PADDING.right
 
         # Getting the position of the mouse so we no which line to center on
         typed = self.text.get_typed_chars(width=x - 2, correct=True, typos=True)
@@ -389,7 +388,7 @@ class Session:
 
         # Keep track of last printed correct/incorrect char for cursor position
         # +1 are needed to compensate for the border arround the window
-        curs_y_base, curs_x_base = (1+BORDER_PADDING.top,1+BORDER_PADDING.left)
+        curs_y_base, curs_x_base = (1 + BORDER_PADDING.top, 1 + BORDER_PADDING.left)
         curs_y, curs_x = (1, 1)
         # Print base 'guide' chars
         # FIX: this is ugly as fuck! how do i reformat this?
