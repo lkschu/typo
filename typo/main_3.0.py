@@ -1,5 +1,6 @@
 from __future__ import annotations
 from collections import namedtuple
+from dataclasses import dataclass, asdict
 from re import sub
 from typing import Type, List, NamedTuple, Union, Optional
 
@@ -24,14 +25,125 @@ from dataclasses import dataclass, asdict, replace
 # from pyfiglet import Figlet
 
 
-border_chars = namedtuple(
-    "border_chars", ["left", "right", "top", "bottom", "topleft", "topright", "bottomleft", "bottomright"]
-)
-window_spacing = namedtuple("window_spacing", ["left", "right", "top", "bottom"])
-window_spacing.__annotations__ = {"left": int, "right": int, "top": int, "bottom": int}
-# Used for wpm,accuracy etc.; one of each: horizontal and vertical spacing must be set
-window_dimensions = namedtuple("window_dimensions", ["active", "nlines", "ncols", "window_spacing"])
-window_information = namedtuple("window_information", ["window", "callback"])
+@dataclass(frozen=True)
+class WindowSpacing:
+    left: Optional[int | None]
+    right: Optional[int | None]
+    top: Optional[int | None]
+    bottom: Optional[int | None]
+
+    def __iter__(self):
+        return iter((self.left, self.right, self.top, self.bottom))
+
+
+@dataclass(frozen=True)
+class WindowDimensions:
+    """Used for wpm,accuracy etc.; one of each: horizontal and vertical spacing must be set"""
+
+    active: bool
+    nlines: int
+    ncols: int
+    window_spacing: WindowSpacing
+
+
+@dataclass(frozen=True)
+class BorderChars:
+    left: Optional[str | None]
+    right: Optional[str | None]
+    top: Optional[str | None]
+    bottom: Optional[str | None]
+    topleft: Optional[str | None]
+    topright: Optional[str | None]
+    bottomleft: Optional[str | None]
+    bottomright: Optional[str | None]
+
+@dataclass(frozen=True)
+class ColorScheme:
+    def __init__(self,fg: tuple[int,int], correct: tuple[int,int], wrong: tuple[int,int], border: tuple[int,int], accent: tuple[int,int]) -> None:
+        curses.use_default_colors()
+        curses.init_pair(1, *fg)
+        curses.init_pair(2, *correct)
+        curses.init_pair(3, *wrong)
+        curses.init_pair(4, *border)
+        curses.init_pair(5, *accent)
+    @property
+    def fg(self):
+        return curses.color_pair(1)
+    @property
+    def correct(self):
+        return curses.color_pair(2)
+    @property
+    def wrong(self):
+        return curses.color_pair(3)
+    @property
+    def border(self):
+        return curses.color_pair(4)
+    @property
+    def accent(self):
+        return curses.color_pair(5)
+
+    @classmethod
+    def default(cls):
+        return ColorScheme(
+                fg=(-1,-1), # default
+                correct=(curses.COLOR_GREEN, -1),
+                wrong=(curses.COLOR_RED, -1),
+                border=(-1,-1),
+                accent=(curses.COLOR_YELLOW, -1)
+                )
+
+
+@dataclass()
+class SessionSettings:
+    VALID_INPUTS: str
+    S_SPACE: str
+    S_RETURN: str
+    S_TAB: str
+    BORDER_MARGIN: WindowSpacing
+    BORDER_PADDING: WindowSpacing
+    WPM_WINDOW: WindowDimensions
+    ACC_WINDOW: WindowDimensions
+    COLOR_SCHEME: Optional[ColorScheme]
+
+    @property
+    def replacements(self):
+        return {"\n": self.S_RETURN, "\t": self.S_TAB}
+
+    @classmethod
+    def default(cls):
+        valid_inputs = "abcdefghijklmnopqrstuvwxyz"
+        valid_inputs += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        valid_inputs += " "
+        valid_inputs += "1234567890"
+        valid_inputs += "äüöÄÜÖß"
+        valid_inputs += ",.;:><?"
+        valid_inputs += "§~_+=-`€°!@#$%^&*()[]{}/\\'\""
+        valid_inputs += "\n\t"
+        border_margin = WindowSpacing(left=4, right=4, top=5, bottom=6)
+        border_padding = WindowSpacing(left=3, right=3, top=1, bottom=1)
+        wpm_window = WindowDimensions(
+            active=True, nlines=3, ncols=9, window_spacing=WindowSpacing(left=None, right=1, top=1, bottom=None)
+        )
+        acc_window = WindowDimensions(
+            active=True, nlines=3, ncols=9, window_spacing=WindowSpacing(left=None, right=1, top=None, bottom=1)
+        )
+
+        return SessionSettings(
+            VALID_INPUTS=valid_inputs,
+            S_SPACE="_",
+            S_RETURN="⏎",
+            S_TAB="↹",
+            BORDER_MARGIN=border_margin,
+            BORDER_PADDING=border_padding,
+            WPM_WINDOW=wpm_window,
+            ACC_WINDOW=acc_window,
+            COLOR_SCHEME=None # TODO: not none
+        )
+
+
+CONFIG = SessionSettings.default()
+
+# window_information = namedtuple("window_information", ["window", "callback"])
 
 # Default logging setup
 logger = logging.getLogger(__name__)
@@ -51,27 +163,7 @@ teststring = 'Mr. Stubb," said I, turning to that worthy, who, buttoned up in hi
 teststring += "\n\n" + teststring
 
 
-VALID_INPUTS: str = "abcdefghijklmnopqrstuvwxyz"
-VALID_INPUTS += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-VALID_INPUTS += " "
-VALID_INPUTS += "1234567890"
-VALID_INPUTS += "äüöÄÜÖß"
-VALID_INPUTS += ",.;:><?"
-VALID_INPUTS += "§~_+=-`€°!@#$%^&*()[]{}/\\'\""
-VALID_INPUTS += "\n\t"
-
-S_SPACE = "_"
-S_RETURN = "⏎"
-S_RETURN = ""
-S_TAB = "↹"
-
 B_DOUBLE = ("║", "║", "═", "═", "╔", "╗", "╚", "╝")
-
-REPLACEMENTS = {"\n": S_RETURN, "\t": S_TAB}
-BORDER_MARGIN = window_spacing(left=4, right=4, top=5, bottom=6)
-BORDER_PADDING = window_spacing(left=1, right=1, top=1, bottom=1)
-WPM_WINDOW = window_dimensions(active=True, nlines=3, ncols=9, window_spacing=window_spacing(None, 1, 1, None))
-ACC_WINDOW = window_dimensions(active=True, nlines=3, ncols=9, window_spacing=window_spacing(None, 1, None, 1))
 
 
 CHARACTERS_PER_WORD = 5
@@ -99,7 +191,7 @@ class SessionTextObject:  # {{{
 
     def __init__(self, text: str) -> None:
         self.raw_text = text
-        self.replacements = REPLACEMENTS
+        self.replacements = CONFIG.replacements
 
         self.typed = []  # simple char buffer
         self.corrected_errors = []
@@ -327,7 +419,7 @@ class Session:
         self.screen.erase()
         logger.debug(f"Drawing session window")
         height, width = self.screen.getmaxyx()
-        left, right, top, bottom = BORDER_MARGIN
+        left, right, top, bottom = CONFIG.BORDER_MARGIN
         subwin_height, subwin_width = (height - top - bottom, width - left - right)
         if subwin_height < 6:
             raise ValueError(f"Window to small to start session: {subwin_height,subwin_width}")
@@ -339,36 +431,44 @@ class Session:
             top,
             left,
         )
-        self.sessionscreen.border(*self.border) if self.border else self.sessionscreen.border()
-        self.sessionscreen.noutrefresh()
+
+        #--self.sessionscreen.attrset(curses.color_pair(2))
+        #--self.sessionscreen.border(*self.border) if self.border else self.sessionscreen.border()
+        #--self.sessionscreen.noutrefresh()
+        #--self.sessionscreen.attrset(curses.color_pair(1))
+
         # logger.debug(f"Resize subwindow: maxsize={self.screen.getmaxyx()} actualsize={height-top-bottom,width-left-right}\tborders: left={left}, right={right}, top={top}, bottom={bottom}")
         # TODO: move this routine to the same function as the sessionscreen resize/move routine
         wpm_y = (
-            WPM_WINDOW.window_spacing.top
-            if WPM_WINDOW.window_spacing.top is not None
-            else self.screen.getmaxyx()[0] - WPM_WINDOW.nlines - WPM_WINDOW.window_spacing.bottom
+            CONFIG.WPM_WINDOW.window_spacing.top
+            if CONFIG.WPM_WINDOW.window_spacing.top is not None
+            else self.screen.getmaxyx()[0] - CONFIG.WPM_WINDOW.nlines - CONFIG.WPM_WINDOW.window_spacing.bottom
         )
         wpm_x = (
-            WPM_WINDOW.window_spacing.left
-            if WPM_WINDOW.window_spacing.left is not None
-            else self.screen.getmaxyx()[1] - WPM_WINDOW.ncols - WPM_WINDOW.window_spacing.right
+            CONFIG.WPM_WINDOW.window_spacing.left
+            if CONFIG.WPM_WINDOW.window_spacing.left is not None
+            else self.screen.getmaxyx()[1] - CONFIG.WPM_WINDOW.ncols - CONFIG.WPM_WINDOW.window_spacing.right
         )
         acc_y = (
-            ACC_WINDOW.window_spacing.top
-            if ACC_WINDOW.window_spacing.top is not None
-            else self.screen.getmaxyx()[0] - ACC_WINDOW.nlines - ACC_WINDOW.window_spacing.bottom
+            CONFIG.ACC_WINDOW.window_spacing.top
+            if CONFIG.ACC_WINDOW.window_spacing.top is not None
+            else self.screen.getmaxyx()[0] - CONFIG.ACC_WINDOW.nlines - CONFIG.ACC_WINDOW.window_spacing.bottom
         )
         acc_x = (
-            ACC_WINDOW.window_spacing.left
-            if ACC_WINDOW.window_spacing.left is not None
-            else self.screen.getmaxyx()[1] - ACC_WINDOW.ncols - ACC_WINDOW.window_spacing.right
+            CONFIG.ACC_WINDOW.window_spacing.left
+            if CONFIG.ACC_WINDOW.window_spacing.left is not None
+            else self.screen.getmaxyx()[1] - CONFIG.ACC_WINDOW.ncols - CONFIG.ACC_WINDOW.window_spacing.right
         )
-        self.wpmscreen = self.screen.subwin(WPM_WINDOW.nlines, WPM_WINDOW.ncols, wpm_y, wpm_x)
+        self.wpmscreen = self.screen.subwin(CONFIG.WPM_WINDOW.nlines, CONFIG.WPM_WINDOW.ncols, wpm_y, wpm_x)
+        self.wpmscreen.attrset(CONFIG.COLOR_SCHEME.accent)
         self.wpmscreen.border()
         self.wpmscreen.noutrefresh()
-        self.accscreen = self.screen.subwin(ACC_WINDOW.nlines, ACC_WINDOW.ncols, acc_y, acc_x)
+        self.wpmscreen.attrset(CONFIG.COLOR_SCHEME.fg)
+        self.accscreen = self.screen.subwin(CONFIG.ACC_WINDOW.nlines, CONFIG.ACC_WINDOW.ncols, acc_y, acc_x)
+        self.accscreen.attrset(CONFIG.COLOR_SCHEME.accent)
         self.accscreen.border()
         self.accscreen.noutrefresh()
+        self.accscreen.attrset(CONFIG.COLOR_SCHEME.fg)
         self.screen.refresh()
         self.draw_characters()
         curses.curs_set(1)
@@ -376,19 +476,21 @@ class Session:
     def draw_characters(self):
         """draw guide text, typos and correctly typed chars in their respective colors"""
         self.sessionscreen.erase()
+        self.sessionscreen.attrset(CONFIG.COLOR_SCHEME.border)
         self.sessionscreen.border()
+        self.sessionscreen.attrset(CONFIG.COLOR_SCHEME.fg)
         y, x = self.sessionscreen.getmaxyx()
-        y -= BORDER_PADDING.top + BORDER_PADDING.bottom
-        x -= BORDER_PADDING.left + BORDER_PADDING.right
+        y -= CONFIG.BORDER_PADDING.top + CONFIG.BORDER_PADDING.bottom
+        x -= CONFIG.BORDER_PADDING.left + CONFIG.BORDER_PADDING.right
 
         # Getting the position of the mouse so we no which line to center on
         typed = self.text.get_typed_chars(width=x - 2, correct=True, typos=True)
         line = len([x for x in typed if x != []]) - 1
-        c = len([x for x in typed[line] if x != ""]) + BORDER_PADDING.left
+        c = len([x for x in typed[line] if x != ""]) + CONFIG.BORDER_PADDING.left
 
         # Keep track of last printed correct/incorrect char for cursor position
         # +1 are needed to compensate for the border arround the window
-        curs_y_base, curs_x_base = (1 + BORDER_PADDING.top, 1 + BORDER_PADDING.left)
+        curs_y_base, curs_x_base = (1 + CONFIG.BORDER_PADDING.top, 1 + CONFIG.BORDER_PADDING.left)
         curs_y, curs_x = (1, 1)
         # Print base 'guide' chars
         # FIX: this is ugly as fuck! how do i reformat this?
@@ -409,25 +511,25 @@ class Session:
             height=y - 2,
             replace_top=["^", "^", "^"],
         )
-        for iy, l in enumerate(correct_chars, start=BORDER_PADDING.top):
-            for ix, c in enumerate(l, start=BORDER_PADDING.left):
+        for iy, l in enumerate(correct_chars, start=CONFIG.BORDER_PADDING.top):
+            for ix, c in enumerate(l, start=CONFIG.BORDER_PADDING.left):
                 if c:
                     if iy + curs_y_base > curs_y:
                         # INFO: +1 is propably border width?
                         curs_y = iy + 1
                         curs_x = 1
                     curs_x = ix + 2 if ix + 2 > curs_x and iy + 1 >= curs_y else curs_x
-                    self.sessionscreen.addch(iy + 1, ix + 1, c, curses.color_pair(2) | curses.A_ITALIC)
+                    self.sessionscreen.addch(iy + 1, ix + 1, c, CONFIG.COLOR_SCHEME.correct | curses.A_ITALIC)
         # print typos
         typo_chars = fix_height(self.text.get_typed_chars(width=x - 2, correct=False), focus_line=line, height=y - 2)
-        for iy, l in enumerate(typo_chars, start=BORDER_PADDING.top):
-            for ix, c in enumerate(l, start=BORDER_PADDING.left):
+        for iy, l in enumerate(typo_chars, start=CONFIG.BORDER_PADDING.top):
+            for ix, c in enumerate(l, start=CONFIG.BORDER_PADDING.left):
                 if c:
                     if iy + 1 > curs_y:
                         curs_y = iy + 1
                         curs_x = 1
                     curs_x = ix + 2 if ix + 2 > curs_x and iy + 1 >= curs_y else curs_x
-                    self.sessionscreen.addch(iy + 1, ix + 1, c, curses.color_pair(3) | curses.A_UNDERLINE)
+                    self.sessionscreen.addch(iy + 1, ix + 1, c, CONFIG.COLOR_SCHEME.wrong | curses.A_UNDERLINE)
         self.sessionscreen.noutrefresh()
 
         # Routine for wpm and accuracy
@@ -454,13 +556,7 @@ def init_main_screen() -> curses._CursesWindow:
     screen.keypad(True)
     curses.curs_set(0)
 
-    curses.use_default_colors()
-    curses.init_pair(1, -1, -1)
-    curses.init_pair(2, curses.COLOR_GREEN, -1)
-    curses.init_pair(3, curses.COLOR_RED, -1)
-    C_NORMAL = curses.color_pair(1)
-    C_GREEN = curses.color_pair(2)
-    C_RED = curses.color_pair(3)
+    CONFIG.COLOR_SCHEME = ColorScheme.default()
     return screen
 
 
@@ -526,7 +622,7 @@ def main():
                 # elif inp_key in [curses.KEY_BACKSPACE, '\b', '\x7f']:
                 text_data.type_backspace()
                 session.draw_characters()
-            elif inp_char in VALID_INPUTS:
+            elif inp_char in CONFIG.VALID_INPUTS:
                 assert isinstance(inp_char, str)
                 text_data.type_char(inp_char)
                 session.draw_characters()
