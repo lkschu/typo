@@ -4,6 +4,8 @@ from dataclasses import dataclass, asdict
 from re import sub
 from typing import Type, List, NamedTuple, Union, Optional
 
+import random
+
 import curses
 import curses.textpad
 
@@ -16,6 +18,7 @@ import time
 from datetime import timedelta
 from typing import Text
 import yaml
+from pathlib import Path
 
 import locale
 import logging
@@ -57,27 +60,40 @@ class BorderChars:
     bottomleft: Optional[str | None]
     bottomright: Optional[str | None]
 
+
 @dataclass(frozen=True)
 class ColorScheme:
-    def __init__(self,fg: tuple[int,int], correct: tuple[int,int], wrong: tuple[int,int], border: tuple[int,int], accent: tuple[int,int]) -> None:
+    def __init__(
+        self,
+        fg: tuple[int, int],
+        correct: tuple[int, int],
+        wrong: tuple[int, int],
+        border: tuple[int, int],
+        accent: tuple[int, int],
+    ) -> None:
         curses.use_default_colors()
         curses.init_pair(1, *fg)
         curses.init_pair(2, *correct)
         curses.init_pair(3, *wrong)
         curses.init_pair(4, *border)
         curses.init_pair(5, *accent)
+
     @property
     def fg(self):
         return curses.color_pair(1)
+
     @property
     def correct(self):
         return curses.color_pair(2)
+
     @property
     def wrong(self):
         return curses.color_pair(3)
+
     @property
     def border(self):
         return curses.color_pair(4)
+
     @property
     def accent(self):
         return curses.color_pair(5)
@@ -85,12 +101,12 @@ class ColorScheme:
     @classmethod
     def default(cls):
         return ColorScheme(
-                fg=(-1,-1), # default
-                correct=(curses.COLOR_GREEN, -1),
-                wrong=(curses.COLOR_RED, -1),
-                border=(-1,-1),
-                accent=(curses.COLOR_YELLOW, -1)
-                )
+            fg=(-1, -1),  # default
+            correct=(curses.COLOR_GREEN, -1),
+            wrong=(curses.COLOR_RED, -1),
+            border=(-1, -1),
+            accent=(curses.COLOR_YELLOW, -1),
+        )
 
 
 @dataclass()
@@ -104,6 +120,7 @@ class SessionSettings:
     WPM_WINDOW: WindowDimensions
     ACC_WINDOW: WindowDimensions
     COLOR_SCHEME: Optional[ColorScheme]
+    MAX_WIDTH: int
 
     @property
     def replacements(self):
@@ -137,7 +154,8 @@ class SessionSettings:
             BORDER_PADDING=border_padding,
             WPM_WINDOW=wpm_window,
             ACC_WINDOW=acc_window,
-            COLOR_SCHEME=None # TODO: not none
+            COLOR_SCHEME=None,  # TODO: not none
+            MAX_WIDTH=120
         )
 
 
@@ -159,8 +177,10 @@ logger.handlers.clear()
 logger.addHandler(log_filehandler)
 
 
-teststring = 'Mr. Stubb," said I, turning to that worthy, who, buttoned up in his oil-jacket, was now calmly smoking his pipe in the rain; "Mr. Stubb, I think I have heard you say that of all whalemen you ever met, our chief mate, Mr. Starbuck, is by far the most careful and prudent.\nI suppose then, that going plump on a flying whale with your sail set in a foggy squall is the height of a whaleman\'s discretion?'
-teststring += "\n\n" + teststring
+teststring = 'Mr. Stubb," said I, turning to that worthy, who, buttoned up in his oil-jacket, was now calmly smoking his pipe in the rain; '
+teststring += '"Mr. Stubb, I think I have heard you say that of all whalemen you ever met, our chief mate, Mr. Starbuck, is by far the most careful and prudent.'
+# teststring += '\nI suppose then, that going plump on a flying whale with your sail set in a foggy squall is the height of a whaleman\'s discretion?'
+# teststring += "\n\n" + teststring
 
 
 B_DOUBLE = ("║", "║", "═", "═", "╔", "╗", "╚", "╝")
@@ -181,9 +201,8 @@ class TypoError:  # {{{
 
     def __str__(self) -> str:
         return f"TypoError: should be {repr(self.char)} but is {repr(self.tipped)}. Was corrected: {self.corrected}"
-
-
 # }}}
+
 
 
 class SessionTextObject:  # {{{
@@ -196,6 +215,14 @@ class SessionTextObject:  # {{{
         self.typed = []  # simple char buffer
         self.corrected_errors = []
 
+
+    def is_complete(self):
+        if len(self.typed) == len(self.raw_text):
+            return True
+        else:
+            return False
+
+
     def replace(self, s: str) -> str:
         """handle default keys for the replacements dict"""
         return s if s not in self.replacements.keys() else self.replacements[s]
@@ -207,12 +234,20 @@ class SessionTextObject:  # {{{
             buf = buf.replace(k, v)
         return buf
 
-    def get_accuracy(self) -> float:
-        """return accuracy of typed characters"""
+    def completed_chars(self) -> List[str]:
         complete = self.get_typed_chars(256, correct=True, typos=True)
         complete = [x for c in complete for x in c]
+        return complete
+
+    def correct_chars(self) -> List[str]:
         correct = self.get_typed_chars(256, correct=True, typos=False)
         correct = [x for c in correct for x in c]
+        return correct
+
+    def get_accuracy(self) -> float:
+        """return accuracy of typed characters"""
+        complete = self.completed_chars()
+        correct = self.correct_chars()
         count = 0
         # Compare all typed characters to the wrongly typed ones
         for a, c in zip(complete, correct):
@@ -390,22 +425,88 @@ def fix_height(
     return ret
 
 
+
+@dataclass()
+class SessionOptions:
+    RandomShuffle: bool
+
+    @staticmethod
+    def load_from_dict(d)->SessionOptions:
+        return SessionOptions(RandomShuffle=d["RandomShuffle"])
+
+@dataclass()
+class SessionFileRepr:
+    """ Representation of a session, is read from file """
+    title: str
+    options: SessionOptions
+    sections: List[str]
+
+    @staticmethod
+    def load_from_file(path)->SessionFileRepr:
+        r = yaml.safe_load(Path(path).read_text())
+        # TODO: any input validation
+        srepr = SessionFileRepr(title=r["title"],options=SessionOptions.load_from_dict(r["options"]),sections=r["sections"])
+        if srepr.options.RandomShuffle:
+            random.shuffle(srepr.sections)
+        return srepr
+
+
 class Session:
-    def __init__(self, mainscreen: curses._CursesWindow, text_data: SessionTextObject) -> None:
+    def __init__(self, mainscreen: curses._CursesWindow, sessionrepr: SessionFileRepr) -> None:
         self.screen = mainscreen
-        self.text = text_data
+        self.sessionrepr = sessionrepr
+        self.section_nr = 0
+        self.text = SessionTextObject(sessionrepr.sections[self.section_nr])
+        self.len_typed_carryover = 0
+        self.acc_typed_carryover = []
         self.t_start = time.time()
 
         self.border = None
 
-        self.wpm_call = lambda: f"{(len(self.text.typed)/CHARACTERS_PER_WORD) / ((time.time()-self.t_start)/60):.1f}"
-        self.acc_call = lambda: f"{self.text.get_accuracy():.1f}"
-        # TODO: load these values from config
+        self.wpm_call = lambda: f"{self.calc_wpm():.1f}"
+        self.acc_call = lambda: f"{self.calc_acc():.1f}"
         self.sessionscreen = self.screen.derwin(0, 0)  # init sessionwindow
         self.sessionscreen.keypad(True)  # Fix arrow keys
         self.wpmscreen = None
         self.accscreen = None
         self.draw_session()
+
+    def calc_wpm(self) -> float:
+        sum_typed = self.len_typed_carryover + len(self.text.typed)
+        return (sum_typed /CHARACTERS_PER_WORD) / ((time.time()-self.t_start)/60)
+
+    def calc_acc(self) -> float:
+        # TODO: is this really the correct calculation?
+        curr_len = len(self.text.completed_chars())
+        curr_len = max([curr_len,1])
+        sum_len = curr_len
+        avg_acc = self.text.get_accuracy()*curr_len
+        for a, l in self.acc_typed_carryover:
+            sum_len += l
+            avg_acc += a*l
+        return avg_acc/sum_len
+
+
+
+
+    def is_complete(self):
+        return self.text.is_complete()
+
+    def type_backspace(self):
+        self.text.type_backspace()
+
+    def type_char(self, c):
+        self.text.type_char(c)
+
+    def next_section(self):
+        # TODO: save accuracy and wpm from self.text for later
+        self.section_nr += 1
+        if len(self.sessionrepr.sections) <= self.section_nr:
+            raise ValueError(f"DONE\nrepr{ len(self.sessionrepr.sections) } \t nr {self.section_nr}\n{self.sessionrepr.sections}")
+        len_typed = len(self.text.completed_chars())
+        self.len_typed_carryover += len_typed
+        self.acc_typed_carryover.append((self.text.get_accuracy(),len_typed))
+        self.text = SessionTextObject(self.sessionrepr.sections[self.section_nr])
 
     def draw_session(self):
         """completely redraw session, like after a resize"""
@@ -432,12 +533,7 @@ class Session:
             left,
         )
 
-        #--self.sessionscreen.attrset(curses.color_pair(2))
-        #--self.sessionscreen.border(*self.border) if self.border else self.sessionscreen.border()
-        #--self.sessionscreen.noutrefresh()
-        #--self.sessionscreen.attrset(curses.color_pair(1))
 
-        # logger.debug(f"Resize subwindow: maxsize={self.screen.getmaxyx()} actualsize={height-top-bottom,width-left-right}\tborders: left={left}, right={right}, top={top}, bottom={bottom}")
         # TODO: move this routine to the same function as the sessionscreen resize/move routine
         wpm_y = (
             CONFIG.WPM_WINDOW.window_spacing.top
@@ -483,6 +579,7 @@ class Session:
         y -= CONFIG.BORDER_PADDING.top + CONFIG.BORDER_PADDING.bottom
         x -= CONFIG.BORDER_PADDING.left + CONFIG.BORDER_PADDING.right
 
+
         # Getting the position of the mouse so we no which line to center on
         typed = self.text.get_typed_chars(width=x - 2, correct=True, typos=True)
         line = len([x for x in typed if x != []]) - 1
@@ -491,7 +588,8 @@ class Session:
         # Keep track of last printed correct/incorrect char for cursor position
         # +1 are needed to compensate for the border arround the window
         curs_y_base, curs_x_base = (1 + CONFIG.BORDER_PADDING.top, 1 + CONFIG.BORDER_PADDING.left)
-        curs_y, curs_x = (1, 1)
+        curs_y, curs_x = (1+CONFIG.BORDER_PADDING.top, 1+CONFIG.BORDER_PADDING.left)
+
         # Print base 'guide' chars
         # FIX: this is ugly as fuck! how do i reformat this?
         guide_chars = fix_height(
@@ -520,6 +618,7 @@ class Session:
                         curs_x = 1
                     curs_x = ix + 2 if ix + 2 > curs_x and iy + 1 >= curs_y else curs_x
                     self.sessionscreen.addch(iy + 1, ix + 1, c, CONFIG.COLOR_SCHEME.correct | curses.A_ITALIC)
+
         # print typos
         typo_chars = fix_height(self.text.get_typed_chars(width=x - 2, correct=False), focus_line=line, height=y - 2)
         for iy, l in enumerate(typo_chars, start=CONFIG.BORDER_PADDING.top):
@@ -568,9 +667,14 @@ def main():
         logger.info(f"TERM={os.environ['TERM']}")
 
         screen = init_main_screen()
-        text_data = SessionTextObject(teststring)  # init sessiondata
         assert isinstance(screen, curses.window)
-        session = Session(screen, text_data)
+        testpath = "/home/lks/Akten/PycharmProjects/typo-master/typo/S1__.yml"
+        testpath = "/home/lks/Akten/PycharmProjects/typo-master/typo/res/Java/P0_prog.yml"
+        testpath = "/home/lks/Akten/PycharmProjects/typo-master/typo/res/S3.yml"
+
+        session_repr = SessionFileRepr.load_from_file(testpath)
+        session = Session(screen, session_repr)
+        logger.info(f"Screen size: {screen.getmaxyx()}")
         start = time.time()
 
         while True:
@@ -587,7 +691,6 @@ def main():
                 session.draw_characters()
                 continue
             inp_key = ord(inp_char) if isinstance(inp_char, str) else inp_char
-            # curses.KEY_RESIZE get's send when ever the screen resizes
             if inp_key == curses.KEY_RESIZE:
                 # redraw screen
                 logger.debug("Redraw due to resize")
@@ -620,11 +723,14 @@ def main():
                 break
             elif inp_key == curses.KEY_BACKSPACE or inp_key == 127 or str(inp_char) == "^?":
                 # elif inp_key in [curses.KEY_BACKSPACE, '\b', '\x7f']:
-                text_data.type_backspace()
+                session.type_backspace()
                 session.draw_characters()
             elif inp_char in CONFIG.VALID_INPUTS:
                 assert isinstance(inp_char, str)
-                text_data.type_char(inp_char)
+                session.type_char(inp_char)
+                if session.is_complete():
+                    logger.info("Completed xyz")
+                    session.next_section()
                 session.draw_characters()
             else:
                 logger.info(f"Received unknown keypress: {inp_key}, {repr(inp_char)}")
