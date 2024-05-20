@@ -49,16 +49,17 @@ class WindowDimensions:
     window_spacing: WindowSpacing
 
 
-@dataclass(frozen=True)
-class BorderChars:
-    left: Optional[str | None]
-    right: Optional[str | None]
-    top: Optional[str | None]
-    bottom: Optional[str | None]
-    topleft: Optional[str | None]
-    topright: Optional[str | None]
-    bottomleft: Optional[str | None]
-    bottomright: Optional[str | None]
+# deprecated
+# @dataclass(frozen=True)
+# class BorderChars:
+#     left: Optional[str | None]
+#     right: Optional[str | None]
+#     top: Optional[str | None]
+#     bottom: Optional[str | None]
+#     topleft: Optional[str | None]
+#     topright: Optional[str | None]
+#     bottomleft: Optional[str | None]
+#     bottomright: Optional[str | None]
 
 
 @dataclass(frozen=True)
@@ -124,7 +125,7 @@ class SessionSettings:
 
     @property
     def replacements(self):
-        return {"\n": self.S_RETURN, "\t": self.S_TAB}
+        return {"\n": self.S_RETURN, "\t": self.S_TAB + "·" * 3}
 
     @classmethod
     def default(cls):
@@ -134,7 +135,7 @@ class SessionSettings:
         valid_inputs += "1234567890"
         valid_inputs += "äüöÄÜÖß"
         valid_inputs += ",.;:><?"
-        valid_inputs += "§~_+=-`€°!@#$%^&*()[]{}/\\'\""
+        valid_inputs += "§~_+=-`€°!@#$%^&*()[]{}|/\\'\""
         valid_inputs += "\n\t"
         border_margin = WindowSpacing(left=4, right=4, top=5, bottom=6)
         border_padding = WindowSpacing(left=3, right=3, top=1, bottom=1)
@@ -155,7 +156,7 @@ class SessionSettings:
             WPM_WINDOW=wpm_window,
             ACC_WINDOW=acc_window,
             COLOR_SCHEME=None,  # TODO: not none
-            MAX_WIDTH=120
+            MAX_WIDTH=120,
         )
 
 
@@ -201,8 +202,9 @@ class TypoError:  # {{{
 
     def __str__(self) -> str:
         return f"TypoError: should be {repr(self.char)} but is {repr(self.tipped)}. Was corrected: {self.corrected}"
-# }}}
 
+
+# }}}
 
 
 class SessionTextObject:  # {{{
@@ -215,13 +217,11 @@ class SessionTextObject:  # {{{
         self.typed = []  # simple char buffer
         self.corrected_errors = []
 
-
     def is_complete(self):
         if len(self.typed) == len(self.raw_text):
             return True
         else:
             return False
-
 
     def replace(self, s: str) -> str:
         """handle default keys for the replacements dict"""
@@ -396,6 +396,52 @@ class SessionTextObject:  # {{{
     # }}}
 
 
+class ConfigConformScreenWrp:
+    def __init__(self, parent: curses._CursesWindow, config: SessionSettings) -> None:
+        self.parent = parent
+        self.config = config
+        height, width = parent.getmaxyx()
+        left, right, top, bottom = config.BORDER_MARGIN
+        subwin_height, subwin_width = (height - top - bottom, width - left - right)
+        if subwin_height < 6:
+            raise ValueError(f"Window to small to start session: {subwin_height,subwin_width}")
+        if subwin_width < 40:
+            raise ValueError(f"Window to small to start session: {subwin_height,subwin_width}")
+        self.screen = parent.subwin(
+            subwin_height,
+            subwin_width,
+            top,
+            left,
+        )
+        self.screen.attrset(config.COLOR_SCHEME.border)
+        self.screen.border()
+        self.screen.attrset(config.COLOR_SCHEME.fg)
+
+    def redraw_border(self):
+        self.screen.erase()
+        self.screen.attrset(self.config.COLOR_SCHEME.border)
+        self.screen.border()
+        self.screen.attrset(self.config.COLOR_SCHEME.fg)
+
+    def getoffsetyx(self):
+        y = self.config.BORDER_PADDING.top + 1
+        x = self.config.BORDER_PADDING.left + 1
+        return y, x
+
+    def getmaxyx(self):
+        y, x = self.screen.getmaxyx()
+        y -= self.config.BORDER_PADDING.top + self.config.BORDER_PADDING.bottom
+        x -= self.config.BORDER_PADDING.left + self.config.BORDER_PADDING.right
+        return y, x
+
+    def addstr(self, s: str, i: int = 0, attr: int = 0):
+        y, x = self.getoffsetyx()
+        self.screen.addstr(y + i, x, s, attr)
+
+
+# def config_conform_sessionscreen(parent: curses._CursesWindow):
+
+
 def fix_height(
     char_buffer: List[List[str]],
     focus_line: int,
@@ -425,27 +471,30 @@ def fix_height(
     return ret
 
 
-
 @dataclass()
 class SessionOptions:
     RandomShuffle: bool
 
     @staticmethod
-    def load_from_dict(d)->SessionOptions:
+    def load_from_dict(d) -> SessionOptions:
         return SessionOptions(RandomShuffle=d["RandomShuffle"])
+
 
 @dataclass()
 class SessionFileRepr:
-    """ Representation of a session, is read from file """
+    """Representation of a session, is read from file"""
+
     title: str
     options: SessionOptions
     sections: List[str]
 
     @staticmethod
-    def load_from_file(path)->SessionFileRepr:
+    def load_from_file(path) -> SessionFileRepr:
         r = yaml.safe_load(Path(path).read_text())
         # TODO: any input validation
-        srepr = SessionFileRepr(title=r["title"],options=SessionOptions.load_from_dict(r["options"]),sections=r["sections"])
+        srepr = SessionFileRepr(
+            title=r["title"], options=SessionOptions.load_from_dict(r["options"]), sections=r["sections"]
+        )
         if srepr.options.RandomShuffle:
             random.shuffle(srepr.sections)
         return srepr
@@ -465,29 +514,27 @@ class Session:
 
         self.wpm_call = lambda: f"{self.calc_wpm():.1f}"
         self.acc_call = lambda: f"{self.calc_acc():.1f}"
-        self.sessionscreen = self.screen.derwin(0, 0)  # init sessionwindow
-        self.sessionscreen.keypad(True)  # Fix arrow keys
+        # self.sessionscreen = self.screen.derwin(0, 0)  # init sessionwindow
+        self.sessionscreen = ConfigConformScreenWrp(mainscreen, CONFIG)
+        self.sessionscreen.screen.keypad(True)  # Fix arrow keys
         self.wpmscreen = None
         self.accscreen = None
         self.draw_session()
 
     def calc_wpm(self) -> float:
         sum_typed = self.len_typed_carryover + len(self.text.typed)
-        return (sum_typed /CHARACTERS_PER_WORD) / ((time.time()-self.t_start)/60)
+        return (sum_typed / CHARACTERS_PER_WORD) / ((time.time() - self.t_start) / 60)
 
     def calc_acc(self) -> float:
         # TODO: is this really the correct calculation?
         curr_len = len(self.text.completed_chars())
-        curr_len = max([curr_len,1])
+        curr_len = max([curr_len, 1])
         sum_len = curr_len
-        avg_acc = self.text.get_accuracy()*curr_len
+        avg_acc = self.text.get_accuracy() * curr_len
         for a, l in self.acc_typed_carryover:
             sum_len += l
-            avg_acc += a*l
-        return avg_acc/sum_len
-
-
-
+            avg_acc += a * l
+        return avg_acc / sum_len
 
     def is_complete(self):
         return self.text.is_complete()
@@ -502,10 +549,12 @@ class Session:
         # TODO: save accuracy and wpm from self.text for later
         self.section_nr += 1
         if len(self.sessionrepr.sections) <= self.section_nr:
-            raise ValueError(f"DONE\nrepr{ len(self.sessionrepr.sections) } \t nr {self.section_nr}\n{self.sessionrepr.sections}")
+            raise ValueError(
+                f"DONE\nrepr{ len(self.sessionrepr.sections) } \t nr {self.section_nr}\n{self.sessionrepr.sections}"
+            )
         len_typed = len(self.text.completed_chars())
         self.len_typed_carryover += len_typed
-        self.acc_typed_carryover.append((self.text.get_accuracy(),len_typed))
+        self.acc_typed_carryover.append((self.text.get_accuracy(), len_typed))
         self.text = SessionTextObject(self.sessionrepr.sections[self.section_nr])
 
     def draw_session(self):
@@ -518,21 +567,7 @@ class Session:
         """
         curses.curs_set(0)
         self.screen.erase()
-        logger.debug(f"Drawing session window")
-        height, width = self.screen.getmaxyx()
-        left, right, top, bottom = CONFIG.BORDER_MARGIN
-        subwin_height, subwin_width = (height - top - bottom, width - left - right)
-        if subwin_height < 6:
-            raise ValueError(f"Window to small to start session: {subwin_height,subwin_width}")
-        if subwin_width < 40:
-            raise ValueError(f"Window to small to start session: {subwin_height,subwin_width}")
-        self.sessionscreen = self.screen.subwin(
-            subwin_height,
-            subwin_width,
-            top,
-            left,
-        )
-
+        self.sessionscreen = ConfigConformScreenWrp(parent=self.screen, config=CONFIG)
 
         # TODO: move this routine to the same function as the sessionscreen resize/move routine
         wpm_y = (
@@ -571,16 +606,10 @@ class Session:
 
     def draw_characters(self):
         """draw guide text, typos and correctly typed chars in their respective colors"""
-        self.sessionscreen.erase()
-        self.sessionscreen.attrset(CONFIG.COLOR_SCHEME.border)
-        self.sessionscreen.border()
-        self.sessionscreen.attrset(CONFIG.COLOR_SCHEME.fg)
+        self.sessionscreen.redraw_border()
         y, x = self.sessionscreen.getmaxyx()
-        y -= CONFIG.BORDER_PADDING.top + CONFIG.BORDER_PADDING.bottom
-        x -= CONFIG.BORDER_PADDING.left + CONFIG.BORDER_PADDING.right
 
-
-        # Getting the position of the mouse so we no which line to center on
+        # Getting the position of the mouse so we know which line to center on
         typed = self.text.get_typed_chars(width=x - 2, correct=True, typos=True)
         line = len([x for x in typed if x != []]) - 1
         c = len([x for x in typed[line] if x != ""]) + CONFIG.BORDER_PADDING.left
@@ -588,7 +617,7 @@ class Session:
         # Keep track of last printed correct/incorrect char for cursor position
         # +1 are needed to compensate for the border arround the window
         curs_y_base, curs_x_base = (1 + CONFIG.BORDER_PADDING.top, 1 + CONFIG.BORDER_PADDING.left)
-        curs_y, curs_x = (1+CONFIG.BORDER_PADDING.top, 1+CONFIG.BORDER_PADDING.left)
+        curs_y, curs_x = (1 + CONFIG.BORDER_PADDING.top, 1 + CONFIG.BORDER_PADDING.left)
 
         # Print base 'guide' chars
         # FIX: this is ugly as fuck! how do i reformat this?
@@ -600,7 +629,7 @@ class Session:
             replace_bottom=["v", "v", "v"],
         )
         for i, l in enumerate(guide_chars):
-            self.sessionscreen.addstr(i + curs_y_base, curs_x_base, "".join(l))
+            self.sessionscreen.screen.addstr(i + curs_y_base, curs_x_base, "".join(l))
 
         # print correct chars
         correct_chars = fix_height(
@@ -617,7 +646,7 @@ class Session:
                         curs_y = iy + 1
                         curs_x = 1
                     curs_x = ix + 2 if ix + 2 > curs_x and iy + 1 >= curs_y else curs_x
-                    self.sessionscreen.addch(iy + 1, ix + 1, c, CONFIG.COLOR_SCHEME.correct | curses.A_ITALIC)
+                    self.sessionscreen.screen.addch(iy + 1, ix + 1, c, CONFIG.COLOR_SCHEME.correct | curses.A_ITALIC)
 
         # print typos
         typo_chars = fix_height(self.text.get_typed_chars(width=x - 2, correct=False), focus_line=line, height=y - 2)
@@ -628,8 +657,8 @@ class Session:
                         curs_y = iy + 1
                         curs_x = 1
                     curs_x = ix + 2 if ix + 2 > curs_x and iy + 1 >= curs_y else curs_x
-                    self.sessionscreen.addch(iy + 1, ix + 1, c, CONFIG.COLOR_SCHEME.wrong | curses.A_UNDERLINE)
-        self.sessionscreen.noutrefresh()
+                    self.sessionscreen.screen.addch(iy + 1, ix + 1, c, CONFIG.COLOR_SCHEME.wrong | curses.A_UNDERLINE)
+        self.sessionscreen.screen.noutrefresh()
 
         # Routine for wpm and accuracy
         # TODO: there is definitely unnecessary redundancy here
@@ -639,7 +668,7 @@ class Session:
         self.accscreen.addstr(1, 1, self.acc_call())
         self.accscreen.noutrefresh()
         curses.doupdate()
-        self.sessionscreen.move(curs_y, curs_x)
+        self.sessionscreen.screen.move(curs_y, curs_x)
 
 
 def init_main_screen() -> curses._CursesWindow:
@@ -659,6 +688,335 @@ def init_main_screen() -> curses._CursesWindow:
     return screen
 
 
+def sessionloop(session: Session):
+
+    while True:
+        # FIX: this is the input handling, this MUST be compartmentalized!!
+        try:
+            # set halfdelay, aka timeout mode and reset immediately after
+            # timeout is needed, if we block until next input timer can't update
+            curses.halfdelay(5)
+            inp_char = session.sessionscreen.screen.get_wch()
+            curses.nocbreak()
+            curses.cbreak()
+        except curses.error:
+            # this updates wpm
+            session.draw_characters()
+            continue
+        inp_key = ord(inp_char) if isinstance(inp_char, str) else inp_char
+        if inp_key == curses.KEY_RESIZE:
+            # redraw screen
+            logger.debug("Redraw due to resize")
+            session.draw_session()
+        elif inp_key == curses.KEY_MOUSE:
+            # these can translate to scroll-down and scroll-up, requires mousemask
+            try:
+                getmouse = curses.getmouse()
+            except curses.error:
+                getmouse = None
+            logger.debug(f"Got mouse event inp_char,inp_key{inp_char, inp_key}, getmouse: {getmouse}")
+        elif inp_key in [
+            curses.KEY_UP,
+            curses.KEY_DOWN,
+            curses.KEY_LEFT,
+            curses.KEY_RIGHT,
+        ]:
+            if inp_key == curses.KEY_UP:
+                logger.debug("Got arrow key: Up")
+            elif inp_key == curses.KEY_DOWN:
+                logger.debug("Got arrow key: Down")
+            elif inp_key == curses.KEY_LEFT:
+                logger.debug("Got arrow key: Left")
+            elif inp_key == curses.KEY_RIGHT:
+                logger.debug("Got arrow key: Right")
+        elif inp_key == 27:
+            # ESC key
+            logger.debug(f"Got esc event inp_char,inp_key{inp_char, inp_key},{curses.ungetch(inp_char)}")
+            curses.endwin()
+            break
+        elif inp_key == curses.KEY_BACKSPACE or inp_key == 127 or str(inp_char) == "^?":
+            # elif inp_key in [curses.KEY_BACKSPACE, '\b', '\x7f']:
+            session.type_backspace()
+            session.draw_characters()
+        elif inp_char in CONFIG.VALID_INPUTS:
+            assert isinstance(inp_char, str)
+            session.type_char(inp_char)
+            if session.is_complete():
+                logger.info("Completed xyz")
+                session.next_section()
+            session.draw_characters()
+        else:
+            logger.info(f"Received unknown keypress: {inp_key}, {repr(inp_char)}")
+
+
+def make_menu(parent: curses._CursesWindow, menu_content: List[str]):
+    derwin = ConfigConformScreenWrp(parent, CONFIG)
+    derwin.addstr("Test")
+    parent.noutrefresh()
+    parent.refresh()
+    derwin.screen.noutrefresh()
+    derwin.screen.refresh()
+    curses.doupdate()
+    time.sleep(5)
+
+
+def make_grid(parent: curses._CursesWindow, width: int, height: int):
+    y, x = parent.getmaxyx()
+    if width > x or height > y:
+        raise ValueError("Error")
+    pos_x = 0
+    pos_y = 1
+
+    # redraw all
+    while True:
+        parent.clear()
+        y, x = parent.getmaxyx()
+
+        for p_x in range(pos_x * (x // width), (pos_x + 1) * (x // width)):
+            for p_y in range(pos_y * (y // height), (pos_y + 1) * (y // height)):
+                parent.addstr(p_y, p_x, "X")
+        parent.noutrefresh()
+        parent.refresh()
+
+        inp_char = parent.get_wch()
+        inp_key = ord(inp_char) if isinstance(inp_char, str) else inp_char
+        curses.nocbreak()
+        curses.cbreak()
+        if inp_key == curses.KEY_RESIZE:
+            continue
+        elif inp_key == curses.KEY_DOWN:
+            if pos_y < height - 1:
+                pos_y += 1
+        elif inp_key == curses.KEY_UP:
+            if pos_y > 0:
+                pos_y -= 1
+        elif inp_key == curses.KEY_RIGHT:
+            if pos_x < width - 1:
+                pos_x += 1
+        elif inp_key == curses.KEY_LEFT:
+            if pos_x > 0:
+                pos_x -= 1
+
+
+class ViewportGrid:
+    def __init__(
+        self, parent: curses._CursesWindow, cell_width: int, cell_height: int, cells_y: int, cells_x: int
+    ) -> None:
+        self.parent = parent
+        self.cell_width = cell_width
+        self.cell_height = cell_height
+        self.cells_y = cells_y
+        self.cells_x = cells_x
+        if any([x < 1 for x in [self.cell_width, self.cell_height, self.cells_y, self.cells_x]]):
+            raise ValueError("Error")
+
+        self.view_max_y, self.view_max_x = parent.getmaxyx()
+        self.view_cells_max_y = self.view_max_y // cell_height
+        self.view_cells_max_x = self.view_max_x // cell_width
+
+        # top left coordinates of viewport
+        self.pos_x = 0
+        self.pos_y = 0
+        # "cursor" but actually cell numbers
+        self.cursor_x = 0
+        self.cursor_y = 0
+        self.CURSOR_SPACING = 1  # keep border of cells around selected
+
+        self.char_buffer = [[" "] * cell_width * cells_x for _ in range(cell_height * cells_y)]  # [y][x]
+        return
+
+    def refresh_dimensions(self):
+        self.view_max_y, self.view_max_x = self.parent.getmaxyx()
+        self.view_cells_max_y = self.view_max_y // self.cell_height
+        self.view_cells_max_x = self.view_max_x // self.cell_width
+
+    def make_char_buffer(self):
+        # create char buffer
+        i = 0
+        start = time.time()
+        logger.debug(f"buffersize:{len(self.char_buffer),len(self.char_buffer[0])}")
+        for y in range(self.cells_y):
+            for x in range(self.cells_x):
+                y_ = y * self.cell_height
+                x_ = x * self.cell_width
+                if i % 2 == 0:
+                    content = f"{i}_________________________________________________________________"  # TODO: give content as param
+                else:
+                    content = f"{i}XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"  # TODO: give content as param
+                content_ = ""
+                while len(content) > self.cell_width:
+                    content_ += content[: self.cell_width] + "\n"
+                    content = content[self.cell_width :]
+                content = content_.split("\n")
+
+                # walk through all chars in content, break on oversteping cell limits
+                for l_idx in range(self.cell_height):
+                    if l_idx >= len(content):
+                        # logger.debug(f"break:{l_idx} > len({content})={len(content)}")
+                        break
+                    for c_idx in range(self.cell_width):
+                        if c_idx >= len(content[l_idx]):
+                            # logger.debug(f"break:{c_idx} > len({content[l_idx]})={len(content[l_idx])}")
+                            break
+                        self.char_buffer[y_ + l_idx][x_ + c_idx] = content[l_idx][c_idx]
+                i += 1
+
+        logger.info(f"Took {time.time()-start}s")
+        # char_buffer_str = "\n".join(["".join(e) for e in char_buffer])
+        return
+
+    def next_x_cell_border(self, x_pos: int) -> int:
+        ret = 0
+        while ret <= x_pos:
+            ret += self.cell_width
+        return ret
+
+    def next_y_cell_border(self, y_pos: int) -> int:
+        ret = 0
+        while ret <= y_pos:
+            ret += self.cell_height
+        return ret
+
+    def draw_char_buffer(self):
+        # draw char buffer
+        for view_y in range(self.view_max_y - 1):
+            if view_y + self.pos_y >= len(self.char_buffer):
+                break
+            view_x = 0
+            current_cell_y = (view_y + self.pos_y) // self.cell_height
+            while view_x < self.view_max_x:
+                # find next cell border from current position
+                current_cell_x = (view_x + self.pos_x) // self.cell_width
+                cborder_x = self.next_x_cell_border(view_x + self.pos_x)
+                if cborder_x >= self.view_max_x + self.pos_x + self.cell_width:
+                    break
+                if cborder_x >= self.view_max_x + self.pos_x:
+                    cborder_x = self.view_max_x + self.pos_x
+                insert_str = "".join(self.char_buffer[view_y + self.pos_y][view_x + self.pos_x : cborder_x])
+                if self.cursor_x == current_cell_x and self.cursor_y == current_cell_y:
+                    attr = curses.A_STANDOUT
+                else:
+                    attr = 0
+                # logger.debug(f"Trying to add at pos({view_y,view_x}), charbufferpos({view_y+pos_y,view_x+pos_x}) str of len {len(insert_str)}: \"{insert_str}\"")
+                try:
+                    self.parent.addstr(view_y, view_x, insert_str, attr)
+                except curses.error as e:
+                    logger.warn(f"Error when adding str len({len(insert_str)}) at pos ({view_y,view_x})")
+                    raise e
+                assert cborder_x - self.pos_x > view_x
+                view_x = cborder_x - self.pos_x
+            self.parent.noutrefresh()
+            self.parent.refresh()
+        return
+
+    def pos_x_change(self, cursor_move: int):
+        if cursor_move < -1 or cursor_move > 1:
+            return ValueError(f"Can only move by one!")
+        if self.cursor_x == self.cells_x:
+            return
+        # partial cells
+        overflow = self.view_max_x - self.view_cells_max_x * self.cell_width
+
+        current_cell_relative_to_view = self.cursor_x - self.pos_x // self.cell_width
+        logger.debug(f"Relative cursor(x):{current_cell_relative_to_view}")
+        assert current_cell_relative_to_view <= self.view_cells_max_x
+        assert current_cell_relative_to_view >= 0
+
+        if cursor_move == 1:
+            if current_cell_relative_to_view + self.CURSOR_SPACING >= self.view_cells_max_x:
+                # if not all cells fit in the viewport:
+                if self.cells_x * self.cell_width - self.view_max_x > 0:
+                    self.pos_x = (
+                        (self.cursor_x - self.view_cells_max_x) + self.CURSOR_SPACING
+                    ) * self.cell_width + overflow
+                    self.pos_x = min([self.pos_x, self.cells_x * self.cell_width - self.view_max_x])
+                else:
+                    self.pos_x = 0
+                logger.debug(
+                    f"Moving viewport({cursor_move}): cursor:{self.cursor_y,self.cursor_x}, new pos_x:{self.pos_x}"
+                )
+        else:
+            if current_cell_relative_to_view - self.CURSOR_SPACING <= 0:
+                self.pos_x = (self.cursor_x - self.CURSOR_SPACING) * self.cell_width
+                self.pos_x = max([self.pos_x, 0])
+                logger.debug(
+                    f"Moving viewport({cursor_move}): cursor:{self.cursor_y,self.cursor_x}, new pos_x:{self.pos_x}"
+                )
+
+        assert self.pos_x >= 0
+        assert self.pos_x < self.cells_x * self.cell_width
+
+    def pos_y_change(self, cursor_move: int):
+        if cursor_move < -1 or cursor_move > 1:
+            return ValueError(f"Can only move by one!")
+        if self.cursor_y == self.cells_y:
+            return
+        # partial cells
+        overflow = self.view_max_y - self.view_cells_max_y * self.cell_height
+
+        current_cell_relative_to_view = self.cursor_y - self.pos_y // self.cell_height
+        logger.debug(f"Relative cursor(y):{current_cell_relative_to_view}")
+        assert current_cell_relative_to_view <= self.view_cells_max_y
+        assert current_cell_relative_to_view >= 0
+
+        if cursor_move == 1:
+            if current_cell_relative_to_view + self.CURSOR_SPACING >= self.view_cells_max_y:
+                self.pos_y = (
+                    (self.cursor_y - self.view_cells_max_y) + self.CURSOR_SPACING
+                ) * self.cell_height + overflow
+                self.pos_y = min(self.pos_y, self.cells_y * self.cell_height - self.view_max_y)
+                logger.debug(
+                    f"Moving viewport({cursor_move}): cursor:{self.cursor_y,self.cursor_x}, new pos_y:{self.pos_y}"
+                )
+        else:
+            if current_cell_relative_to_view - self.CURSOR_SPACING <= 0:
+                self.pos_y = (self.cursor_y - self.CURSOR_SPACING) * self.cell_height
+                self.pos_y = max([self.pos_y, 0])
+                logger.debug(
+                    f"Moving viewport({cursor_move}): cursor:{self.cursor_y,self.cursor_x}, new pos_y:{self.pos_y}"
+                )
+
+        assert self.pos_y >= 0
+        assert self.pos_y < self.cells_y * self.cell_height
+
+    def make_viewport_grid(self) -> tuple[int, int]:
+        # redraw all
+        while True:
+            self.parent.clear()
+            self.refresh_dimensions()
+            logger.debug(f"Screen size: {self.view_max_y,self.view_max_x}")
+
+            self.make_char_buffer()
+
+            self.draw_char_buffer()
+
+            inp_char = self.parent.get_wch()
+            inp_key = ord(inp_char) if isinstance(inp_char, str) else inp_char
+            curses.nocbreak()
+            curses.cbreak()
+            if inp_key == curses.KEY_RESIZE:
+                continue
+            elif inp_char == "\n":
+                break
+            elif inp_key == curses.KEY_DOWN:
+                if self.cursor_y + 1 < self.cells_y:
+                    self.cursor_y += 1
+                    self.pos_y_change(1)
+            elif inp_key == curses.KEY_UP:
+                if self.cursor_y > 0:
+                    self.cursor_y -= 1
+                    self.pos_y_change(-1)
+            elif inp_key == curses.KEY_RIGHT:
+                if self.cursor_x + 1 < self.cells_x:
+                    self.cursor_x += 1
+                    self.pos_x_change(1)
+            elif inp_key == curses.KEY_LEFT:
+                if self.cursor_x > 0:
+                    self.cursor_x -= 1
+                    self.pos_x_change(-1)
+        return (self.cursor_y, self.cursor_x)
+
+
 def main():
     screen = None
     try:
@@ -668,72 +1026,24 @@ def main():
 
         screen = init_main_screen()
         assert isinstance(screen, curses.window)
+
+        # make_menu(screen,["1","2","3"])
+
+        # make_grid(screen,15,15)
+        y, x = ViewportGrid(screen, cell_width=9, cell_height=3, cells_y=24, cells_x=21).make_viewport_grid()
+        logger.critical(f"Got {y,x}")
+        # ViewportGrid(screen,cell_width=7,cell_height=3,cells_y=12,cells_x=17).make_viewport_grid()
+
         testpath = "/home/lks/Akten/PycharmProjects/typo-master/typo/S1__.yml"
         testpath = "/home/lks/Akten/PycharmProjects/typo-master/typo/res/Java/P0_prog.yml"
         testpath = "/home/lks/Akten/PycharmProjects/typo-master/typo/res/S3.yml"
+        testpath = "/home/lks/Akten/PycharmProjects/typo-master/typo/res/bash-git/lib.sh.yml"
+        testpath = "/home/lks/Akten/PycharmProjects/typo-master/typo/res/c-linux/recvmsg.c.yml"
 
         session_repr = SessionFileRepr.load_from_file(testpath)
-        session = Session(screen, session_repr)
         logger.info(f"Screen size: {screen.getmaxyx()}")
-        start = time.time()
-
-        while True:
-            # FIX: this is the input handling, this MUST be compartmentalized!!
-            try:
-                # set halfdelay, aka timeout mode and reset immediately after
-                # timeout is needed, if we block until next input timer can't update
-                curses.halfdelay(5)
-                inp_char = session.sessionscreen.get_wch()
-                curses.nocbreak()
-                curses.cbreak()
-            except curses.error:
-                # this updates wpm
-                session.draw_characters()
-                continue
-            inp_key = ord(inp_char) if isinstance(inp_char, str) else inp_char
-            if inp_key == curses.KEY_RESIZE:
-                # redraw screen
-                logger.debug("Redraw due to resize")
-                session.draw_session()
-            elif inp_key == curses.KEY_MOUSE:
-                # these can translate to scroll-down and scroll-up, requires mousemask
-                try:
-                    getmouse = curses.getmouse()
-                except curses.error:
-                    getmouse = None
-                logger.debug(f"Got mouse event inp_char,inp_key{inp_char, inp_key}, getmouse: {getmouse}")
-            elif inp_key in [
-                curses.KEY_UP,
-                curses.KEY_DOWN,
-                curses.KEY_LEFT,
-                curses.KEY_RIGHT,
-            ]:
-                if inp_key == curses.KEY_UP:
-                    logger.debug("Got arrow key: Up")
-                elif inp_key == curses.KEY_DOWN:
-                    logger.debug("Got arrow key: Down")
-                elif inp_key == curses.KEY_LEFT:
-                    logger.debug("Got arrow key: Left")
-                elif inp_key == curses.KEY_RIGHT:
-                    logger.debug("Got arrow key: Right")
-            elif inp_key == 27:
-                # ESC key
-                logger.debug(f"Got esc event inp_char,inp_key{inp_char, inp_key},{curses.ungetch(inp_char)}")
-                curses.endwin()
-                break
-            elif inp_key == curses.KEY_BACKSPACE or inp_key == 127 or str(inp_char) == "^?":
-                # elif inp_key in [curses.KEY_BACKSPACE, '\b', '\x7f']:
-                session.type_backspace()
-                session.draw_characters()
-            elif inp_char in CONFIG.VALID_INPUTS:
-                assert isinstance(inp_char, str)
-                session.type_char(inp_char)
-                if session.is_complete():
-                    logger.info("Completed xyz")
-                    session.next_section()
-                session.draw_characters()
-            else:
-                logger.info(f"Received unknown keypress: {inp_key}, {repr(inp_char)}")
+        session = Session(screen, session_repr)
+        sessionloop(session)
 
     finally:
         if screen is not None:
