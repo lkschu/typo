@@ -1,0 +1,108 @@
+title:
+   "Linux: recvmsg.c"
+options:
+   RandomShuffle: false
+sections:
+# Source: https://github.com/torvalds/linux/blob/master/net/rxrpc/recvmsg.c
+   - |
+      #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
+      #include <linux/net.h>
+      #include <linux/skbuff.h>
+      #include <linux/export.h>
+      #include <linux/sched/signal.h>
+      #include <net/sock.h>
+      #include <net/af_rxrpc.h>
+      #include "ar-internal.h"
+   - |
+      void rxrpc_notify_socket(struct rxrpc_call *call)
+      {
+      	struct rxrpc_sock *rx;
+      	struct sock *sk;
+
+      	_enter("%d", call->debug_id);
+
+      	if (!list_empty(&call->recvmsg_link))
+      		return;
+
+      	rcu_read_lock();
+
+      	rx = rcu_dereference(call->socket);
+      	sk = &rx->sk;
+      	if (rx && sk->sk_state < RXRPC_CLOSE) {
+      		if (call->notify_rx) {
+      			spin_lock(&call->notify_lock);
+      			call->notify_rx(sk, call, call->user_call_ID);
+      			spin_unlock(&call->notify_lock);
+      		} else {
+      			spin_lock(&rx->recvmsg_lock);
+      			if (list_empty(&call->recvmsg_link)) {
+      				rxrpc_get_call(call, rxrpc_call_get_notify_socket);
+      				list_add_tail(&call->recvmsg_link, &rx->recvmsg_q);
+      			}
+      			spin_unlock(&rx->recvmsg_lock);
+
+      			if (!sock_flag(sk, SOCK_DEAD)) {
+      				_debug("call %ps", sk->sk_data_ready);
+      				sk->sk_data_ready(sk);
+      			}
+      		}
+      	}
+
+      	rcu_read_unlock();
+      	_leave("");
+      }
+   - |
+      static int rxrpc_recvmsg_term(struct rxrpc_call *call, struct msghdr *msg)
+      {
+      	u32 tmp = 0;
+      	int ret;
+
+      	switch (call->completion) {
+      	case RXRPC_CALL_SUCCEEDED:
+      		ret = 0;
+      		if (rxrpc_is_service_call(call))
+      			ret = put_cmsg(msg, SOL_RXRPC, RXRPC_ACK, 0, &tmp);
+      		break;
+      	case RXRPC_CALL_REMOTELY_ABORTED:
+      		tmp = call->abort_code;
+      		ret = put_cmsg(msg, SOL_RXRPC, RXRPC_ABORT, 4, &tmp);
+      		break;
+      	case RXRPC_CALL_LOCALLY_ABORTED:
+      		tmp = call->abort_code;
+      		ret = put_cmsg(msg, SOL_RXRPC, RXRPC_ABORT, 4, &tmp);
+      		break;
+      	case RXRPC_CALL_NETWORK_ERROR:
+      		tmp = -call->error;
+      		ret = put_cmsg(msg, SOL_RXRPC, RXRPC_NET_ERROR, 4, &tmp);
+      		break;
+      	case RXRPC_CALL_LOCAL_ERROR:
+      		tmp = -call->error;
+      		ret = put_cmsg(msg, SOL_RXRPC, RXRPC_LOCAL_ERROR, 4, &tmp);
+      		break;
+      	default:
+      		pr_err("Invalid terminal call state %u\n", call->completion);
+      		BUG();
+      		break;
+      	}
+
+      	trace_rxrpc_recvdata(call, rxrpc_recvmsg_terminal,
+      			     call->ackr_window - 1,
+      			     call->rx_pkt_offset, call->rx_pkt_len, ret);
+      	return ret;
+      }
+   - |
+      error_unlock_call:
+      	mutex_unlock(&call->user_mutex);
+      	rxrpc_put_call(call, rxrpc_call_put_recvmsg);
+      	trace_rxrpc_recvmsg(call_debug_id, rxrpc_recvmsg_return, ret);
+      	return ret;
+
+      error_requeue_call:
+      	if (!(flags & MSG_PEEK)) {
+      		spin_lock(&rx->recvmsg_lock);
+      		list_add(&call->recvmsg_link, &rx->recvmsg_q);
+      		spin_unlock(&rx->recvmsg_lock);
+      		trace_rxrpc_recvmsg(call_debug_id, rxrpc_recvmsg_requeue, 0);
+      	} else {
+      		rxrpc_put_call(call, rxrpc_call_put_recvmsg);
+      	}

@@ -1,0 +1,67 @@
+title:
+   "Ansible: lineinfile.py"
+options:
+   RandomShuffle: false
+sections:
+# Source: https://github.com/ansible/ansible/blob/devel/lib/ansible/modules/lineinfile.py
+   - |
+      import os
+      import re
+      import tempfile
+
+      # import module snippets
+      from ansible.module_utils.basic import AnsibleModule
+      from ansible.module_utils.common.text.converters import to_bytes, to_native, to_text
+   - |
+      def write_changes(module, b_lines, dest):
+
+          tmpfd, tmpfile = tempfile.mkstemp(dir=module.tmpdir)
+          with os.fdopen(tmpfd, 'wb') as f:
+              f.writelines(b_lines)
+
+          validate = module.params.get('validate', None)
+          valid = not validate
+          if validate:
+              if "%s" not in validate:
+                  module.fail_json(msg="validate must contain %%s: %s" % (validate))
+              (rc, out, err) = module.run_command(to_bytes(validate % tmpfile, errors='surrogate_or_strict'))
+              valid = rc == 0
+              if rc != 0:
+                  module.fail_json(msg='failed to validate: ' 'rc:%s error:%s' % (rc, err))
+          if valid:
+              module.atomic_move(tmpfile, to_native(os.path.realpath(to_bytes(dest, errors='surrogate_or_strict')), errors='surrogate_or_strict'), unsafe_writes=module.params['unsafe_writes'])
+   - |
+      def check_file_attrs(module, changed, message, diff):
+
+          file_args = module.load_file_common_arguments(module.params)
+          if module.set_fs_attributes_if_different(file_args, False, diff=diff):
+
+              if changed:
+                  message += " and "
+              changed = True
+              message += "ownership, perms or SE linux context changed"
+
+          return message, changed
+   - |
+      module = AnsibleModule(
+          argument_spec=dict(
+              path=dict(type='path', required=True, aliases=['dest', 'destfile', 'name']),
+              state=dict(type='str', default='present', choices=['absent', 'present']),
+              regexp=dict(type='str', aliases=['regex']),
+              search_string=dict(type='str'),
+              line=dict(type='str', aliases=['value']),
+              insertafter=dict(type='str'),
+              insertbefore=dict(type='str'),
+              backrefs=dict(type='bool', default=False),
+              create=dict(type='bool', default=False),
+              backup=dict(type='bool', default=False),
+              firstmatch=dict(type='bool', default=False),
+              validate=dict(type='str'),
+          ),
+          mutually_exclusive=[
+              ['insertbefore', 'insertafter'], ['regexp', 'search_string'], ['backrefs', 'search_string']],
+          add_file_common_args=True,
+          supports_check_mode=True,
+      )
+
+

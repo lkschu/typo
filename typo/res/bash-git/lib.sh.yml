@@ -1,0 +1,79 @@
+title:
+   "Git: lib.sh"
+options:
+   RandomShuffle: false
+sections:
+# Source: https://github.com/git/git/blob/d8ab1d464d07baa30e5a180eb33b3f9aa5c93adf/ci/lib.sh#L4
+   - |
+      if test true = "$GITHUB_ACTIONS"
+      then
+      	begin_group () {
+      		need_to_end_group=t
+      		echo "::group::$1" >&2
+      		set -x
+      	}
+
+      	end_group () {
+      		test -n "$need_to_end_group" || return 0
+      		set +x
+      		need_to_end_group=
+      		echo '::endgroup::' >&2
+      	}
+   - |
+      elif test true = "$GITLAB_CI"
+      then
+      	begin_group () {
+      		need_to_end_group=t
+      		printf "\e[0Ksection_start:$(date +%s):$(echo "$1" | tr ' ' _)[collapsed=true]\r\e[0K$1\n"
+      		trap "end_group '$1'" EXIT
+      		set -x
+      	}
+
+      	end_group () {
+      		test -n "$need_to_end_group" || return 0
+      		set +x
+      		need_to_end_group=
+      		printf "\e[0Ksection_end:$(date +%s):$(echo "$1" | tr ' ' _)\r\e[0K\n"
+      		trap - EXIT
+      	}
+   - |
+      else
+      	begin_group () { :; }
+      	end_group () { :; }
+
+      	set -x
+      fi
+
+   - |
+      CI_TYPE=azure-pipelines
+      # We are running in Azure Pipelines
+      CI_BRANCH="$BUILD_SOURCEBRANCH"
+      CI_COMMIT="$BUILD_SOURCEVERSION"
+      CI_JOB_ID="$BUILD_BUILDID"
+      CI_JOB_NUMBER="$BUILD_BUILDNUMBER"
+      CI_OS_NAME="$(echo "$AGENT_OS" | tr A-Z a-z)"
+      test darwin != "$CI_OS_NAME" || CI_OS_NAME=osx
+      CI_REPO_SLUG="$(expr "$BUILD_REPOSITORY_URI" : '.*/\([^/]*/[^/]*\)$')"
+      CC="${CC:-gcc}"
+   - |
+      case "$jobname" in
+      linux32)
+      	CC=gcc
+      	;;
+      linux-musl)
+      	CC=gcc
+      	MAKEFLAGS="$MAKEFLAGS PYTHON_PATH=/usr/bin/python3 USE_LIBPCRE2=Yes"
+      	MAKEFLAGS="$MAKEFLAGS NO_REGEX=Yes ICONV_OMITS_BOM=Yes"
+      	MAKEFLAGS="$MAKEFLAGS GIT_TEST_UTF8_LOCALE=C.UTF-8"
+      	;;
+      linux-leaks|linux-reftable-leaks)
+      	export SANITIZE=leak
+      	export GIT_TEST_PASSING_SANITIZE_LEAK=true
+      	export GIT_TEST_SANITIZE_LEAK_LOG=true
+      	;;
+      linux-asan-ubsan)
+      	export SANITIZE=address,undefined
+      	export NO_SVN_TESTS=LetsSaveSomeTime
+      	MAKEFLAGS="$MAKEFLAGS NO_PYTHON=YepBecauseP4FlakesTooOften"
+      	;;
+      esac
