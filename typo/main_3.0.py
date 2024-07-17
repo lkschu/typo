@@ -140,12 +140,8 @@ class SessionSettings:
         valid_inputs += "\n\t"
         border_margin = WindowSpacing(left=4, right=4, top=5, bottom=6)
         border_padding = WindowSpacing(left=3, right=3, top=1, bottom=1)
-        wpm_window = WindowDimensions(
-            active=True, nlines=3, ncols=9, window_spacing=WindowSpacing(left=None, right=1, top=1, bottom=None)
-        )
-        acc_window = WindowDimensions(
-            active=True, nlines=3, ncols=9, window_spacing=WindowSpacing(left=None, right=1, top=None, bottom=1)
-        )
+        wpm_window = WindowDimensions(active=True, nlines=3, ncols=9, window_spacing=WindowSpacing(left=None, right=1, top=1, bottom=None))
+        acc_window = WindowDimensions(active=True, nlines=3, ncols=9, window_spacing=WindowSpacing(left=None, right=1, top=None, bottom=1))
 
         return SessionSettings(
             VALID_INPUTS=valid_inputs,
@@ -368,9 +364,7 @@ class SessionTextObject:  # {{{
                 raise ValueError(f"Can't fit <{word}> (plus possible space) in a width of {width}!")
 
             # check if we have a newline in the last added part, mind the space
-            if len(current_lst) > 1 and (
-                current_lst[-1] == self.replace(" ") and current_lst[-2] == self.replace("\n")
-            ):
+            if len(current_lst) > 1 and (current_lst[-1] == self.replace(" ") and current_lst[-2] == self.replace("\n")):
                 # Stip space after newline
                 ret_lst.append(current_lst[:-1])
                 current_lst = []
@@ -493,9 +487,7 @@ class SessionFileRepr:
     def load_from_file(path) -> SessionFileRepr:
         r = yaml.safe_load(Path(path).read_text())
         # TODO: any input validation
-        srepr = SessionFileRepr(
-            title=r["title"], options=SessionOptions.load_from_dict(r["options"]), sections=r["sections"]
-        )
+        srepr = SessionFileRepr(title=r["title"], options=SessionOptions.load_from_dict(r["options"]), sections=r["sections"])
         if srepr.options.RandomShuffle:
             random.shuffle(srepr.sections)
         return srepr
@@ -550,9 +542,7 @@ class Session:
         # TODO: save accuracy and wpm from self.text for later
         self.section_nr += 1
         if len(self.sessionrepr.sections) <= self.section_nr:
-            raise ValueError(
-                f"DONE\nrepr{ len(self.sessionrepr.sections) } \t nr {self.section_nr}\n{self.sessionrepr.sections}"
-            )
+            raise ValueError(f"DONE\nrepr{ len(self.sessionrepr.sections) } \t nr {self.section_nr}\n{self.sessionrepr.sections}")
         len_typed = len(self.text.completed_chars())
         self.len_typed_carryover += len_typed
         self.acc_typed_carryover.append((self.text.get_accuracy(), len_typed))
@@ -571,11 +561,11 @@ class Session:
         self.sessionscreen = ConfigConformScreenWrp(parent=self.screen, config=CONFIG)
 
         # TODO: move this routine to the same function as the sessionscreen resize/move routine
-        assert(isinstance(CONFIG.WPM_WINDOW.window_spacing.bottom,int))
-        assert(isinstance(CONFIG.WPM_WINDOW.window_spacing.right,int))
-        assert(isinstance(CONFIG.ACC_WINDOW.window_spacing.bottom,int))
-        assert(isinstance(CONFIG.ACC_WINDOW.window_spacing.right,int))
-        assert(isinstance(CONFIG.COLOR_SCHEME,ColorScheme))
+        assert isinstance(CONFIG.WPM_WINDOW.window_spacing.bottom, int)
+        assert isinstance(CONFIG.WPM_WINDOW.window_spacing.right, int)
+        assert isinstance(CONFIG.ACC_WINDOW.window_spacing.bottom, int)
+        assert isinstance(CONFIG.ACC_WINDOW.window_spacing.right, int)
+        assert isinstance(CONFIG.COLOR_SCHEME, ColorScheme)
         wpm_y = (
             CONFIG.WPM_WINDOW.window_spacing.top
             if CONFIG.WPM_WINDOW.window_spacing.top is not None
@@ -935,22 +925,16 @@ class ViewportGrid:
             if current_cell_relative_to_view + self.CURSOR_SPACING >= self.view_cells_max_x:
                 # if not all cells fit in the viewport:
                 if self.cells_x * self.cell_width - self.view_max_x > 0:
-                    self.pos_x = (
-                        (self.cursor_x - self.view_cells_max_x) + self.CURSOR_SPACING
-                    ) * self.cell_width + overflow
+                    self.pos_x = ((self.cursor_x - self.view_cells_max_x) + self.CURSOR_SPACING) * self.cell_width + overflow
                     self.pos_x = min([self.pos_x, self.cells_x * self.cell_width - self.view_max_x])
                 else:
                     self.pos_x = 0
-                logger.debug(
-                    f"Moving viewport({cursor_move}): cursor:{self.cursor_y,self.cursor_x}, new pos_x:{self.pos_x}"
-                )
+                logger.debug(f"Moving viewport({cursor_move}): cursor:{self.cursor_y,self.cursor_x}, new pos_x:{self.pos_x}")
         else:
             if current_cell_relative_to_view - self.CURSOR_SPACING <= 0:
                 self.pos_x = (self.cursor_x - self.CURSOR_SPACING) * self.cell_width
                 self.pos_x = max([self.pos_x, 0])
-                logger.debug(
-                    f"Moving viewport({cursor_move}): cursor:{self.cursor_y,self.cursor_x}, new pos_x:{self.pos_x}"
-                )
+                logger.debug(f"Moving viewport({cursor_move}): cursor:{self.cursor_y,self.cursor_x}, new pos_x:{self.pos_x}")
 
         assert self.pos_x >= 0
         assert self.pos_x < self.cells_x * self.cell_width
@@ -970,20 +954,14 @@ class ViewportGrid:
 
         if cursor_move == 1:
             if current_cell_relative_to_view + self.CURSOR_SPACING >= self.view_cells_max_y:
-                self.pos_y = (
-                    (self.cursor_y - self.view_cells_max_y) + self.CURSOR_SPACING
-                ) * self.cell_height + overflow
+                self.pos_y = ((self.cursor_y - self.view_cells_max_y) + self.CURSOR_SPACING) * self.cell_height + overflow
                 self.pos_y = min(self.pos_y, self.cells_y * self.cell_height - self.view_max_y)
-                logger.debug(
-                    f"Moving viewport({cursor_move}): cursor:{self.cursor_y,self.cursor_x}, new pos_y:{self.pos_y}"
-                )
+                logger.debug(f"Moving viewport({cursor_move}): cursor:{self.cursor_y,self.cursor_x}, new pos_y:{self.pos_y}")
         else:
             if current_cell_relative_to_view - self.CURSOR_SPACING <= 0:
                 self.pos_y = (self.cursor_y - self.CURSOR_SPACING) * self.cell_height
                 self.pos_y = max([self.pos_y, 0])
-                logger.debug(
-                    f"Moving viewport({cursor_move}): cursor:{self.cursor_y,self.cursor_x}, new pos_y:{self.pos_y}"
-                )
+                logger.debug(f"Moving viewport({cursor_move}): cursor:{self.cursor_y,self.cursor_x}, new pos_y:{self.pos_y}")
 
         assert self.pos_y >= 0
         assert self.pos_y < self.cells_y * self.cell_height
@@ -1051,13 +1029,7 @@ def main():
         basepath = "./typo/res/"
         for p in os.listdir(basepath):
             if os.path.isdir(f"{basepath}/{p}"):
-                content.extend(
-                    [
-                        [os.path.abspath(f"{basepath}/{p}/{f}")]
-                        for f in os.listdir(f"{basepath}/{p}")
-                        if session_validate(f)
-                    ]
-                )
+                content.extend([[os.path.abspath(f"{basepath}/{p}/{f}")] for f in os.listdir(f"{basepath}/{p}") if session_validate(f)])
             elif session_validate(p):
                 content.append([os.path.abspath(f"{basepath}/{p}")])
 

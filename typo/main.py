@@ -235,9 +235,7 @@ class MainScreen:
             elif inp_key == curses.KEY_DOWN:
                 if self.choice < len(self.text.split("\n")) - 1:
                     self.choice += 1
-                if self.choice == len(self.text.split("\n")) - 1 and len(option_lst) - self.scroll > len(
-                    self.text.split("\n")
-                ):
+                if self.choice == len(self.text.split("\n")) - 1 and len(option_lst) - self.scroll > len(self.text.split("\n")):
                     self.scroll += 1
                 self.setsize()
                 self.draw()
@@ -325,9 +323,7 @@ class MainScreen:
                 nlines=3,
                 ncols=7,  # |xy/xy|
                 begin_y=self.titlewin_xy.begin_y,
-                begin_x=self.titlewin_xy.begin_x
-                + self.textwin_xy.ncols
-                - (10 + 3),  # self.wpmwin_xy.begin_x+self.wpmwin_xy.ncols+2
+                begin_x=self.titlewin_xy.begin_x + self.textwin_xy.ncols - (10 + 3),  # self.wpmwin_xy.begin_x+self.wpmwin_xy.ncols+2
             )
             self.wpmwin_xy = self._win_xy(
                 nlines=3,
@@ -339,9 +335,7 @@ class MainScreen:
                 nlines=3,
                 ncols=10,
                 begin_y=self.wpmwin_xy.begin_y,
-                begin_x=self.textwin_xy.begin_x
-                + self.textwin_xy.ncols
-                - (10 + 3),  # self.wpmwin_xy.begin_x+self.wpmwin_xy.ncols+2
+                begin_x=self.textwin_xy.begin_x + self.textwin_xy.ncols - (10 + 3),  # self.wpmwin_xy.begin_x+self.wpmwin_xy.ncols+2
             )
             self.titlewin = self.scr.subwin(*self.titlewin_xy)
             self.titlewin.box()

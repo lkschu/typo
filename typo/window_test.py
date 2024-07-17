@@ -23,9 +23,7 @@ def draw_windows(screen: curses.window, win_center: curses.window, win_left: cur
     win_left.erase()
     y, x = screen.getmaxyx()
     # curses.resizeterm(y,x)
-    win_center.resize(
-        y - 5 - 6, x - 4 - 4
-    )  # center window should keep 4 char space to left/right and 5/6 to top/bottom
+    win_center.resize(y - 5 - 6, x - 4 - 4)  # center window should keep 4 char space to left/right and 5/6 to top/bottom
     win_center.mvwin(5, 4)
     win_right.mvwin(0, x - 3)
     win_left.mvwin(0, 0)
@@ -46,9 +44,7 @@ def draw_windows(screen: curses.window, win_center: curses.window, win_left: cur
     curses.doupdate()
 
 
-def recreate_windows(
-    screen: curses.window, win_center: curses.window, win_left: curses.window, win_right: curses.window
-):
+def recreate_windows(screen: curses.window, win_center: curses.window, win_left: curses.window, win_right: curses.window):
     screen.erase()
     y, x = screen.getmaxyx()
     win_center = screen.subwin(y - 5 - 6, x - 4 - 4, 5, 4)
