@@ -3,6 +3,7 @@ from collections import namedtuple
 from dataclasses import dataclass, asdict
 from re import sub
 from typing import Type, List, NamedTuple, Union, Optional
+from textwrap import wrap
 
 import random
 
@@ -800,13 +801,17 @@ def make_grid(parent: curses._CursesWindow, width: int, height: int):
 
 class ViewportGrid:
     def __init__(
-        self, parent: curses._CursesWindow, cell_width: int, cell_height: int, cells_y: int, cells_x: int
+            self, parent: curses._CursesWindow, cell_width: int, cell_height: int, content
     ) -> None:
+        assert(len(content)>0)
+        assert(len(content[0])>0)
+        assert(all([len(content[0]) == len(content[i]) for i in range(len(content))])) # all elements have equal length
         self.parent = parent
         self.cell_width = cell_width
         self.cell_height = cell_height
-        self.cells_y = cells_y
-        self.cells_x = cells_x
+        self.content = content
+        self.cells_y = len(content)
+        self.cells_x = len(content[0])
         if any([x < 1 for x in [self.cell_width, self.cell_height, self.cells_y, self.cells_x]]):
             raise ValueError("Error")
 
@@ -820,9 +825,9 @@ class ViewportGrid:
         # "cursor" but actually cell numbers
         self.cursor_x = 0
         self.cursor_y = 0
-        self.CURSOR_SPACING = 1  # keep border of cells around selected
+        self.CURSOR_SPACING = 2  # keep border of cells around selected
 
-        self.char_buffer = [[" "] * cell_width * cells_x for _ in range(cell_height * cells_y)]  # [y][x]
+        self.char_buffer = [[" "] * cell_width * self.cells_x for _ in range(cell_height * self.cells_y)]  # [y][x]
         return
 
     def refresh_dimensions(self):
@@ -839,15 +844,16 @@ class ViewportGrid:
             for x in range(self.cells_x):
                 y_ = y * self.cell_height
                 x_ = x * self.cell_width
-                if i % 2 == 0:
-                    content = f"{i}_________________________________________________________________"  # TODO: give content as param
-                else:
-                    content = f"{i}XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"  # TODO: give content as param
-                content_ = ""
-                while len(content) > self.cell_width:
-                    content_ += content[: self.cell_width] + "\n"
-                    content = content[self.cell_width :]
-                content = content_.split("\n")
+
+                content = self.content[y][x]
+
+                # if i % 2 == 0:
+                #     content = f"{i}_________________________________________________________________"  # TODO: give content as param
+                # else:
+                #     content = f"{i}XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"  # TODO: give content as param
+
+                # prepare content for each cell
+                content = wrap(content,self.cell_width)[:self.cell_height]
 
                 # walk through all chars in content, break on oversteping cell limits
                 for l_idx in range(self.cell_height):
@@ -1017,6 +1023,10 @@ class ViewportGrid:
         return (self.cursor_y, self.cursor_x)
 
 
+def session_validate(fpath)-> bool:
+    return fpath.endswith("yaml") or fpath.endswith("yml")
+
+
 def main():
     screen = None
     try:
@@ -1030,15 +1040,25 @@ def main():
         # make_menu(screen,["1","2","3"])
 
         # make_grid(screen,15,15)
-        y, x = ViewportGrid(screen, cell_width=9, cell_height=3, cells_y=24, cells_x=21).make_viewport_grid()
+        # y, x = ViewportGrid(screen, cell_width=9, cell_height=3, cells_y=24, cells_x=21).make_viewport_grid()
+        content = [["A"],["B"],["C"],["DDDDDDDDDDDDDDDDDDDDDDDDDD"]]
+        content = [[0]*21]*32
+        content = [[d] for d in os.listdir("./typo/res/")]
+        content = []
+        basepath = "./typo/res/"
+        for p in os.listdir(basepath):
+            if os.path.isdir(f"{basepath}/{p}"):
+                content.extend([[os.path.abspath(f"{basepath}/{p}/{f}")] for f in os.listdir(f"{basepath}/{p}") if session_validate(f)])
+                logger.critical(f"P: {p}")
+                logger.critical(f"P': {[[os.path.abspath(f"{basepath}/{p}/{f}")] for f in os.listdir(f"{basepath}/{p}") if session_validate(f)]}")
+            elif session_validate(p):
+                content.append([os.path.abspath(f"{basepath}/{p}")])
+
+        y, x = ViewportGrid(screen, cell_width=128, cell_height=1, content=content).make_viewport_grid()
         logger.critical(f"Got {y,x}")
         # ViewportGrid(screen,cell_width=7,cell_height=3,cells_y=12,cells_x=17).make_viewport_grid()
 
-        testpath = "/home/lks/Akten/PycharmProjects/typo-master/typo/S1__.yml"
-        testpath = "/home/lks/Akten/PycharmProjects/typo-master/typo/res/Java/P0_prog.yml"
-        testpath = "/home/lks/Akten/PycharmProjects/typo-master/typo/res/S3.yml"
-        testpath = "/home/lks/Akten/PycharmProjects/typo-master/typo/res/bash-git/lib.sh.yml"
-        testpath = "/home/lks/Akten/PycharmProjects/typo-master/typo/res/c-linux/recvmsg.c.yml"
+        testpath = content[y][x]
 
         session_repr = SessionFileRepr.load_from_file(testpath)
         logger.info(f"Screen size: {screen.getmaxyx()}")
