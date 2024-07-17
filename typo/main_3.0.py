@@ -571,6 +571,11 @@ class Session:
         self.sessionscreen = ConfigConformScreenWrp(parent=self.screen, config=CONFIG)
 
         # TODO: move this routine to the same function as the sessionscreen resize/move routine
+        assert(isinstance(CONFIG.WPM_WINDOW.window_spacing.bottom,int))
+        assert(isinstance(CONFIG.WPM_WINDOW.window_spacing.right,int))
+        assert(isinstance(CONFIG.ACC_WINDOW.window_spacing.bottom,int))
+        assert(isinstance(CONFIG.ACC_WINDOW.window_spacing.right,int))
+        assert(isinstance(CONFIG.COLOR_SCHEME,ColorScheme))
         wpm_y = (
             CONFIG.WPM_WINDOW.window_spacing.top
             if CONFIG.WPM_WINDOW.window_spacing.top is not None
@@ -800,12 +805,10 @@ def make_grid(parent: curses._CursesWindow, width: int, height: int):
 
 
 class ViewportGrid:
-    def __init__(
-            self, parent: curses._CursesWindow, cell_width: int, cell_height: int, content
-    ) -> None:
-        assert(len(content)>0)
-        assert(len(content[0])>0)
-        assert(all([len(content[0]) == len(content[i]) for i in range(len(content))])) # all elements have equal length
+    def __init__(self, parent: curses._CursesWindow, cell_width: int, cell_height: int, content) -> None:
+        assert len(content) > 0
+        assert len(content[0]) > 0
+        assert all([len(content[0]) == len(content[i]) for i in range(len(content))])  # all elements have equal length
         self.parent = parent
         self.cell_width = cell_width
         self.cell_height = cell_height
@@ -853,7 +856,7 @@ class ViewportGrid:
                 #     content = f"{i}XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"  # TODO: give content as param
 
                 # prepare content for each cell
-                content = wrap(content,self.cell_width)[:self.cell_height]
+                content = wrap(content, self.cell_width)[: self.cell_height]
 
                 # walk through all chars in content, break on oversteping cell limits
                 for l_idx in range(self.cell_height):
@@ -1023,7 +1026,7 @@ class ViewportGrid:
         return (self.cursor_y, self.cursor_x)
 
 
-def session_validate(fpath)-> bool:
+def session_validate(fpath) -> bool:
     return fpath.endswith("yaml") or fpath.endswith("yml")
 
 
@@ -1041,16 +1044,20 @@ def main():
 
         # make_grid(screen,15,15)
         # y, x = ViewportGrid(screen, cell_width=9, cell_height=3, cells_y=24, cells_x=21).make_viewport_grid()
-        content = [["A"],["B"],["C"],["DDDDDDDDDDDDDDDDDDDDDDDDDD"]]
-        content = [[0]*21]*32
+        content = [["A"], ["B"], ["C"], ["DDDDDDDDDDDDDDDDDDDDDDDDDD"]]
+        content = [[0] * 21] * 32
         content = [[d] for d in os.listdir("./typo/res/")]
         content = []
         basepath = "./typo/res/"
         for p in os.listdir(basepath):
             if os.path.isdir(f"{basepath}/{p}"):
-                content.extend([[os.path.abspath(f"{basepath}/{p}/{f}")] for f in os.listdir(f"{basepath}/{p}") if session_validate(f)])
-                logger.critical(f"P: {p}")
-                logger.critical(f"P': {[[os.path.abspath(f"{basepath}/{p}/{f}")] for f in os.listdir(f"{basepath}/{p}") if session_validate(f)]}")
+                content.extend(
+                    [
+                        [os.path.abspath(f"{basepath}/{p}/{f}")]
+                        for f in os.listdir(f"{basepath}/{p}")
+                        if session_validate(f)
+                    ]
+                )
             elif session_validate(p):
                 content.append([os.path.abspath(f"{basepath}/{p}")])
 
